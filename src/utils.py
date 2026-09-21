@@ -53,7 +53,7 @@ def compute_recall_performance(
 
     embed_size = descriptors.shape[1]
     faiss_index = faiss.IndexFlatL2(embed_size)
-    
+
     # add references
     faiss_index.add(descriptors[:num_references])
 
@@ -65,7 +65,7 @@ def compute_recall_performance(
     for q_idx, pred in enumerate(predictions):
         for i, n in enumerate(k_values):
             # if in top N then also in top NN, where NN > N
-            if np.any(np.in1d(pred[:n], ground_truth[q_idx])):
+            if np.any(np.isin(pred[:n], ground_truth[q_idx])):
                 correct_at_k[i:] += 1
                 break
 
@@ -74,8 +74,8 @@ def compute_recall_performance(
     return d
 
 
-def display_recall_performance(recalls_list: List[Dict[int, float]], 
-                                val_set_names: List[str], 
+def display_recall_performance(recalls_list: List[Dict[int, float]],
+                                val_set_names: List[str],
                                 title: str = "Recall@k Performance") -> None:
     if not recalls_list:
         return
@@ -111,7 +111,7 @@ def display_datasets_stats(datamodule):
 
     train_panel = Panel(train_table, title=f"[bold]Training Dataset Stats[/bold]", padding=(1, 2), expand=False)
     console.print(train_panel)
-    
+
     # Training configuration
     config_table = Table(title=None, title_justify="center", box=None, show_header=False)
     config_table.add_column("Setting", justify="left", no_wrap=True)
@@ -123,14 +123,14 @@ def display_datasets_stats(datamodule):
     config_table.add_row("Validation image size", f"{datamodule.val_img_size[0]}x{datamodule.val_img_size[1]}")
     config_panel = Panel(config_table, title=f"[bold]Training Configuration[/bold]", padding=(1, 2), expand=False)
     console.print(config_panel)
-    
+
     # Validation datasets stats
     val_tree = Tree("Validation Datasets", hide_root=True)
     for i, val_set in enumerate(datamodule.val_datasets):
         val_branch = val_tree.add(f"{val_set.dataset_name}")
         val_branch.add(f"Queries    [green]{val_set.num_queries}[/green]")
         val_branch.add(f"References [green]{val_set.num_references}[/green]")
-        
+
     tree_panel = Panel(val_tree, title=f"[bold]Validation Datasets[/bold]", padding=(1, 2), expand=False)
-    
+
     console.print(tree_panel)
