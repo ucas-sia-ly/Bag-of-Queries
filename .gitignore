@@ -29,3 +29,6 @@ image/
 
 
 dev.ipynb
+
+# Generated stage-1 evaluation artifacts (including the full reference cache)
+outputs/stage1/
