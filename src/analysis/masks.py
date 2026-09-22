@@ -7,6 +7,8 @@ import torch
 import torch.nn.functional as F
 
 
+# 构建注意力掩码
+# raw_topk是选择全局最大的分数，connected_topk从最大值开始，重复选择最高分的8邻域前沿标记
 def build_attention_mask(token_map, ratio, mode="connected_topk"):
     """Return a bool mask with True indicating selected tokens.
 

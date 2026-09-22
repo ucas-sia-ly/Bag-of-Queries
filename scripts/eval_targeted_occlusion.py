@@ -25,8 +25,13 @@ from torchvision.transforms import v2 as T
 import yaml
 
 from src.analysis import build_attention_mask, extract_attention_map, upsample_token_mask
-from src.analysis.perturb import NoLegalTranslation, make_shape_matched_random_mask, mask_iou, perturb_rgb
-from src.analysis.retrieval import retrieval_metrics, summarize
+from src.analysis.perturb import (
+    NoLegalTranslation, make_shape_matched_random_mask, make_token_aligned_random_mask,
+    mask_iou, perturb_rgb,
+)
+from src.analysis.retrieval import (
+    ATTENTION_CONDITIONS, retrieval_metrics, summarize_ablations, ablation_contrasts,
+)
 from src.dataloaders import MapillarySLSDataset, PittsburghDataset
 from scripts.visualize_attention import colorize, load_model, save_montage
 
@@ -99,7 +104,10 @@ def get_reference_descriptors(model, dataset, normalize, args, identity):
 
 def make_record(query_id, image_path, condition, ratio, repeat, clean, metrics, *, seed,
                 area=0., iou=0., paired_eligible=True, alternatives=0, offset=(0, 0),
-                placement_seed=0, reason="", mask_pixels=0):
+                placement_seed=0, reason="", mask_pixels=0, mask_mode="none",
+                mask_tokens=0, source_mask_tokens=0, token_offset=(None, None),
+                sampling="none", unique_placements=0, eligible_random_token=False,
+                eligible_random_pixel=False, token_unavailable_reason="", pixel_unavailable_reason=""):
     return {
         "query_id": query_id, "image_path": image_path, "condition": condition,
         "mask_ratio": ratio, "random_repeat": repeat,
@@ -116,10 +124,90 @@ def make_record(query_id, image_path, condition, ratio, repeat, clean, metrics, 
         "mask_area_actual": area, "mask_pixels": mask_pixels, "mask_attention_iou": iou,
         "seed": seed, "placement_seed": placement_seed, "shift_y": offset[0], "shift_x": offset[1],
         "paired_eligible": paired_eligible, "legal_random_locations": alternatives, "exclusion_reason": reason,
+        "mask_mode": mask_mode, "mask_tokens": mask_tokens, "source_mask_tokens": source_mask_tokens,
+        "token_shift_y": token_offset[0], "token_shift_x": token_offset[1],
+        "sampling": sampling, "unique_placements": unique_placements,
+        "eligible_random_token": eligible_random_token, "eligible_random_pixel": eligible_random_pixel,
+        "token_unavailable_reason": token_unavailable_reason, "pixel_unavailable_reason": pixel_unavailable_reason,
     }
 
 
-def plot_results(output, summaries, pairs, primary_ratio):
+def build_ablation_variants(rgb, token_map, query_id, args):
+    """Build each construction and its own random controls from the same scores.
+
+    Require uniform nearest cells for strict pixel area/shape equality. DINOv2
+    patch-divisible resolutions satisfy this. Unsupported resolutions fail
+    explicitly instead of silently accepting a pixel-area confound.
+    """
+    token_h, token_w = token_map.shape[-2:]
+    height, width = rgb.shape[-2:]
+    if height % token_h or width % token_w:
+        raise ValueError("Strict ablations require RGB dimensions divisible by the actual token grid")
+    scale_y, scale_x = height // token_h, width // token_w
+    variants, specs = [], []
+    fill_rgb = MEAN if args.fill_source == "imagenet_mean" else None
+    for mode in args.mask_modes:
+        for ratio in args.ratios:
+            token_mask = build_attention_mask(token_map.cpu(), ratio, mode)[0]
+            budget = round(ratio * token_h * token_w)
+            assert int(token_mask.sum()) == budget
+            stream = [args.seed, query_id, int(round(ratio * 1e6))]
+            if mode != "connected_topk":
+                stream.append(71)
+            seeds = {"random_pixel": int(np.random.SeedSequence(stream).generate_state(1)[0]),
+                     "random_token": int(np.random.SeedSequence(stream + [97]).generate_state(1)[0])}
+            groups, reasons = {}, {"random_pixel": "not requested", "random_token": "not requested"}
+            # Token translations are selected BEFORE attention-mask upsampling.
+            if "random_token" in args.random_baselines:
+                try:
+                    tokens, offsets, count = make_token_aligned_random_mask(
+                        token_mask, args.random_repeats, seed=seeds["random_token"])
+                    assert (tokens.sum((1, 2)) == budget).all()
+                    pixels = upsample_token_mask(tokens, (height, width)).to(rgb.device)
+                    pixel_offsets = [(dy * scale_y, dx * scale_x) for dy, dx in offsets]
+                    sampling = "without_replacement" if count >= args.random_repeats else "all_once_then_replacement"
+                    groups["random_token"] = (pixels, pixel_offsets, offsets, count, sampling)
+                    reasons["random_token"] = ""
+                except NoLegalTranslation as error:
+                    reasons["random_token"] = str(error)
+            attention_mask = upsample_token_mask(token_mask, (height, width)).to(rgb.device)
+            assert int(attention_mask.sum()) == budget * scale_y * scale_x
+            if "random_pixel" in args.random_baselines:
+                try:
+                    pixels, offsets, count = make_shape_matched_random_mask(
+                        attention_mask, args.random_repeats, seed=seeds["random_pixel"])
+                    groups["random_pixel"] = (pixels, offsets, [(None, None)] * args.random_repeats, count, "with_replacement")
+                    reasons["random_pixel"] = ""
+                except NoLegalTranslation as error:
+                    reasons["random_pixel"] = str(error)
+            common = dict(mask_mode=mode, source_mask_tokens=budget,
+                          eligible_random_token="random_token" in groups,
+                          eligible_random_pixel="random_pixel" in groups,
+                          token_unavailable_reason=reasons["random_token"],
+                          pixel_unavailable_reason=reasons["random_pixel"])
+            pending = [(ATTENTION_CONDITIONS[mode], -1, attention_mask, (0, 0), (0, 0),
+                        0, "none", 0, 0, args.primary_baseline in groups)]
+            for baseline in args.random_baselines:
+                if baseline not in groups:
+                    continue
+                pixels, offsets, token_offsets, count, sampling = groups[baseline]
+                assert (pixels.sum((1, 2)) == attention_mask.sum()).all()
+                for repeat, (mask, offset, token_offset) in enumerate(zip(pixels, offsets, token_offsets)):
+                    pending.append((baseline, repeat, mask, offset, token_offset, count,
+                                    sampling, len(set(offsets)), seeds[baseline], True))
+            for condition, repeat, mask, offset, token_offset, count, sampling, unique, seed, eligible in pending:
+                variants.append(perturb_rgb(rgb, mask, operator=args.operator, fill_rgb=fill_rgb,
+                                            blur_kernel=args.blur_kernel, blur_sigma=args.blur_sigma)[0])
+                specs.append(dict(common, condition=condition, ratio=ratio, repeat=repeat,
+                                  area=mask.float().mean().item(), iou=mask_iou(mask, attention_mask),
+                                  mask_pixels=int(mask.sum()), mask_tokens=None if condition == "random_pixel" else budget,
+                                  offset=offset, token_offset=token_offset, alternatives=count, sampling=sampling,
+                                  unique_placements=unique, placement_seed=seed, paired_eligible=eligible,
+                                  reason="" if eligible else reasons[args.primary_baseline]))
+    return variants, specs
+
+
+def plot_results(output, summaries, pairs, primary_ratio, *, target_label="attention", random_label="random"):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -135,7 +223,7 @@ def plot_results(output, summaries, pairs, primary_ratio):
             ax.scatter(x, y, s=18, alpha=.55)
             low, high = min(x.min(), y.min()), max(x.max(), y.max())
             ax.plot([low, high], [low, high], "k--", linewidth=1)
-        ax.set(xlabel="Random (mean of repeats within query)", ylabel="Attention-targeted",
+        ax.set(xlabel=f"{random_label} (within-query mean)", ylabel=target_label,
                title=f"{label} | ratio={primary_ratio:.0%}, paired n={len(primary)}")
         fig.savefig(folder / f"{metric}_attention_vs_random.png", dpi=160)
         plt.close(fig)
@@ -143,7 +231,8 @@ def plot_results(output, summaries, pairs, primary_ratio):
     for condition in ["attention", "random"]:
         values = np.sort([p[f"{condition}_rank_degradation"] for p in primary])
         if len(values):
-            ax.step(values, np.arange(1, len(values) + 1) / len(values), where="post", label=condition)
+            ax.step(values, np.arange(1, len(values) + 1) / len(values), where="post",
+                    label=target_label if condition == "attention" else random_label)
     ax.set(xlabel="Best-positive rank degradation (random: within-query mean)", ylabel="ECDF",
            title=f"Rank degradation | ratio={primary_ratio:.0%}")
     ax.set_xscale("symlog", linthresh=1)
@@ -155,7 +244,8 @@ def plot_results(output, summaries, pairs, primary_ratio):
     for ax, k in zip(axes, [1, 5, 10]):
         for condition in ["clean", "random", "attention"]:
             subset = sorted([s for s in summaries if s["condition"] == condition], key=lambda s: s["mask_ratio"])
-            ax.plot([100 * s["mask_ratio"] for s in subset], [s[f"hit_at_{k}"] for s in subset], "o-", label=condition)
+            label = {"attention": target_label, "random": random_label, "clean": "clean"}[condition]
+            ax.plot([100 * s["mask_ratio"] for s in subset], [s[f"hit_at_{k}"] for s in subset], "o-", label=label)
         ax.set(xlabel="Mask ratio (%)", ylabel=f"Recall@{k}", ylim=(0, 1))
     axes[0].legend()
     fig.suptitle("Recall on matched queries per ratio (random: per-query repeat mean)")
@@ -164,7 +254,8 @@ def plot_results(output, summaries, pairs, primary_ratio):
     fig, ax = plt.subplots(figsize=(7, 4.5), layout="constrained")
     for condition in ["attention", "random"]:
         subset = sorted([s for s in summaries if s["condition"] == condition], key=lambda s: s["mask_ratio"])
-        ax.plot([100 * s["mask_ratio"] for s in subset], [s["failure_flip"] for s in subset], "o-", label=condition)
+        ax.plot([100 * s["mask_ratio"] for s in subset], [s["failure_flip"] for s in subset], "o-",
+                label=target_label if condition == "attention" else random_label)
     ax.set(xlabel="Mask ratio (%)", ylabel="Clean-correct to incorrect / all matched queries",
            title="Failure flip rate (random: within-query repeat mean)", ylim=(0, 1))
     ax.legend()
@@ -185,6 +276,11 @@ def parse_args():
     parser.add_argument("--ratios", type=float, nargs="+", default=[.10, .15, .20])
     parser.add_argument("--primary-ratio", type=float, default=.15)
     parser.add_argument("--random-repeats", type=int, default=5)
+    parser.add_argument("--mask-modes", nargs="+", choices=list(ATTENTION_CONDITIONS),
+                        default=["connected_topk", "raw_topk"])
+    parser.add_argument("--random-baselines", nargs="+", choices=["random_pixel", "random_token"],
+                        default=["random_pixel", "random_token"])
+    parser.add_argument("--primary-baseline", choices=["random_pixel", "random_token"], default="random_token")
     parser.add_argument("--seed", type=int, default=2024)
     parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--batch-size", type=int, default=32)
@@ -205,8 +301,61 @@ def parse_args():
         parser.error("ratios must be unique in (0,1) and include primary-ratio")
     if not np.isfinite(args.case_threshold) or args.case_threshold < 0:
         parser.error("case-threshold must be finite and nonnegative")
+    if (args.primary_baseline not in args.random_baselines or len(set(args.mask_modes)) != len(args.mask_modes)
+            or len(set(args.random_baselines)) != len(args.random_baselines)):
+        parser.error("Require unique modes/baselines and inclusion of primary-baseline")
     args.reference_cache = args.reference_cache or args.output_dir / "reference_descriptors.pt"
     return args
+
+
+def plot_ablation_results(output, summaries, pairs, contrasts, args):
+    """Separate baseline cohorts, and explicit common-query ablation contrasts."""
+    for mode in args.mask_modes:
+        for baseline in args.random_baselines:
+            folder = output / "comparisons" / mode / baseline
+            folder.mkdir(parents=True, exist_ok=True)
+            names = {"clean": "clean", baseline: "random", ATTENTION_CONDITIONS[mode]: "attention"}
+            group = [dict(s, condition=names[s["condition"]]) for s in summaries
+                     if s["mask_mode"] == mode and s["baseline"] == baseline]
+            paired = [p for p in pairs if p["mask_mode"] == mode and p["baseline"] == baseline]
+            plot_results(folder, group, paired, args.primary_ratio,
+                         target_label=ATTENTION_CONDITIONS[mode], random_label=baseline)
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    folder = output / "visualizations"
+    folder.mkdir(exist_ok=True)
+    construction = [c for c in contrasts if c["comparison"] == "attention_raw_topk-minus-attention_connected"]
+    if construction:
+        construction.sort(key=lambda c: c["mask_ratio"])
+        fig, axes = plt.subplots(1, 3, figsize=(13, 4), layout="constrained")
+        for ax, metric, label in zip(axes, ["margin_drop", "hit_at_1", "failure_flip"],
+                                    ["Margin drop", "Recall@1", "Failure flip rate"]):
+            for side, condition in [("left", "attention_raw_topk"), ("right", "attention_connected")]:
+                ax.plot([100 * c["mask_ratio"] for c in construction],
+                        [c[f"{side}_{metric}"] for c in construction], "o-", label=condition)
+            ax.set(xlabel="Mask ratio (%)", ylabel=label)
+        axes[0].legend()
+        fig.suptitle("Mask construction: identical queries, token budgets and pixel areas")
+        fig.savefig(folder / "mask_construction.png", dpi=160)
+        plt.close(fig)
+    for mode in args.mask_modes:
+        primary = {b: {p["query_id"]: p for p in pairs if p["mask_mode"] == mode
+                       and p["baseline"] == b and p["mask_ratio"] == args.primary_ratio}
+                   for b in ["random_pixel", "random_token"]}
+        ids = sorted(primary["random_pixel"].keys() & primary["random_token"].keys())
+        if not ids:
+            continue
+        x = np.array([primary["random_pixel"][q]["random_margin_drop"] for q in ids])
+        y = np.array([primary["random_token"][q]["random_margin_drop"] for q in ids])
+        fig, ax = plt.subplots(figsize=(6, 5), layout="constrained")
+        ax.scatter(x, y, alpha=.5, s=18)
+        limits = [min(x.min(), y.min()), max(x.max(), y.max())]
+        ax.plot(limits, limits, "k--", linewidth=1)
+        ax.set(xlabel="random_pixel mean margin drop", ylabel="random_token mean margin drop",
+               title=f"{mode}: common queries n={len(ids)}, ratio={args.primary_ratio:.0%}")
+        fig.savefig(folder / f"{mode}_random_alignment.png", dpi=160)
+        plt.close(fig)
 
 
 @torch.no_grad()
@@ -253,9 +402,11 @@ def main():
                   query_sampling="seeded permutation prefix; nested subsets", total_queries=dataset.num_queries,
                   invalid_ground_truth_queries=dataset.num_queries - len(valid_queries),
                   aggregation="mean heads -> mean queries -> mean layers", attention_name="Attention Proposal Map",
-                  mask="connected_topk; exact round(ratio*Ht*Wt)",
-                  random="uniform integer-pixel translations, with replacement, excluding original position",
-                  translation_unavailable="retain target row; exclude query from all paired conditions at that ratio",
+                  schema_version=2, mask="connected_topk and/or raw_topk; exact round(ratio*Ht*Wt)",
+                  random_pixel="uniform integer-pixel translations, with replacement, excluding original position",
+                  random_token="translate original token mask; without replacement if enough positions; otherwise all once then replacement; nearest upsample",
+                  translation_unavailable="retain target for direct construction comparison; exclude only from affected shape/baseline paired cohort",
+                  pixel_area_policy="require RGB dimensions divisible by actual token grid; assert exact area",
                   primary_endpoint="margin_drop", random_analysis_unit="within-query mean, then paired queries",
                   rank_ties="ascending reference index", bootstrap_unit="query",
                   mask_area_actual_units="fraction of resized RGB pixels", precision="float32",
@@ -269,33 +420,12 @@ def main():
     rows, cases, seen = [], {}, {}
     case_rng = np.random.default_rng(np.random.SeedSequence([args.seed, 871]))
     start = time.monotonic()
-    fill_rgb = MEAN if args.fill_source == "imagenet_mean" else None
     for query_number, query_id in enumerate(query_ids):
         rgb, _ = dataset[dataset.num_references + query_id]
         rgb = rgb.to(args.device)
         result = extract_attention_map(model, normalize(rgb).unsqueeze(0), return_head_attn=False)
         clean_descriptor = result["descriptor"]
-        variants, specs = [], []
-        for ratio in args.ratios:
-            token_mask = build_attention_mask(result["token_attention_map"].cpu(), ratio)[0]
-            attention_mask = upsample_token_mask(token_mask, args.image_size).to(args.device)
-            placement_seed = int(np.random.SeedSequence([args.seed, query_id, int(round(ratio * 1e6))]).generate_state(1)[0])
-            try:
-                random_masks, offsets, alternatives = make_shape_matched_random_mask(
-                    attention_mask, args.random_repeats, seed=placement_seed)
-                eligible, reason = True, ""
-            except NoLegalTranslation as error:
-                random_masks, offsets, alternatives = [], [], 0
-                eligible, reason = False, str(error)
-            masks = [attention_mask] + list(random_masks)
-            for index, mask in enumerate(masks):
-                variants.append(perturb_rgb(rgb, mask, operator=args.operator, fill_rgb=fill_rgb,
-                                            blur_kernel=args.blur_kernel, blur_sigma=args.blur_sigma)[0])
-                specs.append(dict(condition="attention" if index == 0 else "random", ratio=ratio,
-                                  repeat=index - 1, area=mask.float().mean().item(), iou=mask_iou(mask, attention_mask),
-                                  mask_pixels=int(mask.sum()), paired_eligible=eligible, alternatives=alternatives,
-                                  offset=(0, 0) if index == 0 else offsets[index - 1], placement_seed=placement_seed,
-                                  reason=reason))
+        variants, specs = build_ablation_variants(rgb, result["token_attention_map"], query_id, args)
         descriptors = [clean_descriptor]
         for first in range(0, len(variants), args.batch_size):
             values, _ = model(normalize(torch.stack(variants[first:first + args.batch_size])))
@@ -309,10 +439,14 @@ def main():
             query_rows.append(make_record(query_id, image_path, clean=clean, metrics=values, seed=args.seed, **spec))
         rows.extend(query_rows)
         # Reservoir sample cases by the paired PRIMARY margin endpoint, not by extreme values.
-        target_indices = [i for i, s in enumerate(specs) if s["ratio"] == args.primary_ratio and s["condition"] == "attention"]
+        case_mode = "connected_topk" if "connected_topk" in args.mask_modes else args.mask_modes[0]
+        target_indices = [i for i, s in enumerate(specs) if s["ratio"] == args.primary_ratio
+                          and s["condition"] == ATTENTION_CONDITIONS[case_mode]]
         target_index = target_indices[0]
         target = query_rows[target_index]
-        draws = [r for r in query_rows if r["mask_ratio"] == args.primary_ratio and r["condition"] == "random"]
+        draw_indices = [i for i, r in enumerate(query_rows) if r["mask_ratio"] == args.primary_ratio
+                        and r["condition"] == args.primary_baseline and r["mask_mode"] == case_mode]
+        draws = [query_rows[i] for i in draw_indices]
         if draws and args.cases_per_category:
             random_damage = float(np.mean([r["margin_drop"] for r in draws]))
             difference = target["margin_drop"] - random_damage
@@ -330,7 +464,7 @@ def main():
                 panels = [(rgb.cpu(), f"Clean | best positive rank {clean['rank']}"),
                           (colorize(result["pixel_attention_map"][0].cpu()), "Attention Proposal Map"),
                           (variants[target_index].cpu(), f"Target | rank {target['perturbed_rank']}\nmargin drop {target['margin_drop']:.4f}"),
-                          (variants[target_index + 1].cpu(), f"Random draw 0 | rank {draws[0]['perturbed_rank']}\nmean of draws: {random_damage:.4f}")]
+                          (variants[draw_indices[0]].cpu(), f"{args.primary_baseline} #0 | rank {draws[0]['perturbed_rank']}\nmean of draws: {random_damage:.4f}")]
                 entry = (data, panels)
                 if slot == len(cases[category]):
                     cases[category].append(entry)
@@ -339,8 +473,9 @@ def main():
         if (query_number + 1) % 10 == 0 or query_number + 1 == len(query_ids):
             print(f"Queries {query_number + 1}/{len(query_ids)}, {time.monotonic() - start:.1f}s", flush=True)
     write_csv(args.output_dir / "per_query.csv", rows)
-    summaries, pairs = summarize(rows, args.ratios, repeats=args.random_repeats, seed=args.seed,
-                                 bootstrap_samples=args.bootstrap_samples)
+    summaries, pairs = summarize_ablations(rows, args.ratios, args.mask_modes, args.random_baselines,
+                                          repeats=args.random_repeats, seed=args.seed,
+                                          bootstrap_samples=args.bootstrap_samples)
     write_csv(args.output_dir / "summary.csv", summaries)
     if pairs:
         write_csv(args.output_dir / "paired_query.csv", pairs)
@@ -349,7 +484,12 @@ def main():
                      "reference_cache_reused": cache_reused,
                      **{f"Recall@{k}": float(np.mean([r[f"hit_at_{k}"] for r in clean_rows])) for k in [1, 5, 10]}}
     (args.output_dir / "clean_metrics.json").write_text(json.dumps(clean_summary, indent=2) + "\n")
-    plot_results(args.output_dir, summaries, pairs, args.primary_ratio)
+    contrast_summary, contrast_pairs = ablation_contrasts(rows, pairs, args.ratios, seed=args.seed,
+                                                        bootstrap_samples=args.bootstrap_samples)
+    if contrast_summary:
+        write_csv(args.output_dir / "ablation_summary.csv", contrast_summary)
+        write_csv(args.output_dir / "ablation_paired_query.csv", contrast_pairs)
+    plot_ablation_results(args.output_dir, summaries, pairs, contrast_summary, args)
     case_folder = args.output_dir / "visualizations" / "cases"
     case_folder.mkdir(exist_ok=True)
     for category, entries in cases.items():
@@ -358,14 +498,14 @@ def main():
             save_montage(panels, prefix.with_suffix(".png"), args.image_size)
             prefix.with_suffix(".json").write_text(json.dumps(data, indent=2) + "\n")
     (case_folder / "categories.json").write_text(json.dumps({
-        "definition": "target margin_drop - per-query mean random margin_drop",
+        "definition": f"target margin_drop - per-query mean {args.primary_baseline} margin_drop",
         "threshold": args.case_threshold, "sampling": "seeded reservoir within category",
         "counts": {c: seen.get(c, 0) for c in ["attention_stronger", "random_stronger", "almost_identical"]},
         "saved": {c: len(cases.get(c, [])) for c in ["attention_stronger", "random_stronger", "almost_identical"]},
     }, indent=2) + "\n")
     print(json.dumps(clean_summary), flush=True)
     for row in summaries:
-        if row["mask_ratio"] == args.primary_ratio:
+        if row["mask_ratio"] == args.primary_ratio and row["baseline"] == args.primary_baseline:
             print(json.dumps(row), flush=True)
     print(f"Completed {args.output_dir}", flush=True)
 

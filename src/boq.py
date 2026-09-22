@@ -128,10 +128,20 @@ class BoQBlock(torch.nn.Module):
         # q 的形状为 [B,Q,D]，x 的形状为 [B,N,D]。
         # out：每个 Query 聚合得到的特征，形状为 [B,Q,D]。
         # attn：默认对 heads 求平均，形状为 [B,Q,N]；
-        #       return_head_attn=True 时保留 heads，形状为 [B,Heads,Q,N]。
+        # need_weights=True：返回注意力权重 attn。
+        # average_attn_weights=not return_head_attn：如果 return_head_attn=True，则不对 heads 求平均，保留每个头的注意力权重，形状为 [B,Heads,Q,N]。
         out, attn = self.cross_attn(
             q, x, x, need_weights=True, average_attn_weights=not return_head_attn
         )
+
+
+        # 断言检查 attn 的维度和形状是否符合预期：
+        # 1) attn 的维度必须为 3 或 4，分别对应 return_head_attn=False 和 return_head_attn=True。
+        # 2) attn 的第 0 维大小必须等于 batch size B。
+        # 3) attn 的最后一维大小必须等于输入 token 数量
+        # 4) attn 的倒数第二维大小必须等于 Query 数量 Q。
+        # 5) 如果 return_head_attn=True，则 attn 的第 1 维大小必须等于头数 Heads。
+        # 6) 如果 return_head_attn=False，则 attn 的维度必须为 3。
         assert attn.ndim in {3, 4}
         assert attn.shape[0] == B
         assert attn.shape[-1] == x.shape[1]
@@ -141,6 +151,8 @@ class BoQBlock(torch.nn.Module):
             assert attn.shape[1] == self.cross_attn.num_heads
         else:
             assert attn.ndim == 3
+
+
 
         # 对交叉注意力输出 out 做 LayerNorm。
         # 形状仍保持 [B,Q,D]，用于规范化每个 Query 聚合得到的 D 维描述向量。
@@ -266,7 +278,7 @@ class BoQ(torch.nn.Module):
         # 这一步把所有 BoQBlock 产生的 Query 描述集中到一个张量中。
         out = torch.cat(outs, dim=1)
 
-        # 先执行 out.permute(0,2,1)： 
+        # 先执行 out.permute(0,2,1)：
         # [B,L×Q,D] -> [B,D,L×Q]。
         # 然后送入 self.fc。因为 torch.nn.Linear 总是作用于最后一维，
         # 所以它把最后的 L×Q 维映射为 row_dim=R：

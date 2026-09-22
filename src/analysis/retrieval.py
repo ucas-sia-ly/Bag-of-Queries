@@ -21,6 +21,7 @@ def retrieval_metrics(descriptors, references, positive_indices, clean_descripto
         raise ValueError("Ground truth must contain valid reference indices")
     if positives.numel() == nref:
         raise ValueError("Hardest negative requires at least one non-positive reference")
+    # 求解余弦相似度矩阵cosine similarity，形状为 [BN,D]
     similarities = descriptors @ references.T
     if not torch.isfinite(similarities).all():
         raise ValueError("Non-finite similarities")
@@ -115,3 +116,88 @@ def summarize(rows, ratios, *, repeats=5, seed=2024, bootstrap_samples=2000):
             item.update(paired_margin_difference=float(differences.mean()) if len(differences) else None,
                         paired_margin_ci_low=ci[0], paired_margin_ci_high=ci[1])
     return summaries, all_pairs
+
+
+ATTENTION_CONDITIONS = {"connected_topk": "attention_connected", "raw_topk": "attention_raw_topk"}
+
+
+def summarize_ablations(rows, ratios, mask_modes, baselines, *, repeats=5,
+                        seed=2024, bootstrap_samples=2000):
+    """Keep each mask's OWN shape-matched baselines in separate paired cohorts.
+
+    Raw and connected masks can have different translation availability. Never
+    pool random rows from different mask constructions or silently equate cohorts.
+    The legacy summary functions remain available for old stage-1 result files.
+    """
+    summaries, pairs = [], []
+    for mode in mask_modes:
+        target_name = ATTENTION_CONDITIONS[mode]
+        for baseline in baselines:
+            legacy = []
+            for row in rows:
+                if row["mask_mode"] != mode:
+                    continue
+                if row["condition"] == target_name:
+                    legacy.append(dict(row, condition="attention", paired_eligible=row[f"eligible_{baseline}"]))
+                elif row["condition"] == baseline:
+                    legacy.append(dict(row, condition="random"))
+            group, paired = summarize(legacy, ratios, repeats=repeats, seed=seed,
+                                      bootstrap_samples=bootstrap_samples)
+            labels = {"clean": "clean", "attention": target_name, "random": baseline}
+            for item in group:
+                summaries.append(dict(item, condition=labels[item["condition"]], mask_mode=mode, baseline=baseline))
+            for item in paired:
+                pairs.append(dict(item, mask_mode=mode, baseline=baseline, attention_condition=target_name))
+    return summaries, pairs
+
+
+def ablation_contrasts(rows, pairs, ratios, *, seed=2024, bootstrap_samples=2000):
+    """Direct within-query contrasts, always using the same queries on both sides.
+
+    Mask construction compares ALL queries (even masks that cannot translate).
+    Pixel-vs-token compares within-query random means on their intersection.
+    Difference is left minus right; report cohort size rather than mixing means
+    from different cohorts.
+    """
+    contrasts, summaries = [], []
+    for ratio in ratios:
+        targets = {condition: {r["query_id"]: r for r in rows
+                              if r["condition"] == condition and r["mask_ratio"] == ratio}
+                   for condition in ATTENTION_CONDITIONS.values()}
+        left, right = targets["attention_raw_topk"], targets["attention_connected"]
+        if left and right:
+            if left.keys() != right.keys():
+                raise ValueError("Mask-construction comparison requires identical queries")
+            for q in left:
+                if left[q]["mask_tokens"] != right[q]["mask_tokens"] or left[q]["mask_pixels"] != right[q]["mask_pixels"]:
+                    raise ValueError("Raw and connected masks must have identical token/pixel budgets")
+                item = {"comparison": "attention_raw_topk-minus-attention_connected", "query_id": q, "mask_ratio": ratio}
+                for endpoint in ENDPOINTS:
+                    item[f"left_{endpoint}"] = left[q][endpoint]
+                    item[f"right_{endpoint}"] = right[q][endpoint]
+                contrasts.append(item)
+        for mode in ATTENTION_CONDITIONS:
+            grouped = {b: {p["query_id"]: p for p in pairs if p["mask_ratio"] == ratio
+                           and p["mask_mode"] == mode and p["baseline"] == b}
+                       for b in ["random_token", "random_pixel"]}
+            for q in sorted(grouped["random_token"].keys() & grouped["random_pixel"].keys()):
+                item = {"comparison": f"{mode}:random_token-minus-random_pixel", "query_id": q, "mask_ratio": ratio}
+                for endpoint in ENDPOINTS:
+                    item[f"left_{endpoint}"] = grouped["random_token"][q][f"random_{endpoint}"]
+                    item[f"right_{endpoint}"] = grouped["random_pixel"][q][f"random_{endpoint}"]
+                contrasts.append(item)
+    for comparison, ratio in sorted({(p["comparison"], p["mask_ratio"]) for p in contrasts}):
+        group = [p for p in contrasts if p["comparison"] == comparison and p["mask_ratio"] == ratio]
+        item = {"comparison": comparison, "mask_ratio": ratio, "n_paired_queries": len(group)}
+        for endpoint in ENDPOINTS:
+            item[f"left_{endpoint}"] = float(np.mean([p[f"left_{endpoint}"] for p in group]))
+            item[f"right_{endpoint}"] = float(np.mean([p[f"right_{endpoint}"] for p in group]))
+        differences = np.array([p["left_margin_drop"] - p["right_margin_drop"] for p in group])
+        ci = [None, None]
+        if bootstrap_samples:
+            rng = np.random.default_rng(np.random.SeedSequence([seed, int(round(ratio * 1e6))]))
+            means = [rng.choice(differences, len(differences), replace=True).mean() for _ in range(bootstrap_samples)]
+            ci = np.quantile(means, [.025, .975]).tolist()
+        item.update(margin_difference=float(differences.mean()), ci_low=ci[0], ci_high=ci[1])
+        summaries.append(item)
+    return summaries, contrasts

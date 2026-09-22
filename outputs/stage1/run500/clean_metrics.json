@@ -1,0 +1,8 @@
+{
+  "n_queries": 500,
+  "num_references": 18871,
+  "reference_cache_reused": true,
+  "Recall@1": 0.892,
+  "Recall@5": 0.938,
+  "Recall@10": 0.948
+}

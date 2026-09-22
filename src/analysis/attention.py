@@ -3,7 +3,7 @@
 import torch
 import torch.nn.functional as F
 
-
+# 实现(x-min)/(max-min)，使得映射后的值在 5% 到 95% 之间，注意力地图更容易可视化
 def robust_normalize(maps, lower_percentile=5.0, upper_percentile=95.0):
     """Normalize each [H, W] image independently in a [B, H, W] tensor.
 
@@ -26,7 +26,7 @@ def robust_normalize(maps, lower_percentile=5.0, upper_percentile=95.0):
     normalized = ((maps - low) / denominator).clamp(0, 1)
     return torch.where(span > 0, normalized, torch.zeros_like(normalized))
 
-
+# 聚合注意力权重，求注意力地图的平均值
 def aggregate_attention(attentions, token_h, token_w):
     """Mean heads -> queries -> layers, returning raw [B, Ht, Wt].
 
@@ -51,6 +51,7 @@ def aggregate_attention(attentions, token_h, token_w):
 
 
 @torch.no_grad()
+# 提取 BoQ 模型的注意力地图
 def extract_attention_map(
     model,
     normalized_images,

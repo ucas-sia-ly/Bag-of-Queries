@@ -1,0 +1,15 @@
+{
+  "definition": "target margin_drop - per-query mean random_token margin_drop",
+  "threshold": 0.01,
+  "sampling": "seeded reservoir within category",
+  "counts": {
+    "attention_stronger": 78,
+    "random_stronger": 10,
+    "almost_identical": 12
+  },
+  "saved": {
+    "attention_stronger": 3,
+    "random_stronger": 3,
+    "almost_identical": 3
+  }
+}

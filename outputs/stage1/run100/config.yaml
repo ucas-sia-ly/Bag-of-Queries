@@ -1,0 +1,179 @@
+checkpoint: logs/dinov2_vitb14/version_2/checkpoints/epoch[21]_R@1[0.9068]_R@5[0.9459].ckpt
+backbone: dinov2_vitb14
+dataset: msls-val
+dataset_path: data/val/msls-val
+image_size: &id001
+- 322
+- 322
+output_dir: outputs/stage1/run100
+reference_cache: outputs/stage1/reference_descriptors.pt
+num_queries: 100
+ratios:
+- 0.1
+- 0.15
+- 0.2
+primary_ratio: 0.15
+random_repeats: 5
+seed: 2024
+device: cuda
+batch_size: 32
+workers: 4
+operator: mean_fill
+fill_source: image_mean
+blur_kernel: 31
+blur_sigma: 5.0
+bootstrap_samples: 2000
+cases_per_category: 3
+case_threshold: 0.01
+reference_identity:
+  checkpoint_sha256: 051323a4b683bee4fdfb55ed93e4a2213bdff8720bcce214695c7c145255431d
+  dataset_path: "/home/admin123/\u89C6\u9891/Bag-of-Queries/data/val/msls-val"
+  reference_manifest_sha256: 809404d42ce9f3b0264cf11fa75e499da1a747c7c926789206c3624c1d9ef570
+  num_references: 18871
+  image_size: *id001
+  mean:
+  - 0.485
+  - 0.456
+  - 0.406
+  std:
+  - 0.229
+  - 0.224
+  - 0.225
+  preprocessing: RGB uint8 bicubic antialias -> float32 scale -> ImageNet Normalize
+  model:
+    backbone: dinov2_vitb14
+    in_channels: 768
+    proj_channels: 512
+    num_queries: 64
+    num_layers: 2
+    row_dim: 16
+    heads: 8
+    descriptor_dim: 8192
+  dtype: float32
+  torch: 2.5.1+cu124
+  torchvision: 0.20.1+cu124
+  device: cuda
+  batch_size: 32
+  tf32: false
+  xformers: false
+  model_source_sha256:
+    src/boq.py: a58db7227aae430ad19d6fad736d8e798c95b316926bff8ce04ec8c61a4909b7
+    src/backbones.py: c9c2924e462a207e35098caf627fd8cc9bdab6b701fe8a234a9993a540df05e4
+    hubconf.py: 26d1cd9f1bd12b1f407b2441b7dae37223e7d0e59435ad88abebef813d7b1d2b
+query_ids:
+- 250
+- 190
+- 505
+- 486
+- 72
+- 222
+- 42
+- 59
+- 598
+- 136
+- 686
+- 567
+- 343
+- 482
+- 689
+- 129
+- 334
+- 242
+- 211
+- 315
+- 332
+- 544
+- 43
+- 36
+- 245
+- 624
+- 163
+- 307
+- 525
+- 512
+- 720
+- 437
+- 258
+- 249
+- 476
+- 18
+- 358
+- 670
+- 210
+- 549
+- 511
+- 473
+- 608
+- 409
+- 429
+- 550
+- 275
+- 613
+- 509
+- 37
+- 514
+- 268
+- 198
+- 207
+- 454
+- 502
+- 497
+- 592
+- 105
+- 119
+- 633
+- 266
+- 674
+- 394
+- 616
+- 112
+- 397
+- 464
+- 693
+- 349
+- 487
+- 733
+- 471
+- 687
+- 253
+- 333
+- 34
+- 290
+- 110
+- 301
+- 489
+- 154
+- 481
+- 602
+- 48
+- 192
+- 576
+- 350
+- 527
+- 152
+- 66
+- 355
+- 589
+- 241
+- 234
+- 542
+- 22
+- 474
+- 658
+- 313
+query_sampling: seeded permutation prefix; nested subsets
+total_queries: 740
+invalid_ground_truth_queries: 0
+aggregation: mean heads -> mean queries -> mean layers
+attention_name: Attention Proposal Map
+mask: connected_topk; exact round(ratio*Ht*Wt)
+random: uniform integer-pixel translations, with replacement, excluding original position
+translation_unavailable: retain target row; exclude query from all paired conditions
+  at that ratio
+primary_endpoint: margin_drop
+random_analysis_unit: within-query mean, then paired queries
+rank_ties: ascending reference index
+bootstrap_unit: query
+mask_area_actual_units: fraction of resized RGB pixels
+precision: float32
+fill_definition: original clean image channel mean

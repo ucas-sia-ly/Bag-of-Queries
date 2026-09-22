@@ -210,6 +210,8 @@ def main():
             "normalization_percentiles": [args.lower_percentile, args.upper_percentile],
             "mask_ranking": "raw token_attention_map (before percentile clipping)",
             "mask_interpolation": "nearest", "display_interpolation": "bilinear",
+            # mask_interpolation表示掩码从token map到像素图的插值方式，display_interpolation表示显示时的插值方式
+            # nearest表示最近邻插值，bilinear表示双线性插值
             "preprocessing": "RGB uint8 -> bicubic resize (antialias) -> float32 [0,1] -> ImageNet Normalize",
             "mean": mean, "std": std, "overlay_alpha": args.overlay_alpha,
             "xformers_enabled": False, "deterministic_algorithms": True,
