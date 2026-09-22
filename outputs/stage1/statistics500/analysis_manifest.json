@@ -1,0 +1,37 @@
+{
+  "input_dir": "/home/admin123/\u89c6\u9891/Bag-of-Queries/outputs/stage1/ablation500",
+  "input_sha256": {
+    "per_query.csv": "36379e791fa6cab7d6b0ecee454f7e4c5e086ba67e92a420a403b0761cb3babc",
+    "paired_query.csv": "6995e3b24b318f58242eb3422e29417f74ad74c711a5a9ec6842758fe976d0c6",
+    "ablation_paired_query.csv": "e28d25ad21043fd7ce7dc738ed7a1a2bddedee90a9ad816fade6c3b35ef0ff7b"
+  },
+  "input_rows": {
+    "per_query.csv": 33430,
+    "paired_query.csv": 5986,
+    "ablation_paired_query.csv": 4493
+  },
+  "bootstrap_resamples": 20000,
+  "seed": 2024,
+  "bootstrap_unit": "query",
+  "random_repeats": 5,
+  "primary_ratios": [
+    0.1,
+    0.15,
+    0.2
+  ],
+  "primary_mask_mode": "connected_topk",
+  "primary_baseline": "random_token",
+  "tail_thresholds": [
+    100,
+    1000
+  ],
+  "no_model_inference": true,
+  "source_sha256": "3093ef7143d9328fe3d52669e71f9983251804a2cd7e09cf8188f38fce780cf8",
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "2.2.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "verdict": "H1 supported"
+}

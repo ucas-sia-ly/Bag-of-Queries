@@ -1,0 +1,13 @@
+mask_ratio,mask_mode,baseline,n_total,n_paired,n_excluded
+0.1,connected_topk,random_token,500,500,0
+0.1,connected_topk,random_pixel,500,500,0
+0.1,raw_topk,random_token,500,498,2
+0.1,raw_topk,random_pixel,500,498,2
+0.15,connected_topk,random_token,500,500,0
+0.15,connected_topk,random_pixel,500,500,0
+0.15,raw_topk,random_token,500,498,2
+0.15,raw_topk,random_pixel,500,498,2
+0.2,connected_topk,random_token,500,500,0
+0.2,connected_topk,random_pixel,500,500,0
+0.2,raw_topk,random_token,500,497,3
+0.2,raw_topk,random_pixel,500,497,3
