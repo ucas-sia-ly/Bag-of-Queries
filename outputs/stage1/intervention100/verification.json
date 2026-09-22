@@ -1,0 +1,19 @@
+{
+  "n_queries": 100,
+  "n_windows": 48400,
+  "negative_damage_windows": 22086,
+  "variant_forward_calls": 1600,
+  "query_order_matches": true,
+  "window_coordinates_complete": true,
+  "reference_cache_unchanged": true,
+  "raw_attention_window_means_verified": true,
+  "independent_spearman_and_top_bottom_verified": true,
+  "interpretation_revision_did_not_change_statistics": true,
+  "max_clean_margin_delta": 5.066394806463315e-07,
+  "output_sha256": {
+    "per_window.csv": "d294ce870143e306c04ff067ceab0cf9fddba3c56eef62cdca57dadf89508e1b",
+    "per_query.csv": "3ac934decc5452cc13e2ef9a2bc66d97697de966338aa0a3033c6cdff86a6cbf",
+    "summary.json": "7e118f60976a9cd8dfc8d31f23ffd3af1da6a382a1e5882c18e7e5c4dfc0e46d"
+  },
+  "csv_serialization": "LF newlines; row contents unchanged from inference output"
+}

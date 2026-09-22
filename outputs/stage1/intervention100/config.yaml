@@ -1,0 +1,180 @@
+source_config: outputs/stage1/ablation500/config.yaml
+output_dir: outputs/stage1/intervention100
+num_queries: 100
+batch_size: 32
+window_size: 2
+stride: 1
+tail_fraction: 0.1
+bootstrap_samples: 20000
+min_mean_spearman: 0.3
+cases_per_category: 3
+seed: 2024
+device: cuda
+checkpoint: "/home/admin123/\u89C6\u9891/Bag-of-Queries/logs/dinov2_vitb14/version_2/checkpoints/epoch[21]_R@1[0.9068]_R@5[0.9459].ckpt"
+reference_cache: "/home/admin123/\u89C6\u9891/Bag-of-Queries/.cache/occlusion_ablations/reference_descriptors.pt"
+reference_cache_sha256: 362852f973bc2c37d775c35fdc773d57672bb6db7b4593fee21e032179efb79d
+reference_identity:
+  checkpoint_sha256: 051323a4b683bee4fdfb55ed93e4a2213bdff8720bcce214695c7c145255431d
+  dataset_path: "/home/admin123/\u89C6\u9891/Bag-of-Queries/data/val/msls-val"
+  reference_manifest_sha256: 809404d42ce9f3b0264cf11fa75e499da1a747c7c926789206c3624c1d9ef570
+  num_references: 18871
+  image_size: &id001
+  - 322
+  - 322
+  mean:
+  - 0.485
+  - 0.456
+  - 0.406
+  std:
+  - 0.229
+  - 0.224
+  - 0.225
+  preprocessing: RGB uint8 bicubic antialias -> float32 scale -> ImageNet Normalize
+  model:
+    backbone: dinov2_vitb14
+    in_channels: 768
+    proj_channels: 512
+    num_queries: 64
+    num_layers: 2
+    row_dim: 16
+    heads: 8
+    descriptor_dim: 8192
+  dtype: float32
+  torch: 2.5.1+cu124
+  torchvision: 0.20.1+cu124
+  device: cuda
+  batch_size: 32
+  tf32: false
+  xformers: false
+  model_source_sha256:
+    src/boq.py: c063a40ab5f95f10f06ac6018d0b8f35c770e6e7c1c8f10882866e8ebf94977c
+    src/backbones.py: c9c2924e462a207e35098caf627fd8cc9bdab6b701fe8a234a9993a540df05e4
+    hubconf.py: 26d1cd9f1bd12b1f407b2441b7dae37223e7d0e59435ad88abebef813d7b1d2b
+source_config_sha256: ab44aee903bac0d0d0d1ab15c4f75f952c4e63883fcefe6a081393452d35f233
+source_csv_sha256: 36379e791fa6cab7d6b0ecee454f7e4c5e086ba67e92a420a403b0761cb3babc
+query_ids:
+- 250
+- 190
+- 505
+- 486
+- 72
+- 222
+- 42
+- 59
+- 598
+- 136
+- 686
+- 567
+- 343
+- 482
+- 689
+- 129
+- 334
+- 242
+- 211
+- 315
+- 332
+- 544
+- 43
+- 36
+- 245
+- 624
+- 163
+- 307
+- 525
+- 512
+- 720
+- 437
+- 258
+- 249
+- 476
+- 18
+- 358
+- 670
+- 210
+- 549
+- 511
+- 473
+- 608
+- 409
+- 429
+- 550
+- 275
+- 613
+- 509
+- 37
+- 514
+- 268
+- 198
+- 207
+- 454
+- 502
+- 497
+- 592
+- 105
+- 119
+- 633
+- 266
+- 674
+- 394
+- 616
+- 112
+- 397
+- 464
+- 693
+- 349
+- 487
+- 733
+- 471
+- 687
+- 253
+- 333
+- 34
+- 290
+- 110
+- 301
+- 489
+- 154
+- 481
+- 602
+- 48
+- 192
+- 576
+- 350
+- 527
+- 152
+- 66
+- 355
+- 589
+- 241
+- 234
+- 542
+- 22
+- 474
+- 658
+- 313
+image_size: *id001
+fill_source: image_mean
+source_sha256:
+  src/analysis/intervention.py: 6e5814059541e032baaf0bcfb1d64533c844f16c718be41f897d70485606d2e4
+  scripts/eval_intervention_probe.py: 9d5b03f5f04749a0504a0e02ca3024609938e3b343ce8babe4370d4e65270a7f
+  src/analysis/attention.py: 265af21009cd808b7a30c43e02d702ce47ed9649f85783139181e0862bca578f
+  src/analysis/perturb.py: 34db2956ce32b2f7a1e2abd859e1d92c2a40f7fd5152abbf082334d5c721dc18
+  src/analysis/retrieval.py: 0c228a78ba9543c3ab1e9547dbb800773203f216434e11a4a53f8d15ffa8ed9f
+aggregation: mean heads -> mean queries -> mean layers
+bootstrap_unit: query
+reference_cache_reused: true
+dtype: float32
+tf32: false
+xformers: false
+analysis_revision:
+  original_min_mean_spearman: 0.1
+  original_conclusion: attention is a useful proposal signal
+  revised_min_mean_spearman: 0.3
+  reason: 'Post-hoc descriptive interpretation: stable weak positive association is
+    proposal information, not sufficient local estimator faithfulness.'
+  statistics_changed: false
+  model_inference_repeated: false
+analysis_source_sha256:
+  src/analysis/intervention.py: 3d4281a4b321e2007ed7d93f8761258044aff1650052f83e612cd5dd0856a8b6
+  scripts/eval_intervention_probe.py: 2bc58ca4b3f6e479e1102f268ac65d093ec98c581798678fa84574b5167e6123

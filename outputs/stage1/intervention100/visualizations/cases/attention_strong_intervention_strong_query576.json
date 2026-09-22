@@ -1,0 +1,19 @@
+{
+  "query_id": 576,
+  "window_y": 9,
+  "window_x": 21,
+  "attention_score": 0.0037242278922349215,
+  "margin_drop": 0.031419217586517334,
+  "positive_similarity_drop": 0.031012803316116333,
+  "descriptor_drift": 0.03464841842651367,
+  "rank_degradation": 0,
+  "clean_hit_at_1": 1,
+  "clean_rank": 1,
+  "perturbed_rank": 1,
+  "clean_margin": 0.057670652866363525,
+  "perturbed_margin": 0.02625143527984619,
+  "mask_tokens": 4,
+  "mask_pixels": 784,
+  "category": "attention_strong_intervention_strong",
+  "window_index": 219
+}

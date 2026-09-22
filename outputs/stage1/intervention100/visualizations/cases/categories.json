@@ -1,0 +1,17 @@
+{
+  "attention_strong_intervention_strong": {
+    "eligible_queries": 100,
+    "qualifying_windows": 4658,
+    "saved": 3
+  },
+  "attention_strong_intervention_weak": {
+    "eligible_queries": 100,
+    "qualifying_windows": 2793,
+    "saved": 3
+  },
+  "attention_weak_intervention_strong": {
+    "eligible_queries": 53,
+    "qualifying_windows": 211,
+    "saved": 3
+  }
+}

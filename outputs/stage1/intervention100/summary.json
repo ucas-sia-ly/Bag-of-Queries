@@ -1,0 +1,50 @@
+{
+  "n_queries": 100,
+  "n_spearman_defined": 100,
+  "n_spearman_undefined": 0,
+  "bootstrap_unit": "query",
+  "bootstrap_resamples": 20000,
+  "seed": 2024,
+  "min_mean_spearman": 0.3,
+  "spearman": {
+    "n_queries": 100,
+    "mean": 0.16227880891136778,
+    "mean_ci_low": 0.12687030755931153,
+    "mean_ci_high": 0.19728920552575205,
+    "median": 0.16554734755802003,
+    "median_ci_low": 0.1371140900173947,
+    "median_ci_high": 0.19660547381364651,
+    "positive_fraction": 0.83,
+    "positive_fraction_ci_low": 0.75,
+    "positive_fraction_ci_high": 0.9
+  },
+  "top_minus_bottom_damage": {
+    "n_queries": 100,
+    "mean": 0.004646808239631355,
+    "mean_ci_low": 0.0035352226896211507,
+    "mean_ci_high": 0.005794275185287308,
+    "median": 0.004248001302282016,
+    "median_ci_low": 0.003392008288453023,
+    "median_ci_high": 0.005214957520365715,
+    "positive_fraction": 0.8,
+    "positive_fraction_ci_low": 0.72,
+    "positive_fraction_ci_high": 0.88
+  },
+  "attention_max_damage_percentile": {
+    "n_queries": 100,
+    "mean": 61.919254658385086,
+    "mean_ci_low": 53.741149068322976,
+    "mean_ci_high": 69.94228778467907,
+    "median": 84.36853002070393,
+    "median_ci_low": 71.11801242236025,
+    "median_ci_high": 92.13250517598344,
+    "positive_fraction": 0.97,
+    "positive_fraction_ci_low": 0.93,
+    "positive_fraction_ci_high": 1.0
+  },
+  "positive_proposal_signal_supported": true,
+  "conclusion": "attention is useful for targeted occlusion globally, but is not sufficiently faithful as a local vulnerability estimator",
+  "n_windows": 48400,
+  "reference_cache_reused": true,
+  "max_clean_margin_delta_vs_source": 5.066394806463315e-07
+}
