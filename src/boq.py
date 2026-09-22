@@ -81,7 +81,11 @@ class BoQBlock(torch.nn.Module):
     #   B = batch size；
     #   N = 输入 token 数量，例如图像展平后 N=H×W；
     #   D = in_dim，即每个 token 的特征维度。
-    def forward(self, x):
+    def forward(self, x, return_head_attn: bool = False):
+        """Return tokens, query outputs and detached cross-attention weights.
+
+        Attention shape is [B, Q, N], or [B, Heads, Q, N] when requested.
+        """
         # 读取输入 x 的第 0 维大小，也就是 batch size B。
         # 例如 x.shape=[16, 196, 512] 时，B=16。
         B = x.size(0)
@@ -123,9 +127,20 @@ class BoQBlock(torch.nn.Module):
         # 直观理解：每个可学习 Query 都会“询问”所有输入 token，并根据相关性加权汇总输入信息。
         # q 的形状为 [B,Q,D]，x 的形状为 [B,N,D]。
         # out：每个 Query 聚合得到的特征，形状为 [B,Q,D]。
-        # attn：注意力权重。PyTorch 默认 average_attn_weights=True，因此通常形状为 [B,Q,N]，
-        #       表示每个样本的每个 Query 对 N 个输入 token 的平均多头注意力分布。
-        out, attn = self.cross_attn(q, x, x)
+        # attn：默认对 heads 求平均，形状为 [B,Q,N]；
+        #       return_head_attn=True 时保留 heads，形状为 [B,Heads,Q,N]。
+        out, attn = self.cross_attn(
+            q, x, x, need_weights=True, average_attn_weights=not return_head_attn
+        )
+        assert attn.ndim in {3, 4}
+        assert attn.shape[0] == B
+        assert attn.shape[-1] == x.shape[1]
+        assert attn.shape[-2] == q.shape[1]
+        if return_head_attn:
+            assert attn.ndim == 4
+            assert attn.shape[1] == self.cross_attn.num_heads
+        else:
+            assert attn.ndim == 3
 
         # 对交叉注意力输出 out 做 LayerNorm。
         # 形状仍保持 [B,Q,D]，用于规范化每个 Query 聚合得到的 D 维描述向量。
@@ -188,7 +203,12 @@ class BoQ(torch.nn.Module):
 
     # 定义完整 BoQ 的前向传播。
     # x 预期是 CNN/ResNet 输出的二维特征图，形状一般为 [B,C_in,H,W]。
-    def forward(self, x):
+    def forward(self, x, return_head_attn: bool = False):
+        """Return the descriptor and each block's detached cross-attention.
+
+        Attention shape is [B, Q, Ht*Wt] by default; setting
+        return_head_attn=True returns [B, Heads, Q, Ht*Wt] per block.
+        """
         # 原作者说明：使用 ResNet 等骨干网络时，通过 3×3 卷积减少输入通道维度。
         # reduce input dimension using 3x3 conv when using ResNet
 
@@ -196,6 +216,7 @@ class BoQ(torch.nn.Module):
         # 输入：[B,C_in,H,W]。
         # 输出：[B,D,H,W]，其中 D=proj_channels；由于 padding=1、stride=1，H 和 W 保持不变。
         x = self.proj_c(x)
+        batch_size, _, token_h, token_w = x.shape
 
         # 先执行 x.flatten(2)：从第 2 维开始把 H、W 两个空间维度展平，
         # [B,D,H,W] -> [B,D,H×W]。
@@ -226,7 +247,10 @@ class BoQ(torch.nn.Module):
             # out 是当前层的 Query 聚合结果 [B,Q,D]；
             # attn 是当前层的交叉注意力权重，通常为 [B,Q,N]。
             # 新的 x 会进入下一层 BoQBlock，因此各层是串联关系，而不是彼此独立并行。
-            x, out, attn = self.boqs[i](x)
+            x, out, attn = self.boqs[i](x, return_head_attn=return_head_attn)
+            assert attn.ndim in {3, 4}
+            assert attn.shape[0] == batch_size
+            assert attn.shape[-1] == token_h * token_w
 
             # 把当前层的 Query 输出 out 保存到 outs。
             # 循环结束后，outs 中一共有 L=num_layers 个 [B,Q,D] 张量。
