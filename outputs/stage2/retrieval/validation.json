@@ -1,0 +1,249 @@
+{
+  "status": "GO",
+  "identity": {
+    "schema_version": 1,
+    "split_sha256": "50dc1fe07a301a696537152ffcfd6832e5fa0bba643f03961bccd0dcb06fd4a7",
+    "checkpoint_sha256": "051323a4b683bee4fdfb55ed93e4a2213bdff8720bcce214695c7c145255431d",
+    "model": {
+      "backbone": "dinov2_vitb14",
+      "in_channels": 768,
+      "proj_channels": 512,
+      "num_queries": 64,
+      "num_layers": 2,
+      "row_dim": 16,
+      "heads": 8,
+      "descriptor_dim": 8192
+    },
+    "images_root": "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images",
+    "support_files_sha256": "3f165e953691f217b81bdc33e8646538cf307561bbc66749486103d9272186f7",
+    "num_support": 127118,
+    "image_size": [
+      224,
+      224
+    ],
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "preprocessing": "decode RGB uint8; bicubic antialias; float32 /255; ImageNet Normalize; no augmentation",
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124",
+    "dtype": "float32",
+    "device": "cuda",
+    "batch_size": 32,
+    "deterministic": true,
+    "tf32": false,
+    "xformers": false,
+    "source_sha256": {
+      "src/backbones.py": "c9c2924e462a207e35098caf627fd8cc9bdab6b701fe8a234a9993a540df05e4",
+      "src/boq.py": "c063a40ab5f95f10f06ac6018d0b8f35c770e6e7c1c8f10882866e8ebf94977c",
+      "hubconf.py": "26d1cd9f1bd12b1f407b2441b7dae37223e7d0e59435ad88abebef813d7b1d2b",
+      "scripts/visualize_attention.py": "21bea25a6a5fca61e0ea063bf0842b64a0ddfcd510a55f4db9bcce5631670be2",
+      "src/stage2/retrieval.py": "ce5380cec8d24f98a6862632cc9ac35002cf280d723c9c8acd3ef767793db2b3"
+    }
+  },
+  "cache_path": "/home/admin123/视频/Bag-of-Queries/.cache/stage2/gsv_support.pt",
+  "cache_sha256": "005c92cbf1481301c4b760144f285938612f03d5b0e2c224ac53e1ed333b3d06",
+  "cache_reused": true,
+  "checkpoint_path": "/home/admin123/视频/Bag-of-Queries/logs/dinov2_vitb14/version_2/checkpoints/epoch[21]_R@1[0.9068]_R@5[0.9459].ckpt",
+  "support_shape": [
+    127118,
+    8192
+  ],
+  "num_queries": 100,
+  "seed": 0,
+  "query_sampling": "SHA256(seed + NUL + SOURCE image_key), first N",
+  "query_image_keys": [
+    "Melbourne/Melbourne_0001269_2017_09_113_-37.84290137085354_145.0238723011844_MJ6A3mnVG8fNG7dAB-YKbw.jpg",
+    "Chicago/Chicago_0003170_2016_09_021_41.8787444794729_-87.67848653749226_2G2zEEF4zSW96gT9So_4Tg.jpg",
+    "Melbourne/Melbourne_0002577_2019_07_279_-37.82889784850852_144.9587471657209_qRoNemVXpFvZn01ASChe9w.jpg",
+    "Miami/Miami_0007959_2014_02_038_25.7939292627693_-80.22010610249751_SX6MGj3P7e09wiw1b7yXlg.jpg",
+    "Boston/Boston_0003410_2007_09_322_42.35095716411384_-71.12039657953258_Cxrjn5nywhPL4_m7D8MX6w.jpg",
+    "London/London_0001799_2015_10_245_51.49486693603424_-0.130837016791764_ogclEWnt5sF01RhZrDQSpg.jpg",
+    "Chicago/Chicago_0003588_2017_08_216_41.88377369396625_-87.65558383198348_Bw_LS-buPT0cK-HBXy4xjw.jpg",
+    "Miami/Miami_0004275_2007_11_191_25.76460838258467_-80.28099336024825_-_3N2LPBN_J-adUHU--Akg.jpg",
+    "MexicoCity/MexicoCity_0000397_2017_04_264_19.41574955761723_-99.1515184199514_OTZX5LqQSLnlnm_lq5wi1A.jpg",
+    "LosAngeles/LosAngeles_0000210_2016_01_454_34.03715924556439_-118.2385417975357_VWzvkJt6Wg7wlhPgNY0VQQ.jpg",
+    "Phoenix/Phoenix_0004939_2009_03_217_33.47300995449611_-112.0790962892488_9WL1Hixr7qjya1pdCkn9Hw.jpg",
+    "Rome/Rome_0000871_2016_06_243_41.88472837104395_12.47592975991544_ZwVrdHfxE-PpedlWvr44bA.jpg",
+    "Melbourne/Melbourne_0001118_2009_11_280_-37.84497295220473_144.9644162279581_NOwsnCFTuyfgoG078uAtSA.jpg",
+    "Boston/Boston_0001610_2014_05_331_42.33506299642991_-71.04694104289284_wWUuxjQv5aXQo5D1_1qU2g.jpg",
+    "Chicago/Chicago_0002172_2017_10_097_41.86588272619642_-87.64446690201484_eyXaPKY5DCg-J34LWxYk1w.jpg",
+    "London/London_0000089_2016_08_261_51.48658007510267_-0.1183597310194904_LFNzyMDKNwJbSXYvvH2ldw.jpg",
+    "Rome/Rome_0001504_2019_04_056_41.89346322549537_12.47031803255623_XXGOqt9BtolvhnYN8YXghw.jpg",
+    "Melbourne/Melbourne_0003945_2019_11_179_-37.81546906080359_144.9489236504592_8JC2Mn6JsqRBPSWUi1pWTw.jpg",
+    "Bangkok/Bangkok_0004209_2016_08_256_13.76324421568703_100.5137217995403_xKMwNcATKj-wDHvaz6oTiA.jpg",
+    "Chicago/Chicago_0002629_2007_08_231_41.87159184722562_-87.67053608746019_Tui1B-2V9kAdxEKvLZ9zGg.jpg",
+    "Miami/Miami_0002347_2013_06_254_25.74846695932055_-80.20678538746309_pTr0vPBnm_vOKo_ewUdEow.jpg",
+    "BuenosAires/BuenosAires_0000007_2014_01_512_-34.62716109350719_-58.41453644649778_AfozC3OZbKgfWfl92r08Hg.jpg",
+    "BuenosAires/BuenosAires_0000633_2013_10_015_-34.60472278249895_-58.39673568500849__ZQRcb0kEBGQ9Epxldy9LA.jpg",
+    "Miami/Miami_0003701_2008_01_023_25.75952315113042_-80.22706989079768_x80zAs88rdt7NtULEcsfmw.jpg",
+    "Phoenix/Phoenix_0004403_2020_12_321_33.46729984680479_-112.0357228929134_EYcxpyngYsrUiJF1sOgf5w.jpg",
+    "London/London_0001500_2009_08_024_51.49308995670582_-0.1387437223704337_yLNVG_5xxknGumD2Z3w59w.jpg",
+    "Brussels/Brussels_0000641_2020_06_084_50.8368387772117_4.324715045449481_oO53HHTgIkwatek6qslcXQ.jpg",
+    "Phoenix/Phoenix_0001352_2009_03_045_33.43678439258004_-112.1140484151288_u9UqTzyuig-td1COEz-Emw.jpg",
+    "London/London_0001799_2015_05_101_51.49491129375193_-0.1307856744283351_yoP9y4kPe57nUUAg5Qx_fA.jpg",
+    "London/London_0008786_2014_07_305_51.52907027924073_-0.1765739949527953_pPPO0WfheuNBqWjSwM4DLg.jpg",
+    "Miami/Miami_0002905_2019_02_190_25.75404183294856_-80.27600413456798_gs03F3FfOnC0SNnzExhQkw.jpg",
+    "Miami/Miami_0004072_2017_01_084_25.76250467782429_-80.23496433024391_R85ezgI3OtR-YEbLi5ke6g.jpg",
+    "Phoenix/Phoenix_0003794_2015_07_117_33.4613470482321_-112.0739842192789_qKRnPzmZ_BnXmO6f5S45Ag.jpg",
+    "Miami/Miami_0004544_2009_06_063_25.76673469233235_-80.25698843756275_3bnNxNaqR6Qpd2Z5CJ0v4w.jpg",
+    "Chicago/Chicago_0005411_2015_07_258_41.90675288800486_-87.6493979451436_RHGhDbqztuMVuV-biusM-A.jpg",
+    "BuenosAires/BuenosAires_0000755_2014_08_359_-34.59979367955837_-58.39809494272568_5XnTaW0w7cmtFfI_NEpLEg.jpg",
+    "London/London_0000051_2014_09_330_51.48642753843009_-0.1446963933133406_QsbvTmZAF6023K8kMs68mg.jpg",
+    "Phoenix/Phoenix_0003059_2019_02_202_33.45330511425707_-112.0390325784996_4bo1iRdjrZIOwEyyxEkjNQ.jpg",
+    "Boston/Boston_0006338_2014_07_156_42.37610406281616_-71.11418601635174_44NyKkTLRUInrXcAYfmHtQ.jpg",
+    "PRS/PRS_0003757_2014_05_428_48.87934502514107_2.273385045369209_xl3-8piU6tI7ucgM4XOhOw.jpg",
+    "PRS/PRS_0004482_2014_07_412_48.89339189122064_2.383484676752693_EABhztbJDltV_vTgdn6ZrA.jpg",
+    "London/London_0005814_2016_08_235_51.51424647331355_-0.1404347457731476_8jb-FnNfdkxCmUUvsoOQQg.jpg",
+    "WashingtonDC/WashingtonDC_0001470_2007_08_384_38.91260946441062_-77.03360501171434_2kOPjakNJlwZARWkqcMOhw.jpg",
+    "Madrid/Madrid_0001558_2016_03_283_40.4201453943238_-3.664357393837284_z5ScoA59RULgDVV4uKTxLg.jpg",
+    "TRT/TRT_0001069_2011_08_144_43.67671568581247_-79.55077100176993_yWFhHcHzZvzSawVhBxVgAg.jpg",
+    "Phoenix/Phoenix_0003126_2009_04_293_33.45443206292934_-112.0680768987219_KHo1691ii1ZvdxxxIV04TQ.jpg",
+    "Madrid/Madrid_0001239_2019_05_122_40.41518960301857_-3.693233327169307_5UGBUaGayXlQLhYaEx6Xtw.jpg",
+    "LosAngeles/LosAngeles_0000656_2017_01_342_34.05025519576709_-118.2611360168039__ILb_b7WRLUujS4a1G85Uw.jpg",
+    "London/London_0002999_2008_06_203_51.50038813110528_-0.0946918123950009_wnEMc6W18MHm909_nwRjYw.jpg",
+    "Boston/Boston_0005342_2017_08_012_42.36718692564949_-71.05673140336161_cFcku-DHjCD-jqNn1fclow.jpg",
+    "London/London_0001006_2015_07_291_51.4905586908329_-0.0809216235318272_66YBSSxpunRHrNHGQhy2ag.jpg",
+    "MexicoCity/MexicoCity_0000731_2008_09_452_19.43040319067404_-99.16060027198952_TKfnlOdH-v5XnvLbuCR-_Q.jpg",
+    "Bangkok/Bangkok_0003460_2019_09_147_13.75336011997638_100.5475193655084_OfCQQ-BY1A2hQODnRb8rMQ.jpg",
+    "Rome/Rome_0002742_2012_11_170_41.91051140017543_12.50171140080671_b9ETJEa85Mgm1kq0ylUMgw.jpg",
+    "Phoenix/Phoenix_0003338_2019_03_334_33.4562508061043_-112.0477561438501_LGUHkQS0nf_PAd94Z8jJsg.jpg",
+    "Phoenix/Phoenix_0005961_2009_03_001_33.48430059770084_-112.1129644721985_mgtcbnDuyHW_yQXIsuOadw.jpg",
+    "Boston/Boston_0000982_2013_08_143_42.33027732237372_-71.08992288600079_97IzTCSlcJMkxlEttElpfA.jpg",
+    "Phoenix/Phoenix_0002146_2020_12_176_33.44435299103768_-112.0913844731578_moXf99GleQtitw_v7-RmVg.jpg",
+    "London/London_0008439_2012_06_201_51.52682757298123_-0.1181468861073082_wIyNZV2R8jK5eWL8wqkV0w.jpg",
+    "TRT/TRT_0001069_2009_05_307_43.67677806790094_-79.55069589782019_Yi15y6S3UiFDuSMIPAV6Iw.jpg",
+    "London/London_0000567_2008_06_054_51.48827679064157_-0.0858449426666921_r4OJhT5Z1fTcKUa2h3P1Eg.jpg",
+    "LosAngeles/LosAngeles_0000656_2019_04_352_34.05025856230957_-118.2610954249695_QxuOVNe5ipBS6Eu1kjRQug.jpg",
+    "MexicoCity/MexicoCity_0000140_2008_09_301_19.40496277525419_-99.18007764904551_oh46OQ8R7WlhRJbGR-xUKg.jpg",
+    "Brussels/Brussels_0002418_2017_05_179_50.86008520860153_4.307325243421528_4ekhS_PVjV0ncerWqMrQNw.jpg",
+    "Osaka/Osaka_0001461_2019_09_388_34.66832363909572_135.513079784885_hoAlAZf314iLT5CfsESe7Q.jpg",
+    "Boston/Boston_0005068_2007_07_175_42.36503649695364_-71.09898110808797_qXvJJkkU4imF8pkOHAjLIw.jpg",
+    "London/London_0006873_2018_01_102_51.5189616259191_-0.1054489680542378_gzhO09CZNJKgIZa2EL4twg.jpg",
+    "Boston/Boston_0006286_2009_09_087_42.375057213422_-71.05487711778572_Wn9IWWJldwo1-hlytzaWBQ.jpg",
+    "PRS/PRS_0004482_2016_10_391_48.89339026745159_2.383487286058187_dFCpbpUa2K0enRzHcDmY0w.jpg",
+    "Melbourne/Melbourne_0004471_2014_10_148_-37.80980746004241_144.9889744527226_DIpMbaPkDWT2Fe0xaYFwTQ.jpg",
+    "TRT/TRT_0001302_2018_07_385_43.68651596003783_-79.5706299737178_W9rivpP1nZGtLoKNfzs5Mw.jpg",
+    "Miami/Miami_0007354_2008_12_059_25.78877487072545_-80.19998716693212_apa6wPR_xSkKZ3EBuFEQOA.jpg",
+    "MexicoCity/MexicoCity_0000731_2018_10_470_19.43037562287761_-99.16057514513756_ychhnNP5FegOF7UoU-JGvA.jpg",
+    "Phoenix/Phoenix_0000961_2016_03_129_33.42907524046491_-112.0315188292769_VZ38Kn17wpyTgVwkIHzuNg.jpg",
+    "London/London_0007524_2019_07_132_51.52258250959765_-0.1546882373676459__zGcGu57d1Y0K0tzjgXHHA.jpg",
+    "TRT/TRT_0001383_2018_07_294_43.689547980063_-79.57031300141024_iRWUiYEhI2TZ2dFoThBF7A.jpg",
+    "Boston/Boston_0002072_2013_08_136_42.33894831800971_-71.05295025931166_baqrOjgtPCB1KiGAlE1iww.jpg",
+    "London/London_0009191_2016_07_084_51.53035316481392_-0.0988510770688427__yGz-MKA8hWmG2v8cydqvw.jpg",
+    "London/London_0000234_2020_11_317_51.48667606448856_-0.1174629512986261_EZq5e91BdRHjvmUe4QGW_Q.jpg",
+    "Chicago/Chicago_0004606_2015_10_131_41.89702735119073_-87.66449876695744_C1nG7PHSbPkrXnhp5ahhXA.jpg",
+    "LosAngeles/LosAngeles_0000777_2018_05_222_34.05325584411263_-118.2480337389458_ezIfgk2EHlGlbHyLaYnuOQ.jpg",
+    "London/London_0007814_2009_10_114_51.52421213618143_-0.1519335121467468_8ZtgvdzFcu7_SZ0mPN-6tg.jpg",
+    "Phoenix/Phoenix_0001141_2017_12_129_33.43324155921916_-112.0373337395072_AHvY-pTjg_rABtcsf-LEew.jpg",
+    "Minneapolis/Minneapolis_0000463_2014_10_099_44.94330647935888_-93.29073100407282_KS-Schf9JKrMo85bwZso8g.jpg",
+    "Rome/Rome_0001542_2014_05_130_41.89341646823593_12.50927810374693_eHXdTR4R5ckXD0LToDEDnA.jpg",
+    "London/London_0007256_2014_07_018_51.52124438937326_-0.1425032797001129_15JLQHJwEghGuWDeV584SA.jpg",
+    "Bangkok/Bangkok_0002195_2019_05_472_13.74022489818068_100.4996803142807_RrEeeVDCpJeN6S1x48gHBQ.jpg",
+    "London/London_0006536_2014_07_215_51.5176536320561_-0.1401898967030379_7_DKmttsIS0PXN3FIr5H-w.jpg",
+    "Rome/Rome_0002045_2017_07_201_41.90052736413387_12.514293839985_MxmWqmD29NfafsN-lrDfJA.jpg",
+    "MexicoCity/MexicoCity_0000739_2014_08_165_19.43020007634407_-99.1485868901919_2YW4r7jTGfH_D3KV6MjVjg.jpg",
+    "PRS/PRS_0003329_2014_05_341_48.87147137026113_2.225061115813254_iQopdbX3FnXC2C5NhuOrLg.jpg",
+    "Melbourne/Melbourne_0001380_2014_11_020_-37.84094848296645_144.932225122456_ro9dqmxMkfWjZySy2dFCZA.jpg",
+    "Rome/Rome_0001747_2015_08_141_41.8966787161907_12.50059371678427_pWIZiqQypv6p2m186Gx_YQ.jpg",
+    "BuenosAires/BuenosAires_0000420_2015_06_232_-34.61216357916224_-58.40878158892708_ZYswD9Z_SThJEWzSpQ5h8w.jpg",
+    "Madrid/Madrid_0000032_2019_06_005_40.39403081319765_-3.682248348965709_Od8u3KaXjChe1S9wbvhoLA.jpg",
+    "Phoenix/Phoenix_0000474_2020_02_344_33.42667815620262_-112.0319692723641_2VJLesZ8rmKOG3drOhby1g.jpg",
+    "Rome/Rome_0000705_2018_06_332_41.88143638698671_12.52330845941808_A-s_MaV-_2bfyFFi1d9K_A.jpg",
+    "Minneapolis/Minneapolis_0000463_2019_05_089_44.94332715891233_-93.2907396236084_9HHik2exIdxRO8UtLkFPTw.jpg",
+    "London/London_0006717_2020_11_188_51.51839376924247_-0.116654462718105_6cWvY7gPclssroXZzHsdKA.jpg",
+    "London/London_0002781_2017_06_044_51.49909542003923_-0.1478797478546648_jycJ3rYjWK0ZvhsrTIi-lg.jpg"
+  ],
+  "validation_source_sha256": {
+    "scripts/stage2_build_retrieval.py": "8e3baa8eee42b80cfa93bf3c41640c8adc07d7cb9981d7abcc06702d495dfddc",
+    "src/analysis/retrieval.py": "0c228a78ba9543c3ab1e9547dbb800773203f216434e11a4a53f8d15ffa8ed9f",
+    "src/utils.py": "da6004794c88ac2030d8c850ca607da3ad1e5b46434fb898e11b3ffefbca3819"
+  },
+  "prototype_recommendation_thresholds": {
+    "spearman_min": 0.95,
+    "sign_agreement_min": 0.95,
+    "max_recall_difference": 0.01
+  },
+  "support": {
+    "recalls": {
+      "R@1": 0.97,
+      "R@5": 1.0,
+      "R@10": 1.0
+    },
+    "trainer_recalls": {
+      "R@1": 0.97,
+      "R@5": 1.0,
+      "R@10": 1.0
+    },
+    "mean_margin": 0.23052673876285554,
+    "oracle_queries": 3,
+    "oracle_max_abs_error": 6.864945067963646e-08,
+    "oracle_tolerance": 2e-05,
+    "reference_shape": [
+      127118,
+      8192
+    ]
+  },
+  "prototype": {
+    "recalls": {
+      "R@1": 0.99,
+      "R@5": 1.0,
+      "R@10": 1.0
+    },
+    "trainer_recalls": {
+      "R@1": 0.99,
+      "R@5": 1.0,
+      "R@10": 1.0
+    },
+    "mean_margin": 0.2483096943795681,
+    "oracle_queries": 3,
+    "oracle_max_abs_error": 5.654914309038972e-08,
+    "oracle_tolerance": 2e-05,
+    "reference_shape": [
+      63559,
+      8192
+    ]
+  },
+  "prototype_norm_checks": [
+    {
+      "place_key": "Minneapolis:5259",
+      "norm": 0.9999998211860657,
+      "support_count": 2
+    },
+    {
+      "place_key": "Miami:1126",
+      "norm": 1.0000001192092896,
+      "support_count": 2
+    },
+    {
+      "place_key": "Lisbon:4833",
+      "norm": 1.0,
+      "support_count": 2
+    },
+    {
+      "place_key": "Lisbon:8723",
+      "norm": 1.0,
+      "support_count": 2
+    },
+    {
+      "place_key": "Phoenix:1960",
+      "norm": 1.0,
+      "support_count": 2
+    }
+  ],
+  "comparison": {
+    "margin_spearman": 0.930957095709571,
+    "margin_sign_agreement": 0.98,
+    "margin_mean_abs_difference": 0.03661059096455574,
+    "max_recall_difference": 0.020000000000000018
+  },
+  "recommended_reference_mode": "support",
+  "elapsed_seconds": 46.353745365020586
+}
