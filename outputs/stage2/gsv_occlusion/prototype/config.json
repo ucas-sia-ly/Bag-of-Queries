@@ -1,0 +1,802 @@
+{
+  "args": {
+    "retrieval_report": "/home/admin123/视频/Bag-of-Queries/outputs/stage2/retrieval/validation.json",
+    "split": "/home/admin123/视频/Bag-of-Queries/outputs/stage2/split/gsv_split.jsonl",
+    "output_dir": "outputs/stage2/gsv_occlusion/prototype",
+    "reference_mode": "prototype",
+    "seeds": [
+      0,
+      1
+    ],
+    "num_queries": 50,
+    "random_repeats": 5,
+    "bootstrap_resamples": 20000,
+    "mask_ratio": 0.15,
+    "alpha": 0.5,
+    "top_k": 32,
+    "batch_size": 32
+  },
+  "retrieval_identity": {
+    "schema_version": 1,
+    "split_sha256": "50dc1fe07a301a696537152ffcfd6832e5fa0bba643f03961bccd0dcb06fd4a7",
+    "checkpoint_sha256": "051323a4b683bee4fdfb55ed93e4a2213bdff8720bcce214695c7c145255431d",
+    "model": {
+      "backbone": "dinov2_vitb14",
+      "in_channels": 768,
+      "proj_channels": 512,
+      "num_queries": 64,
+      "num_layers": 2,
+      "row_dim": 16,
+      "heads": 8,
+      "descriptor_dim": 8192
+    },
+    "images_root": "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images",
+    "support_files_sha256": "3f165e953691f217b81bdc33e8646538cf307561bbc66749486103d9272186f7",
+    "num_support": 127118,
+    "image_size": [
+      224,
+      224
+    ],
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "preprocessing": "decode RGB uint8; bicubic antialias; float32 /255; ImageNet Normalize; no augmentation",
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124",
+    "dtype": "float32",
+    "device": "cuda",
+    "batch_size": 32,
+    "deterministic": true,
+    "tf32": false,
+    "xformers": false,
+    "source_sha256": {
+      "src/backbones.py": "c9c2924e462a207e35098caf627fd8cc9bdab6b701fe8a234a9993a540df05e4",
+      "src/boq.py": "c063a40ab5f95f10f06ac6018d0b8f35c770e6e7c1c8f10882866e8ebf94977c",
+      "hubconf.py": "26d1cd9f1bd12b1f407b2441b7dae37223e7d0e59435ad88abebef813d7b1d2b",
+      "scripts/visualize_attention.py": "21bea25a6a5fca61e0ea063bf0842b64a0ddfcd510a55f4db9bcce5631670be2",
+      "src/stage2/retrieval.py": "ce5380cec8d24f98a6862632cc9ac35002cf280d723c9c8acd3ef767793db2b3"
+    }
+  },
+  "cache_sha256": "005c92cbf1481301c4b760144f285938612f03d5b0e2c224ac53e1ed333b3d06",
+  "retrieval_report_sha256": "d604bd07b56d422320587225944d04f0d7bac61cd88f0cc071b0715705fa950e",
+  "reference_shape": [
+    63559,
+    8192
+  ],
+  "source_sha256": {
+    "scripts/stage2_eval_gsv_occlusion.py": "6958d9829d706862e2f4f6eaeedb1b8e6c81037a2f04d9883ac06b3b9e904b2a",
+    "src/stage2/gsv_occlusion.py": "3ee84415937604b029bc4bd0f1569c2231bfadb3e9453a821920f4eb084129ef",
+    "src/stage2/vulnerability.py": "72c28a8aabb844ef814cdc5fcc0eb805bcf1328ccf26194e79d14ec06185d50a",
+    "src/analysis/attention.py": "265af21009cd808b7a30c43e02d702ce47ed9649f85783139181e0862bca578f",
+    "src/analysis/masks.py": "c8c60d48fb3ec72c8380e3ab75d3db9f3403537c5befc951332ca0ff270cc407",
+    "src/analysis/perturb.py": "34db2956ce32b2f7a1e2abd859e1d92c2a40f7fd5152abbf082334d5c721dc18",
+    "src/analysis/retrieval.py": "0c228a78ba9543c3ab1e9547dbb800773203f216434e11a4a53f8d15ffa8ed9f",
+    "scripts/analyze_stage1_results.py": "3093ef7143d9328fe3d52669e71f9983251804a2cd7e09cf8188f38fce780cf8"
+  },
+  "cohorts": {
+    "0": [
+      {
+        "image_key": "Miami/Miami_0003418_2015_10_305_25.75781373645987_-80.25895705092262_8CBliO0XoMBZgkGQun9JUg.jpg",
+        "place_key": "Miami:3418",
+        "city_id": "Miami",
+        "local_place_id": 3418,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Miami/Miami_0006062_2007_12_310_25.77859697555733_-80.2419719939299_1QEWQpGyD5wT6Z2uUWbJNQ.jpg",
+        "place_key": "Miami:6062",
+        "city_id": "Miami",
+        "local_place_id": 6062,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Phoenix/Phoenix_0003753_2019_03_009_33.46150049290962_-112.1151121833792_LRU3HnLRpdJ087TMMObd8A.jpg",
+        "place_key": "Phoenix:3753",
+        "city_id": "Phoenix",
+        "local_place_id": 3753,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Phoenix/Phoenix_0004643_2011_03_048_33.47030520799914_-112.0870178971757_lrCgbcYXIkc9o_dB51V7Mg.jpg",
+        "place_key": "Phoenix:4643",
+        "city_id": "Phoenix",
+        "local_place_id": 4643,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "London/London_0000335_2016_05_067_51.48789482684779_-0.1461782484006166_BO76LUht10YEKsdQV820Dw.jpg",
+        "place_key": "London:335",
+        "city_id": "London",
+        "local_place_id": 335,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Phoenix/Phoenix_0005083_2008_07_275_33.47396395855898_-112.0311795323781_S_DMrKvVR8Gh8zJrnr8i9g.jpg",
+        "place_key": "Phoenix:5083",
+        "city_id": "Phoenix",
+        "local_place_id": 5083,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Bangkok/Bangkok_0001913_2020_09_280_13.73731626897177_100.4846479105927_tMaJYnfZZhMWbB4Uh23oqg.jpg",
+        "place_key": "Bangkok:1913",
+        "city_id": "Bangkok",
+        "local_place_id": 1913,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "London/London_0007829_2015_07_041_51.52399059065294_-0.1441573327157997_hFQVPMApSxhcZ_itBM8Tmw.jpg",
+        "place_key": "London:7829",
+        "city_id": "London",
+        "local_place_id": 7829,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRG/PRG_0001726_2014_05_562_50.07604531735773_14.38727394964032_LplABiyKc4lq5cZpuMyNTQ.jpg",
+        "place_key": "PRG:1726",
+        "city_id": "PRG",
+        "local_place_id": 1726,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Miami/Miami_0002344_2015_05_343_25.74881715572547_-80.20603026970264_go2DNPFBrqj03ZbE_tIJiw.jpg",
+        "place_key": "Miami:2344",
+        "city_id": "Miami",
+        "local_place_id": 2344,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRG/PRG_0001607_2017_05_325_50.0729372608779_14.48156658650924_umGJIRhK4s67KlESaKxmyQ.jpg",
+        "place_key": "PRG:1607",
+        "city_id": "PRG",
+        "local_place_id": 1607,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Miami/Miami_0007944_2009_06_314_25.79370903554045_-80.23565676016223_ByRdj6uGAvuqmeCLJ33FEg.jpg",
+        "place_key": "Miami:7944",
+        "city_id": "Miami",
+        "local_place_id": 7944,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Brussels/Brussels_0002724_2017_06_185_50.86295049549855_4.381024420969795_fDUHWny969o8POmoRxxfKQ.jpg",
+        "place_key": "Brussels:2724",
+        "city_id": "Brussels",
+        "local_place_id": 2724,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "MexicoCity/MexicoCity_0000439_2011_07_378_19.41700482193426_-99.13953347474336_TwJrfwIgXV4gdmu2v_RwPw.jpg",
+        "place_key": "MexicoCity:439",
+        "city_id": "MexicoCity",
+        "local_place_id": 439,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "London/London_0004974_2008_07_110_51.5100068580884_-0.1237108994429334_gMH1zaD6dwjZ7yNcwi_kqQ.jpg",
+        "place_key": "London:4974",
+        "city_id": "London",
+        "local_place_id": 4974,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0006805_2019_11_322_38.75718737248513_-9.165952628228716_nEJpwdYZ5tOiSVrF5b9QZw.jpg",
+        "place_key": "Lisbon:6805",
+        "city_id": "Lisbon",
+        "local_place_id": 6805,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Melbourne/Melbourne_0003842_2019_06_043_-37.8159344197178_144.9527839466469_EsUMIh4sTLBGQ0qzNUEeyw.jpg",
+        "place_key": "Melbourne:3842",
+        "city_id": "Melbourne",
+        "local_place_id": 3842,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "London/London_0000318_2020_11_358_51.48738834442319_-0.1592927192988385_K7CRRcqqX7sWWgEuLL8BqA.jpg",
+        "place_key": "London:318",
+        "city_id": "London",
+        "local_place_id": 318,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Miami/Miami_0003184_2009_05_207_25.75569119897607_-80.24595725212107_hgz_ew2LNpwK3ncWI4M7-Q.jpg",
+        "place_key": "Miami:3184",
+        "city_id": "Miami",
+        "local_place_id": 3184,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0008315_2020_11_257_38.76920067293263_-9.176703960741298_y3MKFZ0HiAYXUi93YCYGxw.jpg",
+        "place_key": "Lisbon:8315",
+        "city_id": "Lisbon",
+        "local_place_id": 8315,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Melbourne/Melbourne_0002721_2020_12_297_-37.8276097136056_145.005975146209_hFBqxmnfz8CyimAD48j58g.jpg",
+        "place_key": "Melbourne:2721",
+        "city_id": "Melbourne",
+        "local_place_id": 2721,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "LosAngeles/LosAngeles_0000754_2014_05_380_34.05245173458859_-118.2349858907372_SDujteMlaTtthehk5PzeHw.jpg",
+        "place_key": "LosAngeles:754",
+        "city_id": "LosAngeles",
+        "local_place_id": 754,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Phoenix/Phoenix_0003365_2020_12_333_33.45727603454981_-112.1172964940904_f89e0183Zih-5m5muYZMTQ.jpg",
+        "place_key": "Phoenix:3365",
+        "city_id": "Phoenix",
+        "local_place_id": 3365,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "BuenosAires/BuenosAires_0000445_2015_04_247_-34.61242474079832_-58.37104089216279_u8kNxyh6_Oqo08onZ_feQQ.jpg",
+        "place_key": "BuenosAires:445",
+        "city_id": "BuenosAires",
+        "local_place_id": 445,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Bangkok/Bangkok_0001023_2017_11_374_13.72635845259701_100.5497549817964_BH4eo1LncXcJKFdN_r9mQA.jpg",
+        "place_key": "Bangkok:1023",
+        "city_id": "Bangkok",
+        "local_place_id": 1023,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Bangkok/Bangkok_0003924_2020_08_123_13.76052968481102_100.4979012510033_RkW8Ap4kPVy5-JQsESJFHw.jpg",
+        "place_key": "Bangkok:3924",
+        "city_id": "Bangkok",
+        "local_place_id": 3924,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRG/PRG_0001254_2017_06_212_50.06679447507942_14.49619812702815_Nxa-wtOOkuxC25VNs-GAoQ.jpg",
+        "place_key": "PRG:1254",
+        "city_id": "PRG",
+        "local_place_id": 1254,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRS/PRS_0004928_2014_08_515_48.90335183491303_2.439435637449179_P4KTKDxyo2u0VrYa_HAlYg.jpg",
+        "place_key": "PRS:4928",
+        "city_id": "PRS",
+        "local_place_id": 4928,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRS/PRS_0000012_2019_07_140_48.79734863971899_2.273391669131452_CnDd1MtvDCJuEiGcZ9SVWw.jpg",
+        "place_key": "PRS:12",
+        "city_id": "PRS",
+        "local_place_id": 12,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Miami/Miami_0003076_2015_10_107_25.75448966185336_-80.22504255688351_-sAOdkAfUrF2Y2R-8Boujg.jpg",
+        "place_key": "Miami:3076",
+        "city_id": "Miami",
+        "local_place_id": 3076,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "BuenosAires/BuenosAires_0000579_2017_07_429_-34.60614875499967_-58.41611187509191_0lI430Zj2UJo2tDtu0coQA.jpg",
+        "place_key": "BuenosAires:579",
+        "city_id": "BuenosAires",
+        "local_place_id": 579,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "London/London_0001193_2012_08_101_51.49181398965143_-0.1518708460602027_I8f4h_8ZMt-gPEMeW4qHig.jpg",
+        "place_key": "London:1193",
+        "city_id": "London",
+        "local_place_id": 1193,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRS/PRS_0002578_2019_05_425_48.85569899238281_2.293861802212219_nJdpRxcFEfHXP9ndwtuJIw.jpg",
+        "place_key": "PRS:2578",
+        "city_id": "PRS",
+        "local_place_id": 2578,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Miami/Miami_0005316_2014_03_189_25.77282574108492_-80.23811393127853_pismP-H4QBntFBYVoV5CtA.jpg",
+        "place_key": "Miami:5316",
+        "city_id": "Miami",
+        "local_place_id": 5316,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0000269_2019_09_149_38.70630249232123_-9.225974567673903_9rnWWozSFwnlWtMi0tjN6A.jpg",
+        "place_key": "Lisbon:269",
+        "city_id": "Lisbon",
+        "local_place_id": 269,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Medellin/Medellin_0001270_2015_10_547_6.253760765175159_-75.55764043849227_nJ-4-BMThAfyj9RFO3asLA.jpg",
+        "place_key": "Medellin:1270",
+        "city_id": "Medellin",
+        "local_place_id": 1270,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRS/PRS_0001491_2016_06_389_48.83143768368858_2.265066531510018_waN70onGjB4_TBCwY47LuQ.jpg",
+        "place_key": "PRS:1491",
+        "city_id": "PRS",
+        "local_place_id": 1491,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0003286_2018_08_204_38.72961100799655_-9.134018485510492_w7lLlHb_kydcCSyjiq3YJA.jpg",
+        "place_key": "Lisbon:3286",
+        "city_id": "Lisbon",
+        "local_place_id": 3286,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Chicago/Chicago_0004848_2019_08_083_41.89985642907265_-87.65951792444012_DYtOaCRxdKh2fTNj0AkWVA.jpg",
+        "place_key": "Chicago:4848",
+        "city_id": "Chicago",
+        "local_place_id": 4848,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0002136_2009_06_347_38.72023594193512_-9.136975166079443_Kt5zNFxYdzLWsa_FonpyZA.jpg",
+        "place_key": "Lisbon:2136",
+        "city_id": "Lisbon",
+        "local_place_id": 2136,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Minneapolis/Minneapolis_0004228_2011_06_313_44.98418817920988_-93.2569366469068_iLO5p2MOvd3P3ihiwVswww.jpg",
+        "place_key": "Minneapolis:4228",
+        "city_id": "Minneapolis",
+        "local_place_id": 4228,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Chicago/Chicago_0002267_2012_10_314_41.86723397280636_-87.63348817325631_hPPoQ3mRPnHOfBHE_v1AHQ.jpg",
+        "place_key": "Chicago:2267",
+        "city_id": "Chicago",
+        "local_place_id": 2267,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Boston/Boston_0005052_2018_06_314_42.36505539308296_-71.11298665919537_SVYFa5d_BvTs3me9F5MdaQ.jpg",
+        "place_key": "Boston:5052",
+        "city_id": "Boston",
+        "local_place_id": 5052,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRS/PRS_0001142_2016_06_280_48.82129016906214_2.375444667349463_wVEZq-0rZXxJ06zrGVmqgg.jpg",
+        "place_key": "PRS:1142",
+        "city_id": "PRS",
+        "local_place_id": 1142,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Minneapolis/Minneapolis_0004527_2014_09_082_44.98729080284852_-93.2346037611254_QGU_W0Fnn1mP_TZE5cOj8Q.jpg",
+        "place_key": "Minneapolis:4527",
+        "city_id": "Minneapolis",
+        "local_place_id": 4527,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0002254_2018_08_125_38.72122075825323_-9.145946623180366_XtKF4_9nKqoKwbRpyxyOug.jpg",
+        "place_key": "Lisbon:2254",
+        "city_id": "Lisbon",
+        "local_place_id": 2254,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Brussels/Brussels_0001498_2014_09_230_50.84745950555936_4.325975181358101_CE61ndURNXaCmtsrU8srKw.jpg",
+        "place_key": "Brussels:1498",
+        "city_id": "Brussels",
+        "local_place_id": 1498,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "TRT/TRT_0000659_2015_07_197_43.6575598958716_-79.36216612772633_9nwfmGZpmJNXXbwkVMwWfQ.jpg",
+        "place_key": "TRT:659",
+        "city_id": "TRT",
+        "local_place_id": 659,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Madrid/Madrid_0001058_2015_06_303_40.4122259812777_-3.700246130636049_4_GepaP2fz-eLGbr6VkoVQ.jpg",
+        "place_key": "Madrid:1058",
+        "city_id": "Madrid",
+        "local_place_id": 1058,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Phoenix/Phoenix_0000325_2015_06_021_33.42581825948063_-112.0850365007273_45x-7DRlWxNEN6e5y5VxUA.jpg",
+        "place_key": "Phoenix:325",
+        "city_id": "Phoenix",
+        "local_place_id": 325,
+        "role": "SOURCE"
+      }
+    ],
+    "1": [
+      {
+        "image_key": "Phoenix/Phoenix_0005556_2009_04_271_33.47930167292864_-112.0379044065707_5vpTbxl6c_TjHL9dqfoekQ.jpg",
+        "place_key": "Phoenix:5556",
+        "city_id": "Phoenix",
+        "local_place_id": 5556,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Rome/Rome_0002322_2020_09_206_41.90414397804343_12.50668424079407_30YSM08CpegQ-aKwG6pKjg.jpg",
+        "place_key": "Rome:2322",
+        "city_id": "Rome",
+        "local_place_id": 2322,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Miami/Miami_0001396_2018_04_116_25.74180569451551_-80.28432920772919_0ByBlRPYNF4yHQ47sFy7nQ.jpg",
+        "place_key": "Miami:1396",
+        "city_id": "Miami",
+        "local_place_id": 1396,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "BuenosAires/BuenosAires_0000297_2016_10_428_-34.61652537485935_-58.40848909044821_ssL5FkI4IJVJvP9bnQUa8A.jpg",
+        "place_key": "BuenosAires:297",
+        "city_id": "BuenosAires",
+        "local_place_id": 297,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "BuenosAires/BuenosAires_0001247_2016_11_463_-34.58180590773821_-58.39880540419779_rttMoDn2b4n1aI8kmbpVLA.jpg",
+        "place_key": "BuenosAires:1247",
+        "city_id": "BuenosAires",
+        "local_place_id": 1247,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "MexicoCity/MexicoCity_0000547_2015_01_266_19.42405929995902_-99.18134064792606_DZZOowbIJ4MvNNNkeIhAsg.jpg",
+        "place_key": "MexicoCity:547",
+        "city_id": "MexicoCity",
+        "local_place_id": 547,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "MexicoCity/MexicoCity_0000747_2014_11_653_19.43186670707519_-99.18641776793147_KwkMAV_mTO0vpOWlSiFo0w.jpg",
+        "place_key": "MexicoCity:747",
+        "city_id": "MexicoCity",
+        "local_place_id": 747,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Chicago/Chicago_0000010_2018_06_060_41.83751876577746_-87.67836197229565_L4l2bUV5Z-GnCjMKcTVbtA.jpg",
+        "place_key": "Chicago:10",
+        "city_id": "Chicago",
+        "local_place_id": 10,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRG/PRG_0001252_2019_07_258_50.06663473592907_14.4928424006106_ciOfW2OggDE1V_LH7bSO1A.jpg",
+        "place_key": "PRG:1252",
+        "city_id": "PRG",
+        "local_place_id": 1252,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0002878_2009_08_166_38.72628004068211_-9.161018867670885_3dlH6pO_qnGGq6yoO1Ediw.jpg",
+        "place_key": "Lisbon:2878",
+        "city_id": "Lisbon",
+        "local_place_id": 2878,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "OSL/OSL_0003765_2019_10_187_59.94514003859832_10.77838887350404_0Uzd6_xRwh7rLPBk8yRw1A.jpg",
+        "place_key": "OSL:3765",
+        "city_id": "OSL",
+        "local_place_id": 3765,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "LosAngeles/LosAngeles_0000446_2016_10_264_34.04407779332197_-118.255182669294_Au6f3n9dq5-ZkJ8MOcIzrQ.jpg",
+        "place_key": "LosAngeles:446",
+        "city_id": "LosAngeles",
+        "local_place_id": 446,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRS/PRS_0004507_2011_05_199_48.89512204163078_2.208915502657871_Jw59MiFEyf_VG958qC9wZA.jpg",
+        "place_key": "PRS:4507",
+        "city_id": "PRS",
+        "local_place_id": 4507,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Chicago/Chicago_0002686_2017_10_316_41.87281236274688_-87.68629301064442_Z7l1UjUsmFbOaVl5s7pOdw.jpg",
+        "place_key": "Chicago:2686",
+        "city_id": "Chicago",
+        "local_place_id": 2686,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Melbourne/Melbourne_0005898_2019_07_222_-37.79479919690841_144.944888341501_kY83K8CiihOvyy1-2vXj4Q.jpg",
+        "place_key": "Melbourne:5898",
+        "city_id": "Melbourne",
+        "local_place_id": 5898,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Melbourne/Melbourne_0002577_2019_07_279_-37.82889784850852_144.9587471657209_qRoNemVXpFvZn01ASChe9w.jpg",
+        "place_key": "Melbourne:2577",
+        "city_id": "Melbourne",
+        "local_place_id": 2577,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0000960_2009_08_182_38.71120662095573_-9.17000257412647_X-OiTtFJj9pcYCCDsvQFOg.jpg",
+        "place_key": "Lisbon:960",
+        "city_id": "Lisbon",
+        "local_place_id": 960,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRS/PRS_0003451_2012_08_133_48.87325336498916_2.307285056069851_gg9wj5Cx8HlOlQoJKaXkDg.jpg",
+        "place_key": "PRS:3451",
+        "city_id": "PRS",
+        "local_place_id": 3451,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "TRT/TRT_0000337_2009_05_353_43.64477772078452_-79.57954279962773_acXywZaBuVCEXmBFNlqnLg.jpg",
+        "place_key": "TRT:337",
+        "city_id": "TRT",
+        "local_place_id": 337,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Chicago/Chicago_0004118_2009_04_023_41.89078788764298_-87.67846180650729_QQc2tRCnFoctNnQ_qG27OA.jpg",
+        "place_key": "Chicago:4118",
+        "city_id": "Chicago",
+        "local_place_id": 4118,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0003123_2009_06_049_38.72826258534669_-9.164996249525506_IdVG1Hoc92Y2wOGGN-4MWA.jpg",
+        "place_key": "Lisbon:3123",
+        "city_id": "Lisbon",
+        "local_place_id": 3123,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Rome/Rome_0002295_2008_07_113_41.90450695008018_12.48026800347222_O3khkINqxAm6awsZ_NXz1g.jpg",
+        "place_key": "Rome:2295",
+        "city_id": "Rome",
+        "local_place_id": 2295,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "TRT/TRT_0002141_2018_07_626_43.71832463065926_-79.42617153533143_RLqvQE7RrpdParkk3QGoSg.jpg",
+        "place_key": "TRT:2141",
+        "city_id": "TRT",
+        "local_place_id": 2141,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0001803_2018_07_173_38.7178493069778_-9.215787008891224_BQ5Ew5_-qg006MPR_pXAUw.jpg",
+        "place_key": "Lisbon:1803",
+        "city_id": "Lisbon",
+        "local_place_id": 1803,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Boston/Boston_0004703_2011_08_043_42.36189791153724_-71.1107288680639_ojR--GadNeGZM1k6mcOH9Q.jpg",
+        "place_key": "Boston:4703",
+        "city_id": "Boston",
+        "local_place_id": 4703,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Bangkok/Bangkok_0000498_2016_10_438_13.72009416131538_100.5489865502233_c4cAnCTk4h7M8-TXtf73IA.jpg",
+        "place_key": "Bangkok:498",
+        "city_id": "Bangkok",
+        "local_place_id": 498,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0002518_2018_08_085_38.72336946318189_-9.136007255060465_f6GMaNuM_Mp0bVVGTpdZXw.jpg",
+        "place_key": "Lisbon:2518",
+        "city_id": "Lisbon",
+        "local_place_id": 2518,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Chicago/Chicago_0005778_2015_11_111_41.9118464606984_-87.67747607216828_J0iBmR6wp5XuJipt4Lem5A.jpg",
+        "place_key": "Chicago:5778",
+        "city_id": "Chicago",
+        "local_place_id": 5778,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "OSL/OSL_0003384_2019_10_406_59.94111253680821_10.76223998360457_QNUZzkgxpPos6rHM1FrQig.jpg",
+        "place_key": "OSL:3384",
+        "city_id": "OSL",
+        "local_place_id": 3384,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Bangkok/Bangkok_0001242_2017_05_368_13.72927792900936_100.5056863190026_3hejvgCpEwFxwQknvxtlhQ.jpg",
+        "place_key": "Bangkok:1242",
+        "city_id": "Bangkok",
+        "local_place_id": 1242,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Phoenix/Phoenix_0000357_2018_05_268_33.42524998962075_-112.0521742629126_DbMpKVUvTiga-OmYglVZcw.jpg",
+        "place_key": "Phoenix:357",
+        "city_id": "Phoenix",
+        "local_place_id": 357,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Bangkok/Bangkok_0002687_2020_08_313_13.74498854684226_100.5576948974601_S16hJh73PdCmM3QjuCcYQQ.jpg",
+        "place_key": "Bangkok:2687",
+        "city_id": "Bangkok",
+        "local_place_id": 2687,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Osaka/Osaka_0002479_2009_10_024_34.6862724058969_135.4719685455134_llBxSu0ehWQgPty0t_zxEQ.jpg",
+        "place_key": "Osaka:2479",
+        "city_id": "Osaka",
+        "local_place_id": 2479,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Boston/Boston_0006571_2011_11_297_42.37791649963948_-71.11628167105206_W7PXaWBO0V7kne0DJX3Mzw.jpg",
+        "place_key": "Boston:6571",
+        "city_id": "Boston",
+        "local_place_id": 6571,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Chicago/Chicago_0003185_2016_10_232_41.87894460160553_-87.66347422080628_gY6oF-Gm6J_r9kmHXsjl2A.jpg",
+        "place_key": "Chicago:3185",
+        "city_id": "Chicago",
+        "local_place_id": 3185,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Rome/Rome_0001536_2014_10_304_41.89345121332601_12.50233860546191_jz9ORo_1FLkZ5-BjcUBxKQ.jpg",
+        "place_key": "Rome:1536",
+        "city_id": "Rome",
+        "local_place_id": 1536,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Osaka/Osaka_0002129_2016_06_370_34.68015766213297_135.472095364613_0llLMANL5DEKySzoh8b0qA.jpg",
+        "place_key": "Osaka:2129",
+        "city_id": "Osaka",
+        "local_place_id": 2129,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Bangkok/Bangkok_0002966_2017_06_078_13.74927584591671_100.4897897808369_rVd4ebOUkx1eTpqAVNmB1g.jpg",
+        "place_key": "Bangkok:2966",
+        "city_id": "Bangkok",
+        "local_place_id": 2966,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "PRG/PRG_0001216_2012_04_290_50.06665816039804_14.40980554382894_Jk-pvXjSWsUojVvlMdD6gA.jpg",
+        "place_key": "PRG:1216",
+        "city_id": "PRG",
+        "local_place_id": 1216,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Minneapolis/Minneapolis_0000352_2019_06_110_44.94140331063444_-93.2201476525162_3Y6xx0QGKxhcfCQI-FWTyg.jpg",
+        "place_key": "Minneapolis:352",
+        "city_id": "Minneapolis",
+        "local_place_id": 352,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Minneapolis/Minneapolis_0000181_2013_08_170_44.9393019199174_-93.2089173792444_Pvm455jFuSx8A_s9c896cQ.jpg",
+        "place_key": "Minneapolis:181",
+        "city_id": "Minneapolis",
+        "local_place_id": 181,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Lisbon/Lisbon_0000307_2014_08_109_38.70594976253807_-9.187956813133654_1uhn5b859hKFDJcz7aTLgQ.jpg",
+        "place_key": "Lisbon:307",
+        "city_id": "Lisbon",
+        "local_place_id": 307,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "London/London_0004801_2009_08_272_51.50907263310649_-0.1458233007158824_5Udkc0LssatATzP14hIPkQ.jpg",
+        "place_key": "London:4801",
+        "city_id": "London",
+        "local_place_id": 4801,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Rome/Rome_0002066_2016_06_251_41.90131812421017_12.46404936131252_3r42JbVeNvPSFfGJt_4rxQ.jpg",
+        "place_key": "Rome:2066",
+        "city_id": "Rome",
+        "local_place_id": 2066,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Medellin/Medellin_0000612_2013_12_311_6.241935344901555_-75.57949806687454_fFhxiiV9eZ7T1eDmO8zxOg.jpg",
+        "place_key": "Medellin:612",
+        "city_id": "Medellin",
+        "local_place_id": 612,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Chicago/Chicago_0004490_2017_10_353_41.89499355426129_-87.62251936077243_KDjERcQy8ruBiuDSGylNqA.jpg",
+        "place_key": "Chicago:4490",
+        "city_id": "Chicago",
+        "local_place_id": 4490,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Phoenix/Phoenix_0004383_2011_03_098_33.46755977608167_-112.0571141903428_BJ6H6arU3t2O0bMGgue_Xw.jpg",
+        "place_key": "Phoenix:4383",
+        "city_id": "Phoenix",
+        "local_place_id": 4383,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "London/London_0000881_2016_08_079_51.49052279418894_-0.1678955496967318_mRwJxlDODHDJQW9KlujLyA.jpg",
+        "place_key": "London:881",
+        "city_id": "London",
+        "local_place_id": 881,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "Brussels/Brussels_0002530_2019_03_030_50.86089065277829_4.341250613701981_SSy991jO3fV9zStrBxi8hw.jpg",
+        "place_key": "Brussels:2530",
+        "city_id": "Brussels",
+        "local_place_id": 2530,
+        "role": "SOURCE"
+      },
+      {
+        "image_key": "MexicoCity/MexicoCity_0000831_2017_01_421_19.43490016438329_-99.16351756404356_UXlwW-S6Epmp3t7N831QEA.jpg",
+        "place_key": "MexicoCity:831",
+        "city_id": "MexicoCity",
+        "local_place_id": 831,
+        "role": "SOURCE"
+      }
+    ]
+  },
+  "protocol": {
+    "primary": "attention",
+    "supplementary": "fused",
+    "random": "uniform legal pixel translation with replacement",
+    "seed_changes": "SOURCE place/image sampling and random placements; split/support assignment fixed",
+    "sampling": "uniform hashed places, one hashed SOURCE per place",
+    "fill": "original RGB per-channel spatial mean; normalize after fill",
+    "budget": "round(ratio * tokens), equal pixel shape/area; random shifts need not align to tokens",
+    "exclusions": "ONLY impossible rigid translations, independently per strategy",
+    "estimator_diagnostics": "retained, never used to select or exclude queries",
+    "gate": "attention CI_low>0 and Holm Wilcoxon p<0.05 and >=80% pairs in EVERY seed",
+    "generator_action": "report decision only; no generator is run"
+  }
+}

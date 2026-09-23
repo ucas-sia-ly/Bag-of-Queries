@@ -1,0 +1,24 @@
+{
+  "support": {
+    "status": "PASS",
+    "raw_rows": 1400,
+    "paired_queries": 200,
+    "regenerated_random_masks": 1000,
+    "source_and_code_hashes_verified": true,
+    "statistics_rebuilt_from_csv": true,
+    "identical_area_and_shape": true,
+    "geometry_and_seed_offsets_verified": true
+  },
+  "prototype": {
+    "status": "PASS",
+    "raw_rows": 1400,
+    "paired_queries": 200,
+    "regenerated_random_masks": 1000,
+    "source_and_code_hashes_verified": true,
+    "statistics_rebuilt_from_csv": true,
+    "identical_area_and_shape": true,
+    "geometry_and_seed_offsets_verified": true
+  },
+  "seed_cohort_place_overlap": 0,
+  "attention_masks_identical_across_reference_modes": true
+}

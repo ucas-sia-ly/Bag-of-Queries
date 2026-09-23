@@ -1,6 +1,7 @@
 # Stage 2 GSV retrieval context
 
 后续 attention/intervention 脆弱性估计器见 [VULNERABILITY.md](VULNERABILITY.md)。
+GSV 目标化 vs 随机遮挡实验见 [GSV_OCCLUSION.md](GSV_OCCLUSION.md)。
 
 读取 [Source/Support 清单](data/README.md)，只编码 SUPPORT，并复用
 `src/analysis/retrieval.py::retrieval_metrics` 计算全库检索指标。
