@@ -1,5 +1,7 @@
 # Stage 2 GSV retrieval context
 
+后续 attention/intervention 脆弱性估计器见 [VULNERABILITY.md](VULNERABILITY.md)。
+
 读取 [Source/Support 清单](data/README.md)，只编码 SUPPORT，并复用
 `src/analysis/retrieval.py::retrieval_metrics` 计算全库检索指标。
 SOURCE 从不参与 reference 或 place 原型。每个 query 的正例是同一 `city:place_id`
