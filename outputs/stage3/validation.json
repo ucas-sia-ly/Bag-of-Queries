@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "records": 100,
+  "mask_pngs": 200,
+  "binary": true,
+  "token_budget": true,
+  "original_dimensions": true,
+  "nearest_floor_resize": true,
+  "nonzero_original_area": true,
+  "byte_identical_rerun": true,
+  "protected_files_unchanged": 355
+}

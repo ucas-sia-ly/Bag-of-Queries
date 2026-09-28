@@ -11,6 +11,10 @@ from src.stage2.data.gsv_split import DEFAULT_DATAFRAMES_DIR, build_split
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
+    # --dataframes-dir: GSV-Cities 数据集的 Dataframes 目录，默认值为 DEFAULT_DATAFRAMES_DIR。
+    # --cities: 要处理的城市列表，默认值为所有可用城市。
+    # --seed: 随机种子，默认值为 0。
+    # --output-dir: 输出目录，默认值为 outputs/stage2/split。
     parser.add_argument("--dataframes-dir", type=Path, default=DEFAULT_DATAFRAMES_DIR)
     parser.add_argument("--cities", nargs="+", help="CSV stems; default: all available cities")
     parser.add_argument("--seed", type=int, default=0)

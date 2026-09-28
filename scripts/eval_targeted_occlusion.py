@@ -131,7 +131,8 @@ def make_record(query_id, image_path, condition, ratio, repeat, clean, metrics, 
         "token_unavailable_reason": token_unavailable_reason, "pixel_unavailable_reason": pixel_unavailable_reason,
     }
 
-
+# 构建遮挡或模糊效果的图像
+# 返回 [B,3,H,W] 形状的图像
 def build_ablation_variants(rgb, token_map, query_id, args):
     """Build each construction and its own random controls from the same scores.
 

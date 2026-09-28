@@ -77,6 +77,19 @@ def validate_context(context, queries, records, output_dir):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
+    # --split：GSV-Cities 数据集的分块文件路径。
+    # --images-root：GSV-Cities 数据集的图像根目录。
+    # --checkpoint：预训练模型的检查点路径。
+    # --backbone：模型的骨干网络配置。
+    # --image-size：图像大小。
+    # --cache：描述符缓存路径。
+    # --output-dir：输出目录。
+    # --batch-size：批量大小。
+    # --workers：工作线程数。
+    # --device：设备类型。
+    # --num-queries：查询数量。
+    # --seed：随机种子。
+    # --cache-only：仅构建缓存，不验证查询结果。
     parser.add_argument("--split", type=Path, default=ROOT / "outputs/stage2/split/gsv_split.jsonl")
     parser.add_argument("--images-root", type=Path, default=ROOT / "data/train/gsv-cities/Images")
     parser.add_argument("--checkpoint", type=Path, required=True)

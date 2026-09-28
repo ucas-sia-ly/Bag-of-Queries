@@ -15,25 +15,29 @@ import json
 from pathlib import Path
 from typing import List
 
-
+# Path(__file__).resolve().parents[3] 是项目根目录
 DEFAULT_DATAFRAMES_DIR = Path(__file__).resolve().parents[3] / "data/train/gsv-cities/Dataframes"
 K_SUPPORT = 2
+# northdeg是 GSV 图像的朝向角度，范围为0-360度。
+# city_id是城市的唯一标识符，用于区分不同城市的图像数据。
+# lat和lon是图像的地理坐标，表示图像拍摄位置的纬度和经度。
+# panoid是Google Street View图像的唯一标识符，用于区分不同的图像。
 REQUIRED_COLUMNS = ("place_id", "year", "month", "northdeg", "city_id", "lat", "lon", "panoid")
 
 
 @dataclass(frozen=True)
 class SplitRecord:
-    image_key: str
-    place_key: str
-    city_id: str
-    local_place_id: int
-    role: str
+    image_key: str# 图像的相对路径，包括 northdeg 来区分不同的图像。
+    place_key: str# 地点的唯一标识符，用于区分不同的地点。
+    city_id: str# 城市的唯一标识符，用于区分不同的城市。
+    local_place_id: int# 地点在城市中的本地唯一标识符，用于区分同一城市中的不同地点。
+    role: str# 角色，"SOURCE" 或 "SUPPORT"，用于区分不同的图像分类。
 
-
+# 构建 JSONL 行，用于写入到文件。
 def _jsonl_line(record: SplitRecord) -> bytes:
     return (json.dumps(asdict(record), ensure_ascii=False, separators=(",", ":")) + "\n").encode("utf-8")
 
-
+# 构建 GSV-Cities 数据集的 Source/Support 分类清单。
 @dataclass(frozen=True)
 class SplitManifest:
     records: tuple[SplitRecord, ...]
@@ -54,7 +58,10 @@ class SplitManifest:
         )
         return manifest_path, summary_path
 
-
+# 从 CSV 行中提取 GSV 图像的唯一标识符和相对路径。
+# 每个 GSV 图像的唯一标识符包括城市、地点、年份、月份、朝向角度、纬度、经度和 Google Street View 图像的唯一标识符。
+# 每个 GSV 图像的相对路径包括 GSV 数据集的根目录、城市、地点、年份、月份、朝向角度、纬度、经度和 Google Street View 图像的唯一标识符。
+# 每个 GSV 图像的唯一标识符和相对路径。
 def _image_identity(row: dict, city: str) -> tuple[int, str]:
     if any(row.get(field) is None or not row[field].strip() for field in REQUIRED_COLUMNS):
         raise ValueError("Missing required image metadata")
@@ -75,7 +82,7 @@ def _image_identity(row: dict, city: str) -> tuple[int, str]:
         raise ValueError("Image metadata must not contain path separators")
     return place_id, f"{city}/{filename}"
 
-
+# 构建 GSV-Cities 数据集的 Source/Support 分类清单
 def build_split(
     cities: List[str], seed: int = 0, *, dataframes_dir: str | Path | None = None,
 ) -> SplitManifest:

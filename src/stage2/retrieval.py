@@ -73,7 +73,7 @@ class GSVSplit:
             hashlib.sha256(f"{seed}\0{r.image_key}".encode()).digest(), r.image_key,
         ))[:count])
 
-
+# 评估时使用的图像变换。
 def evaluation_transform(image_size=(224, 224)):
     """VPRDataModule deterministic resize/scaling/normalization; no RandAugment."""
     if len(image_size) != 2 or min(image_size) <= 0:
@@ -84,7 +84,9 @@ def evaluation_transform(image_size=(224, 224)):
         T.Normalize(MEAN, STD),
     ])
 
-
+# GSV-Cities 数据集的图像数据集。
+# 每个图像数据集包含 GSV-Cities 数据集的 Source/Support 分类清单。
+# 每个图像数据集的图像变换为评估时使用的图像变换。
 class GSVImages(Dataset):
     def __init__(self, records, images_root, image_size=(224, 224)):
         self.records = records
@@ -102,7 +104,7 @@ class GSVImages(Dataset):
         except Exception as exc:
             raise RuntimeError(f"Cannot decode GSV image: {path}") from exc
 
-
+# 验证描述符张量的有效性。
 def validate_descriptors(values, rows=None, dim=None):
     if (not isinstance(values, torch.Tensor) or values.ndim != 2 or min(values.shape) == 0
             or values.dtype != torch.float32
@@ -115,7 +117,7 @@ def validate_descriptors(values, rows=None, dim=None):
         if not torch.allclose(chunk.norm(dim=1), torch.ones(len(chunk), device=chunk.device), atol=2e-5, rtol=0):
             raise ValueError("Descriptors must have unit L2 norm (no zero vectors)")
 
-
+# 对 GSV-Cities 数据集的图像进行编码。
 @torch.inference_mode()
 def encode_images(model, dataset, *, device="cpu", batch_size=32, workers=0, destination=None):
     """Freeze a BoQ-compatible model and encode in dataset order, without AMP.
@@ -146,7 +148,7 @@ def encode_images(model, dataset, *, device="cpu", batch_size=32, workers=0, des
             last_log = time.monotonic()
     return destination
 
-
+# 构建缓存的唯一标识符。
 def cache_identity(split, images_root, checkpoint, model_config, image_size, batch_size, device):
     """Bind cache to input order, source split, weights, code and preprocessing."""
     digest = hashlib.sha256()
@@ -168,7 +170,7 @@ def cache_identity(split, images_root, checkpoint, model_config, image_size, bat
         "source_sha256": {name: file_sha256(ROOT / name) for name in sources},
     }
 
-
+# 加载 GSV-Cities 数据集的 Support 分类的描述符缓存。
 def load_support_cache(path, split, identity):
     if identity.get("split_sha256") != split.sha256 or identity.get("num_support") != len(split.support):
         raise ValueError("Support cache identity does not describe the current split")
@@ -181,7 +183,7 @@ def load_support_cache(path, split, identity):
     validate_descriptors(cache["descriptors"], len(split.support), identity["model"]["descriptor_dim"])
     return cache["descriptors"]
 
-
+# 获取 GSV-Cities 数据集的 Support 分类的描述符缓存，如果不存在则创建。
 def get_support_cache(path, model, split, images_root, identity, *, device="cpu", workers=0):
     path = Path(path)
     if path.exists():
@@ -208,7 +210,7 @@ def get_support_cache(path, model, split, images_root, identity, *, device="cpu"
         temporary.unlink(missing_ok=True)
     return result, False
 
-
+# 为 GSV-Cities 数据集的 Support 分类构建原型。
 @torch.inference_mode()
 def place_prototypes(descriptors, records):
     """Return sorted place keys and normalize(mean(support descriptors))."""
