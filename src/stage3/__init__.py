@@ -1,1 +1,1 @@
-"""Stage3: portable targets exported exclusively from validated Stage2 artifacts."""
+"""Stage3: independent dev cohorts and portable, validated legacy targets."""

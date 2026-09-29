@@ -1,0 +1,62 @@
+{
+  "diagnostics": {
+    "allowed_generation_area": [
+      17511,
+      19353
+    ],
+    "area_tolerance": 0.05,
+    "aspect_ratios": [
+      1.0,
+      0.75,
+      1.3333333333333333,
+      0.5,
+      2.0
+    ],
+    "best_candidate_overlap_ratio": 0.8014981273408239,
+    "candidates_evaluated": 22207,
+    "centroid_coordinate_convention": "[x,y], pixel centers at (column+0.5,row+0.5)",
+    "centroid_distance_normalized": 0.09743024575251834,
+    "centroid_generation": [
+      305.5,
+      128.5
+    ],
+    "centroid_vulnerability": [
+      229.47368421052633,
+      111.3157894736842
+    ],
+    "compactness_after": 0.8066654427421921,
+    "compactness_before": 0.3373953278181905,
+    "compactness_gain": 0.4692701149240016,
+    "compactness_metric": "A^2/(2*pi*polar_second_moment); unit-pixel intrinsic moment included",
+    "connectivity": 8,
+    "ellipse_bounds_xywh": [
+      198,
+      74,
+      215,
+      109
+    ],
+    "failure_reason": null,
+    "generation_area": 18423,
+    "generation_area_ratio": 0.059970703125,
+    "image_height": 480,
+    "image_width": 640,
+    "method": "filled_ellipse_density_search_v1",
+    "min_compactness_gain": 0.0,
+    "min_overlap": 0.7,
+    "morphological_smoothing": "none: analytic filled ellipse boundary; no dilation or resizing",
+    "num_components_after": 1,
+    "num_components_before": 1,
+    "overlap_pixels": 14766,
+    "overlap_ratio": 0.8014981273408239,
+    "refine_candidates": 8,
+    "schema_version": 1,
+    "search_stride": 15,
+    "status": "success",
+    "target_area": 18432.0,
+    "target_area_relative_error": 0.00048828125,
+    "target_ratio": 0.06,
+    "vulnerability_area": 45600,
+    "vulnerability_area_ratio": 0.1484375
+  },
+  "image_key": "Lisbon/Lisbon_0006095_2009_09_247_38.75528646030772_-9.2399049364732_nidFcLt_5ZqbpgpJiJHyDQ.jpg"
+}

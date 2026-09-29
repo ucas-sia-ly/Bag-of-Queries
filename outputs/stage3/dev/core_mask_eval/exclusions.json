@@ -1,0 +1,362 @@
+[
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Minneapolis/Minneapolis_0000433_2007_07_146_44.9423697694418_-93.22992893695849_CCPzldoW-p7BFKIEffu5KA.jpg",
+    "place_key": "Minneapolis:433",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Minneapolis/Minneapolis_0000433_2007_07_146_44.9423697694418_-93.22992893695849_CCPzldoW-p7BFKIEffu5KA.jpg",
+    "place_key": "Minneapolis:433",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Minneapolis/Minneapolis_0000433_2007_07_146_44.9423697694418_-93.22992893695849_CCPzldoW-p7BFKIEffu5KA.jpg",
+    "place_key": "Minneapolis:433",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Boston/Boston_0005923_2020_11_118_42.37207452083979_-71.06206286744221_ChsCIezR5TVnoYvvgStnKA.jpg",
+    "place_key": "Boston:5923",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Boston/Boston_0005923_2020_11_118_42.37207452083979_-71.06206286744221_ChsCIezR5TVnoYvvgStnKA.jpg",
+    "place_key": "Boston:5923",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Boston/Boston_0005923_2020_11_118_42.37207452083979_-71.06206286744221_ChsCIezR5TVnoYvvgStnKA.jpg",
+    "place_key": "Boston:5923",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "PRS/PRS_0003852_2017_08_285_48.88144996828747_2.253564739326964_-e5tMWHJQ0MWt98khFfpzw.jpg",
+    "place_key": "PRS:3852",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "PRS/PRS_0003852_2017_08_285_48.88144996828747_2.253564739326964_-e5tMWHJQ0MWt98khFfpzw.jpg",
+    "place_key": "PRS:3852",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "PRS/PRS_0003852_2017_08_285_48.88144996828747_2.253564739326964_-e5tMWHJQ0MWt98khFfpzw.jpg",
+    "place_key": "PRS:3852",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Lisbon/Lisbon_0006940_2020_11_234_38.75838771906249_-9.153236621903869_SAonGme692p2ftCyZ68xLg.jpg",
+    "place_key": "Lisbon:6940",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Lisbon/Lisbon_0006940_2020_11_234_38.75838771906249_-9.153236621903869_SAonGme692p2ftCyZ68xLg.jpg",
+    "place_key": "Lisbon:6940",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Lisbon/Lisbon_0006940_2020_11_234_38.75838771906249_-9.153236621903869_SAonGme692p2ftCyZ68xLg.jpg",
+    "place_key": "Lisbon:6940",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "ellipse_6pct",
+    "image_key": "Lisbon/Lisbon_0006940_2020_11_234_38.75838771906249_-9.153236621903869_SAonGme692p2ftCyZ68xLg.jpg",
+    "place_key": "Lisbon:6940",
+    "reason": "no_compact_candidate_meets_overlap_in_configured_search"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Rome/Rome_0002122_2020_08_199_41.90132377092937_12.52012151999878_GuNdEAYBS5pzmp1q1Y8YBg.jpg",
+    "place_key": "Rome:2122",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Rome/Rome_0002122_2020_08_199_41.90132377092937_12.52012151999878_GuNdEAYBS5pzmp1q1Y8YBg.jpg",
+    "place_key": "Rome:2122",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Rome/Rome_0002122_2020_08_199_41.90132377092937_12.52012151999878_GuNdEAYBS5pzmp1q1Y8YBg.jpg",
+    "place_key": "Rome:2122",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Osaka/Osaka_0000807_2013_09_253_34.65727791194274_135.509093563069_gMAkNjtySMoTczXNqcTZFg.jpg",
+    "place_key": "Osaka:807",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Osaka/Osaka_0000807_2013_09_253_34.65727791194274_135.509093563069_gMAkNjtySMoTczXNqcTZFg.jpg",
+    "place_key": "Osaka:807",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Osaka/Osaka_0000807_2013_09_253_34.65727791194274_135.509093563069_gMAkNjtySMoTczXNqcTZFg.jpg",
+    "place_key": "Osaka:807",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Lisbon/Lisbon_0006095_2009_09_247_38.75528646030772_-9.2399049364732_nidFcLt_5ZqbpgpJiJHyDQ.jpg",
+    "place_key": "Lisbon:6095",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Lisbon/Lisbon_0006095_2009_09_247_38.75528646030772_-9.2399049364732_nidFcLt_5ZqbpgpJiJHyDQ.jpg",
+    "place_key": "Lisbon:6095",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Lisbon/Lisbon_0006095_2009_09_247_38.75528646030772_-9.2399049364732_nidFcLt_5ZqbpgpJiJHyDQ.jpg",
+    "place_key": "Lisbon:6095",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Lisbon/Lisbon_0002779_2018_08_086_38.7252518157871_-9.128503516894057_5MsgxurIS59xpW1QLwAZYw.jpg",
+    "place_key": "Lisbon:2779",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Lisbon/Lisbon_0002779_2018_08_086_38.7252518157871_-9.128503516894057_5MsgxurIS59xpW1QLwAZYw.jpg",
+    "place_key": "Lisbon:2779",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Lisbon/Lisbon_0002779_2018_08_086_38.7252518157871_-9.128503516894057_5MsgxurIS59xpW1QLwAZYw.jpg",
+    "place_key": "Lisbon:2779",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Minneapolis/Minneapolis_0003893_2017_08_221_44.97941950211654_-93.2297605653329_q-b753kdvso6Bp9II8xW9A.jpg",
+    "place_key": "Minneapolis:3893",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Minneapolis/Minneapolis_0003893_2017_08_221_44.97941950211654_-93.2297605653329_q-b753kdvso6Bp9II8xW9A.jpg",
+    "place_key": "Minneapolis:3893",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Minneapolis/Minneapolis_0003893_2017_08_221_44.97941950211654_-93.2297605653329_q-b753kdvso6Bp9II8xW9A.jpg",
+    "place_key": "Minneapolis:3893",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Boston/Boston_0001662_2014_06_145_42.33599613789761_-71.11166441094086_X9Nl0oVpBwUZ_Wsiorr9wg.jpg",
+    "place_key": "Boston:1662",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Boston/Boston_0001662_2014_06_145_42.33599613789761_-71.11166441094086_X9Nl0oVpBwUZ_Wsiorr9wg.jpg",
+    "place_key": "Boston:1662",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Boston/Boston_0001662_2014_06_145_42.33599613789761_-71.11166441094086_X9Nl0oVpBwUZ_Wsiorr9wg.jpg",
+    "place_key": "Boston:1662",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "ellipse_6pct",
+    "image_key": "Boston/Boston_0001662_2014_06_145_42.33599613789761_-71.11166441094086_X9Nl0oVpBwUZ_Wsiorr9wg.jpg",
+    "place_key": "Boston:1662",
+    "reason": "no_compact_candidate_meets_overlap_in_configured_search"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Miami/Miami_0005394_2018_05_034_25.77388623636925_-80.28563552920058_5aMYkxThHHyAvsN0TsfO8Q.jpg",
+    "place_key": "Miami:5394",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Miami/Miami_0005394_2018_05_034_25.77388623636925_-80.28563552920058_5aMYkxThHHyAvsN0TsfO8Q.jpg",
+    "place_key": "Miami:5394",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Miami/Miami_0005394_2018_05_034_25.77388623636925_-80.28563552920058_5aMYkxThHHyAvsN0TsfO8Q.jpg",
+    "place_key": "Miami:5394",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Melbourne/Melbourne_0002115_2016_12_158_-37.83387046926319_144.9898176307137_22UZ16bPCFmXMWAlBX8wpA.jpg",
+    "place_key": "Melbourne:2115",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Melbourne/Melbourne_0002115_2016_12_158_-37.83387046926319_144.9898176307137_22UZ16bPCFmXMWAlBX8wpA.jpg",
+    "place_key": "Melbourne:2115",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Melbourne/Melbourne_0002115_2016_12_158_-37.83387046926319_144.9898176307137_22UZ16bPCFmXMWAlBX8wpA.jpg",
+    "place_key": "Melbourne:2115",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Minneapolis/Minneapolis_0004231_2015_10_322_44.98477423783478_-93.24972346149887_8PLsXutoxK1vyiZVDcldTg.jpg",
+    "place_key": "Minneapolis:4231",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Minneapolis/Minneapolis_0004231_2015_10_322_44.98477423783478_-93.24972346149887_8PLsXutoxK1vyiZVDcldTg.jpg",
+    "place_key": "Minneapolis:4231",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Minneapolis/Minneapolis_0004231_2015_10_322_44.98477423783478_-93.24972346149887_8PLsXutoxK1vyiZVDcldTg.jpg",
+    "place_key": "Minneapolis:4231",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "PRS/PRS_0003993_2008_05_351_48.88347197568612_2.341366050552943_icEaLnbgqKrD6bVqJZWwIA.jpg",
+    "place_key": "PRS:3993",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "PRS/PRS_0003993_2008_05_351_48.88347197568612_2.341366050552943_icEaLnbgqKrD6bVqJZWwIA.jpg",
+    "place_key": "PRS:3993",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Minneapolis/Minneapolis_0000377_2016_07_244_44.9423262233916_-93.28562247738556_7XWqsfR3tPC6NAbTEtZPLg.jpg",
+    "place_key": "Minneapolis:377",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Minneapolis/Minneapolis_0000377_2016_07_244_44.9423262233916_-93.28562247738556_7XWqsfR3tPC6NAbTEtZPLg.jpg",
+    "place_key": "Minneapolis:377",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Minneapolis/Minneapolis_0000377_2016_07_244_44.9423262233916_-93.28562247738556_7XWqsfR3tPC6NAbTEtZPLg.jpg",
+    "place_key": "Minneapolis:377",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "PRS/PRS_0001345_2019_07_425_48.82726628874777_2.249684779894404_f5b0QSMvumFibA4qMi9PDA.jpg",
+    "place_key": "PRS:1345",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "PRS/PRS_0001345_2019_07_425_48.82726628874777_2.249684779894404_f5b0QSMvumFibA4qMi9PDA.jpg",
+    "place_key": "PRS:1345",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "PRS/PRS_0001345_2019_07_425_48.82726628874777_2.249684779894404_f5b0QSMvumFibA4qMi9PDA.jpg",
+    "place_key": "PRS:1345",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Osaka/Osaka_0003358_2014_03_221_34.70039351075771_135.5291466797902_NNGrUIsUAmSIKkcau021rA.jpg",
+    "place_key": "Osaka:3358",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Osaka/Osaka_0003358_2014_03_221_34.70039351075771_135.5291466797902_NNGrUIsUAmSIKkcau021rA.jpg",
+    "place_key": "Osaka:3358",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Madrid/Madrid_0000478_2015_06_199_40.40212270008486_-3.700366926925112_APSMcaWP3MAoJOmOIRr6Ug.jpg",
+    "place_key": "Madrid:478",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Madrid/Madrid_0000478_2015_06_199_40.40212270008486_-3.700366926925112_APSMcaWP3MAoJOmOIRr6Ug.jpg",
+    "place_key": "Madrid:478",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Madrid/Madrid_0000478_2015_06_199_40.40212270008486_-3.700366926925112_APSMcaWP3MAoJOmOIRr6Ug.jpg",
+    "place_key": "Madrid:478",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Barcelona/Barcelona_0001426_2014_01_297_41.39636654271287_2.150032409254382_xxMeH29nJ57A0f6AHxJWtQ.jpg",
+    "place_key": "Barcelona:1426",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Barcelona/Barcelona_0001426_2014_01_297_41.39636654271287_2.150032409254382_xxMeH29nJ57A0f6AHxJWtQ.jpg",
+    "place_key": "Barcelona:1426",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Barcelona/Barcelona_0001426_2014_01_297_41.39636654271287_2.150032409254382_xxMeH29nJ57A0f6AHxJWtQ.jpg",
+    "place_key": "Barcelona:1426",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.3",
+    "image_key": "Lisbon/Lisbon_0008073_2018_09_333_38.76724411956788_-9.17350562903794_JdPAbJAUwsIJ8W95qK0MyA.jpg",
+    "place_key": "Lisbon:8073",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.5",
+    "image_key": "Lisbon/Lisbon_0008073_2018_09_333_38.76724411956788_-9.17350562903794_JdPAbJAUwsIJ8W95qK0MyA.jpg",
+    "place_key": "Lisbon:8073",
+    "reason": "no_candidate_passes_predeclared_gates"
+  },
+  {
+    "arm": "family_wc_0.7",
+    "image_key": "Lisbon/Lisbon_0008073_2018_09_333_38.76724411956788_-9.17350562903794_JdPAbJAUwsIJ8W95qK0MyA.jpg",
+    "place_key": "Lisbon:8073",
+    "reason": "no_candidate_passes_predeclared_gates"
+  }
+]

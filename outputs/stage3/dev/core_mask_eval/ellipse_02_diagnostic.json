@@ -1,0 +1,62 @@
+{
+  "diagnostics": {
+    "allowed_generation_area": [
+      6840,
+      7560
+    ],
+    "area_tolerance": 0.05,
+    "aspect_ratios": [
+      1.0,
+      0.75,
+      1.3333333333333333,
+      0.5,
+      2.0
+    ],
+    "best_candidate_overlap_ratio": 0.7450055493895672,
+    "candidates_evaluated": 9481,
+    "centroid_coordinate_convention": "[x,y], pixel centers at (column+0.5,row+0.5)",
+    "centroid_distance_normalized": 0.28241055546211924,
+    "centroid_generation": [
+      332.5,
+      107.0
+    ],
+    "centroid_vulnerability": [
+      191.29526462395543,
+      107.39136490250696
+    ],
+    "compactness_after": 0.8035503043334515,
+    "compactness_before": 0.17099934053621896,
+    "compactness_gain": 0.6325509637972326,
+    "compactness_metric": "A^2/(2*pi*polar_second_moment); unit-pixel intrinsic moment included",
+    "connectivity": 8,
+    "ellipse_bounds_xywh": [
+      265,
+      73,
+      135,
+      68
+    ],
+    "failure_reason": null,
+    "generation_area": 7208,
+    "generation_area_ratio": 0.060066666666666664,
+    "image_height": 300,
+    "image_width": 400,
+    "method": "filled_ellipse_density_search_v1",
+    "min_compactness_gain": 0.0,
+    "min_overlap": 0.7,
+    "morphological_smoothing": "none: analytic filled ellipse boundary; no dilation or resizing",
+    "num_components_after": 1,
+    "num_components_before": 1,
+    "overlap_pixels": 5370,
+    "overlap_ratio": 0.7450055493895672,
+    "refine_candidates": 8,
+    "schema_version": 1,
+    "search_stride": 9,
+    "status": "success",
+    "target_area": 7200.0,
+    "target_area_relative_error": 0.0011111111111111111,
+    "target_ratio": 0.06,
+    "vulnerability_area": 17950,
+    "vulnerability_area_ratio": 0.14958333333333335
+  },
+  "image_key": "PRS/PRS_0003852_2017_08_285_48.88144996828747_2.253564739326964_-e5tMWHJQ0MWt98khFfpzw.jpg"
+}

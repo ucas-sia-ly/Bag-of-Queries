@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "protected_stage2_analysis_cohort_files_unchanged": 70,
+  "input_hashes_verified": 66,
+  "selected_masks_verified": 20,
+  "native_exact_random_translations_verified": 100,
+  "query_pairs_verified": 20,
+  "per_condition_rows_verified": 140,
+  "clean_descriptor_max_abs_error": 0,
+  "clean_margin_max_abs_error": 0,
+  "full_support_reference_shape": [
+    127118,
+    8192
+  ],
+  "bootstrap_resamples": 20000,
+  "all_arm_statistics_independently_recomputed": true,
+  "render_masks_used": false,
+  "diffusion_called": false,
+  "training_performed": false
+}

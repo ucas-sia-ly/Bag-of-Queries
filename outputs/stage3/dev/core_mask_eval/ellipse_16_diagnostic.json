@@ -1,0 +1,62 @@
+{
+  "diagnostics": {
+    "allowed_generation_area": [
+      6840,
+      7560
+    ],
+    "area_tolerance": 0.05,
+    "aspect_ratios": [
+      1.0,
+      0.75,
+      1.3333333333333333,
+      0.5,
+      2.0
+    ],
+    "best_candidate_overlap_ratio": 0.9134295227524972,
+    "candidates_evaluated": 10810,
+    "centroid_coordinate_convention": "[x,y], pixel centers at (column+0.5,row+0.5)",
+    "centroid_distance_normalized": 0.055774970920091635,
+    "centroid_generation": [
+      168.5,
+      105.0
+    ],
+    "centroid_vulnerability": [
+      141.46383866481224,
+      111.83796940194715
+    ],
+    "compactness_after": 0.8035503043334515,
+    "compactness_before": 0.3875529497635948,
+    "compactness_gain": 0.41599735456985676,
+    "compactness_metric": "A^2/(2*pi*polar_second_moment); unit-pixel intrinsic moment included",
+    "connectivity": 8,
+    "ellipse_bounds_xywh": [
+      101,
+      71,
+      135,
+      68
+    ],
+    "failure_reason": null,
+    "generation_area": 7208,
+    "generation_area_ratio": 0.060066666666666664,
+    "image_height": 300,
+    "image_width": 400,
+    "method": "filled_ellipse_density_search_v1",
+    "min_compactness_gain": 0.0,
+    "min_overlap": 0.7,
+    "morphological_smoothing": "none: analytic filled ellipse boundary; no dilation or resizing",
+    "num_components_after": 1,
+    "num_components_before": 1,
+    "overlap_pixels": 6584,
+    "overlap_ratio": 0.9134295227524972,
+    "refine_candidates": 8,
+    "schema_version": 1,
+    "search_stride": 9,
+    "status": "success",
+    "target_area": 7200.0,
+    "target_area_relative_error": 0.0011111111111111111,
+    "target_ratio": 0.06,
+    "vulnerability_area": 17975,
+    "vulnerability_area_ratio": 0.14979166666666666
+  },
+  "image_key": "Osaka/Osaka_0003358_2014_03_221_34.70039351075771_135.5291466797902_NNGrUIsUAmSIKkcau021rA.jpg"
+}

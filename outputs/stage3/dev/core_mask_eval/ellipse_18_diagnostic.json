@@ -1,0 +1,62 @@
+{
+  "diagnostics": {
+    "allowed_generation_area": [
+      6840,
+      7560
+    ],
+    "area_tolerance": 0.05,
+    "aspect_ratios": [
+      1.0,
+      0.75,
+      1.3333333333333333,
+      0.5,
+      2.0
+    ],
+    "best_candidate_overlap_ratio": 0.8357380688124306,
+    "candidates_evaluated": 10343,
+    "centroid_coordinate_convention": "[x,y], pixel centers at (column+0.5,row+0.5)",
+    "centroid_distance_normalized": 0.20596618959413152,
+    "centroid_generation": [
+      82.5,
+      165.0
+    ],
+    "centroid_vulnerability": [
+      185.27856135401976,
+      158.5126939351199
+    ],
+    "compactness_after": 0.8035503043334515,
+    "compactness_before": 0.18658016407604247,
+    "compactness_gain": 0.616970140257409,
+    "compactness_metric": "A^2/(2*pi*polar_second_moment); unit-pixel intrinsic moment included",
+    "connectivity": 8,
+    "ellipse_bounds_xywh": [
+      15,
+      131,
+      135,
+      68
+    ],
+    "failure_reason": null,
+    "generation_area": 7208,
+    "generation_area_ratio": 0.060066666666666664,
+    "image_height": 300,
+    "image_width": 400,
+    "method": "filled_ellipse_density_search_v1",
+    "min_compactness_gain": 0.0,
+    "min_overlap": 0.7,
+    "morphological_smoothing": "none: analytic filled ellipse boundary; no dilation or resizing",
+    "num_components_after": 1,
+    "num_components_before": 1,
+    "overlap_pixels": 6024,
+    "overlap_ratio": 0.8357380688124306,
+    "refine_candidates": 8,
+    "schema_version": 1,
+    "search_stride": 9,
+    "status": "success",
+    "target_area": 7200.0,
+    "target_area_relative_error": 0.0011111111111111111,
+    "target_ratio": 0.06,
+    "vulnerability_area": 17725,
+    "vulnerability_area_ratio": 0.14770833333333333
+  },
+  "image_key": "Barcelona/Barcelona_0001426_2014_01_297_41.39636654271287_2.150032409254382_xxMeH29nJ57A0f6AHxJWtQ.jpg"
+}

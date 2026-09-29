@@ -1,0 +1,173 @@
+{
+  "candidate_config_sha256": "788df424dce23238b1e5912210b2f32c825e3a7ccd0adc60a6d1d23b9ef2c0ce",
+  "candidate_configuration": {
+    "families": {
+      "construction_barrier": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.015,
+          0.08
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          2.5,
+          4.0
+        ],
+        "shape": "horizontal_compact"
+      },
+      "construction_tarp": {
+        "angle_offsets_degrees": [
+          -5.0,
+          0.0,
+          5.0
+        ],
+        "area_range": [
+          0.035,
+          0.14
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.8,
+          1.6
+        ],
+        "shape": "facade_rectangle"
+      },
+      "parked_vehicle": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.03,
+          0.12
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          2.0,
+          3.0
+        ],
+        "shape": "horizontal_compact"
+      },
+      "scaffolding": {
+        "angle_offsets_degrees": [
+          -5.0,
+          0.0,
+          5.0
+        ],
+        "area_range": [
+          0.04,
+          0.16
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.6,
+          1.4
+        ],
+        "shape": "facade_rectangle"
+      },
+      "temporary_sign": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.006,
+          0.035
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.4,
+          0.65
+        ],
+        "shape": "vertical_rectangle"
+      },
+      "traffic_cones": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.004,
+          0.025
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.55,
+          0.8
+        ],
+        "shape": "cone_triangle"
+      },
+      "vegetation": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.02,
+          0.1
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.8,
+          1.2
+        ],
+        "shape": "compact_irregular_blob"
+      }
+    },
+    "render": {
+      "max_added_area_ratio": 0.3,
+      "max_image_area_fraction": 0.2,
+      "max_radius_pixels": 6,
+      "radius_fraction_of_short_side": 0.008
+    },
+    "schema_version": 1,
+    "search": {
+      "anchor_separation_tokens": 3.0,
+      "center_offsets": [
+        -0.5,
+        0.0,
+        0.5
+      ],
+      "roi_anchors": 4
+    },
+    "tau_target_precision": 0.7,
+    "weight_map": "raw_attention_map",
+    "weighted_coverage_scope": "full_map",
+    "weighted_coverage_thresholds": [
+      0.3,
+      0.5,
+      0.7
+    ]
+  },
+  "candidate_selection_rule": "max full-map weighted coverage; max target precision; min area; min centroid distance; candidate_id ascending",
+  "checkpoint_sha256": "051323a4b683bee4fdfb55ed93e4a2213bdff8720bcce214695c7c145255431d",
+  "freeze_rule": "among family arms with >=2 paired queries: max query coverage, max mean paired margin advantage, then higher threshold; never use p-values",
+  "inference_scope": "dev selection only; no final-paper significance claim",
+  "intervention_protocol": "native float RGB mean-fill; round to uint8; frozen Stage2 uint8 bicubic antialias resize to 224 and ImageNet normalization",
+  "protocol_sha256": "655f355f835da9ffcf57489197b9a2d690c9efd72e481021d64a37160b2421c5",
+  "random_repeats": 5,
+  "schema_version": 1,
+  "seed": 0,
+  "selected_dev_statistics": {
+    "arm": "family_wc_0.3",
+    "bootstrap_resamples": 20000,
+    "bootstrap_seed": 0,
+    "bootstrap_unit": "query",
+    "ci_high": 0.03757321834564209,
+    "ci_low": 0.0011011123657226618,
+    "inference_scope": "dev_selection_only_not_final_paper_test",
+    "mean_paired_difference": 0.019337165355682376,
+    "mean_random_margin_drop": 0.04968762844800949,
+    "mean_target_margin_drop": 0.06902479380369186,
+    "median_paired_difference": 0.019337165355682376,
+    "median_random_margin_drop": 0.04968762844800949,
+    "median_target_margin_drop": 0.06902479380369186,
+    "n_queries": 2,
+    "status": "descriptive_dev_statistics",
+    "tie_rate": 0.0,
+    "wilcoxon_p_raw": 0.17971249487899976,
+    "wilcoxon_statistic": 0.0,
+    "win_rate": 1.0
+  },
+  "selected_weighted_coverage_threshold": 0.3,
+  "status": "FROZEN_DEV_CONFIGURATION",
+  "support_cache_sha256": "005c92cbf1481301c4b760144f285938612f03d5b0e2c224ac53e1ed333b3d06"
+}

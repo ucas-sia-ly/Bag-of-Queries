@@ -1,0 +1,982 @@
+[
+  {
+    "applied_mean_rgb_uint8": [
+      104,
+      103,
+      96
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-00",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Minneapolis/Minneapolis_0000433_2007_07_146_44.9423697694418_-93.22992893695849_CCPzldoW-p7BFKIEffu5KA.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        199,
+        -139
+      ],
+      [
+        61,
+        221
+      ],
+      [
+        97,
+        205
+      ],
+      [
+        132,
+        20
+      ],
+      [
+        190,
+        115
+      ]
+    ],
+    "placement_seed": 7608986949365166980,
+    "placements_path": "masks/6c098a20c01a4b01d107148c_placements.npz",
+    "placements_sha256": "c51317be6ec7f9534bd12c7c7a34418c366258dfcf99bc9b8e4dd164a42bdbda",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.40844085812568665,
+      0.40514642000198364,
+      0.37733975052833557
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      126,
+      119,
+      117
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-01",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Boston/Boston_0005923_2020_11_118_42.37207452083979_-71.06206286744221_ChsCIezR5TVnoYvvgStnKA.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        98,
+        134
+      ],
+      [
+        99,
+        189
+      ],
+      [
+        151,
+        130
+      ],
+      [
+        -119,
+        109
+      ],
+      [
+        -123,
+        -158
+      ]
+    ],
+    "placement_seed": 5039702003570665710,
+    "placements_path": "masks/0a58cbf09bac930614496d04_placements.npz",
+    "placements_sha256": "61dcd25af5f120880a828a7f088e0498343ee557649419c05fe9a793f57c0ca5",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4949057102203369,
+      0.46637165546417236,
+      0.4604051113128662
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      109,
+      106,
+      106
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-02",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "PRS/PRS_0003852_2017_08_285_48.88144996828747_2.253564739326964_-e5tMWHJQ0MWt98khFfpzw.jpg",
+    "legal_alternatives": 61977,
+    "native_shape": [
+      300,
+      400
+    ],
+    "offsets_dy_dx": [
+      [
+        36,
+        -102
+      ],
+      [
+        119,
+        -194
+      ],
+      [
+        -6,
+        -130
+      ],
+      [
+        99,
+        -192
+      ],
+      [
+        109,
+        -9
+      ]
+    ],
+    "placement_seed": 5390184579056811404,
+    "placements_path": "masks/46e38421101e0315e7f3095e_placements.npz",
+    "placements_sha256": "dbbcaac6de0ef3f85bba52e59ab175c6940b680183735ba4e4198e2231d7fbb5",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4264166057109833,
+      0.41682401299476624,
+      0.4140890836715698
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      131,
+      135,
+      136
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-04",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Rome/Rome_0002122_2020_08_199_41.90132377092937_12.52012151999878_GuNdEAYBS5pzmp1q1Y8YBg.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        98,
+        -281
+      ],
+      [
+        -64,
+        -283
+      ],
+      [
+        87,
+        -28
+      ],
+      [
+        -43,
+        -130
+      ],
+      [
+        111,
+        -58
+      ]
+    ],
+    "placement_seed": 928995792305997993,
+    "placements_path": "masks/59b9e9537358437f4f65374e_placements.npz",
+    "placements_sha256": "dd53734b93eab5c34abdca26997f087fe6754332f65e2810cefc3c1131e317d9",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.5117932558059692,
+      0.5295037031173706,
+      0.5349270701408386
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      102,
+      99,
+      94
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-05",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Osaka/Osaka_0000807_2013_09_253_34.65727791194274_135.509093563069_gMAkNjtySMoTczXNqcTZFg.jpg",
+    "legal_alternatives": 61977,
+    "native_shape": [
+      300,
+      400
+    ],
+    "offsets_dy_dx": [
+      [
+        18,
+        -143
+      ],
+      [
+        96,
+        -157
+      ],
+      [
+        69,
+        24
+      ],
+      [
+        82,
+        -16
+      ],
+      [
+        70,
+        37
+      ]
+    ],
+    "placement_seed": 2236578873033904080,
+    "placements_path": "masks/e8b245bb522fdd1966348cbb_placements.npz",
+    "placements_sha256": "3f008064d028405390b0f5b0357e6d9687b05b80617a625dc884d33bab64d7de",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.39867663383483887,
+      0.3891758322715759,
+      0.3697030544281006
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      129,
+      126,
+      115
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-06",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Lisbon/Lisbon_0006095_2009_09_247_38.75528646030772_-9.2399049364732_nidFcLt_5ZqbpgpJiJHyDQ.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        127,
+        113
+      ],
+      [
+        166,
+        135
+      ],
+      [
+        -61,
+        -114
+      ],
+      [
+        124,
+        120
+      ],
+      [
+        85,
+        -196
+      ]
+    ],
+    "placement_seed": 6175032429554808234,
+    "placements_path": "masks/240245ef374a5526339bcdf1_placements.npz",
+    "placements_sha256": "519beaebfa54e856ced72ca43169ed24bde376152f73558a30ccbd9d366a517b",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.5068702101707458,
+      0.49294641613960266,
+      0.45057412981987
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      142,
+      143,
+      138
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-07",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Lisbon/Lisbon_0002779_2018_08_086_38.7252518157871_-9.128503516894057_5MsgxurIS59xpW1QLwAZYw.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        -21,
+        201
+      ],
+      [
+        83,
+        -7
+      ],
+      [
+        172,
+        -37
+      ],
+      [
+        86,
+        309
+      ],
+      [
+        -14,
+        81
+      ]
+    ],
+    "placement_seed": 7355959160745005533,
+    "placements_path": "masks/d15f2e619fc31a9943cd8681_placements.npz",
+    "placements_sha256": "6636194b9f1253a09ec0c1af606a4b1405a041dce7d182996efbea5d65be876c",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.5553129315376282,
+      0.5610508322715759,
+      0.5402460694313049
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      101,
+      94,
+      86
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-08",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Minneapolis/Minneapolis_0003893_2017_08_221_44.97941950211654_-93.2297605653329_q-b753kdvso6Bp9II8xW9A.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        -194,
+        -43
+      ],
+      [
+        -78,
+        -21
+      ],
+      [
+        119,
+        -261
+      ],
+      [
+        131,
+        -267
+      ],
+      [
+        -49,
+        -411
+      ]
+    ],
+    "placement_seed": 8466990235229279901,
+    "placements_path": "masks/9a2a1064801aa866e2925c7d_placements.npz",
+    "placements_sha256": "6593ccb768ce0243a194f74d1327b3dbe18b6c231517af25e8b6055473d62602",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.39604681730270386,
+      0.3687041103839874,
+      0.3373810648918152
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      113,
+      112,
+      94
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-10",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Miami/Miami_0005394_2018_05_034_25.77388623636925_-80.28563552920058_5aMYkxThHHyAvsN0TsfO8Q.jpg",
+    "legal_alternatives": 154019,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        16,
+        49
+      ],
+      [
+        73,
+        481
+      ],
+      [
+        171,
+        380
+      ],
+      [
+        168,
+        113
+      ],
+      [
+        -10,
+        362
+      ]
+    ],
+    "placement_seed": 4279778577731988507,
+    "placements_path": "masks/1af978a2f7c6d4705f2a59a1_placements.npz",
+    "placements_sha256": "abc406ea563ceee310a6058fa11e4b2ec654dcf7e43187ed5ae4fa8f07649bc9",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4435495138168335,
+      0.4404875636100769,
+      0.36809322237968445
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      106,
+      107,
+      105
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-11",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Melbourne/Melbourne_0002115_2016_12_158_-37.83387046926319_144.9898176307137_22UZ16bPCFmXMWAlBX8wpA.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        228,
+        -42
+      ],
+      [
+        207,
+        -224
+      ],
+      [
+        -7,
+        -206
+      ],
+      [
+        121,
+        -12
+      ],
+      [
+        142,
+        -7
+      ]
+    ],
+    "placement_seed": 4770056582670537200,
+    "placements_path": "masks/83e5475b1f9d4b96e8fcbc59_placements.npz",
+    "placements_sha256": "b78bf4250c822e4671e77b281d8480b945f96b9becbb87d292c3b771e9d459be",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4153737425804138,
+      0.4185149669647217,
+      0.4115871489048004
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      120,
+      120,
+      105
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-12",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Minneapolis/Minneapolis_0004231_2015_10_322_44.98477423783478_-93.24972346149887_8PLsXutoxK1vyiZVDcldTg.jpg",
+    "legal_alternatives": 159902,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        30,
+        -285
+      ],
+      [
+        20,
+        140
+      ],
+      [
+        47,
+        -156
+      ],
+      [
+        83,
+        -257
+      ],
+      [
+        -81,
+        -126
+      ]
+    ],
+    "placement_seed": 1164578449224575648,
+    "placements_path": "masks/a522c8b00b900ed5aa27e9b2_placements.npz",
+    "placements_sha256": "f1b640c1febb90fdfca7351be4d859169f7462fbd4ed3230804269712b2376b6",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4712337851524353,
+      0.47063732147216797,
+      0.410794734954834
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      124,
+      126,
+      128
+    ],
+    "arm": "family_wc_0.3",
+    "candidate_id": "9eaa9b8b7b7b5e243f6b04e5",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "PRS/PRS_0003993_2008_05_351_48.88347197568612_2.341366050552943_icEaLnbgqKrD6bVqJZWwIA.jpg",
+    "legal_alternatives": 42364,
+    "native_shape": [
+      300,
+      400
+    ],
+    "offsets_dy_dx": [
+      [
+        26,
+        -54
+      ],
+      [
+        71,
+        -60
+      ],
+      [
+        -43,
+        -74
+      ],
+      [
+        -28,
+        -25
+      ],
+      [
+        -11,
+        15
+      ]
+    ],
+    "placement_seed": 3533542379027256192,
+    "placements_path": "masks/1f5a5d53497e863b4eac6d25_placements.npz",
+    "placements_sha256": "2f84a37b3ef4159254ca3af900ed0c21e5e4889e214f5385155769901b811647",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4866698384284973,
+      0.4945134222507477,
+      0.5010082721710205
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      124,
+      126,
+      128
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-13",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "PRS/PRS_0003993_2008_05_351_48.88347197568612_2.341366050552943_icEaLnbgqKrD6bVqJZWwIA.jpg",
+    "legal_alternatives": 61977,
+    "native_shape": [
+      300,
+      400
+    ],
+    "offsets_dy_dx": [
+      [
+        57,
+        40
+      ],
+      [
+        -71,
+        128
+      ],
+      [
+        2,
+        165
+      ],
+      [
+        -10,
+        -40
+      ],
+      [
+        -26,
+        -23
+      ]
+    ],
+    "placement_seed": 4885488877670539000,
+    "placements_path": "masks/d935b134150aa69e737f607c_placements.npz",
+    "placements_sha256": "89ec8e2b38e7a5f72df16ed23585cc8dae4b70f076f4b4f8cd374db56ddd6d6b",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4866698384284973,
+      0.4945134222507477,
+      0.5010082721710205
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      68,
+      74,
+      66
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-14",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Minneapolis/Minneapolis_0000377_2016_07_244_44.9423262233916_-93.28562247738556_7XWqsfR3tPC6NAbTEtZPLg.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        -219,
+        415
+      ],
+      [
+        115,
+        56
+      ],
+      [
+        56,
+        158
+      ],
+      [
+        -225,
+        259
+      ],
+      [
+        -233,
+        75
+      ]
+    ],
+    "placement_seed": 8792944653569977305,
+    "placements_path": "masks/409c7b104695af27e9002571_placements.npz",
+    "placements_sha256": "2cca0a0b8dd3cd1ba1a25dba343b818bd66023debf5d0e2aa0a941b6da7916fd",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.268027126789093,
+      0.29132193326950073,
+      0.25907808542251587
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      121,
+      115,
+      105
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-15",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "PRS/PRS_0001345_2019_07_425_48.82726628874777_2.249684779894404_f5b0QSMvumFibA4qMi9PDA.jpg",
+    "legal_alternatives": 55277,
+    "native_shape": [
+      300,
+      400
+    ],
+    "offsets_dy_dx": [
+      [
+        -4,
+        258
+      ],
+      [
+        41,
+        208
+      ],
+      [
+        59,
+        318
+      ],
+      [
+        -24,
+        72
+      ],
+      [
+        75,
+        57
+      ]
+    ],
+    "placement_seed": 4879982341690752182,
+    "placements_path": "masks/182b865e3d9d9c7350d18e55_placements.npz",
+    "placements_sha256": "5511d963a4af899205b42799cde32a40ec1123befd3b5b0eac70286bfeef9c4a",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.47626522183418274,
+      0.45264050364494324,
+      0.4115036427974701
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      110,
+      113,
+      113
+    ],
+    "arm": "family_wc_0.3",
+    "candidate_id": "15a2b41890a92c823741a38e",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Osaka/Osaka_0003358_2014_03_221_34.70039351075771_135.5291466797902_NNGrUIsUAmSIKkcau021rA.jpg",
+    "legal_alternatives": 42593,
+    "native_shape": [
+      300,
+      400
+    ],
+    "offsets_dy_dx": [
+      [
+        -27,
+        115
+      ],
+      [
+        -45,
+        13
+      ],
+      [
+        -11,
+        60
+      ],
+      [
+        94,
+        31
+      ],
+      [
+        11,
+        52
+      ]
+    ],
+    "placement_seed": 2740717911291002098,
+    "placements_path": "masks/3a8f8c73f20f054f4d09b113_placements.npz",
+    "placements_sha256": "9b49c1d492b0d9a1e5e8bffb2bf8575f2ecd14840f5998249bacd3af5d3df88f",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.432931512594223,
+      0.4444989562034607,
+      0.4431177079677582
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      110,
+      113,
+      113
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-16",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Osaka/Osaka_0003358_2014_03_221_34.70039351075771_135.5291466797902_NNGrUIsUAmSIKkcau021rA.jpg",
+    "legal_alternatives": 61977,
+    "native_shape": [
+      300,
+      400
+    ],
+    "offsets_dy_dx": [
+      [
+        140,
+        -79
+      ],
+      [
+        -10,
+        150
+      ],
+      [
+        47,
+        65
+      ],
+      [
+        100,
+        106
+      ],
+      [
+        -5,
+        91
+      ]
+    ],
+    "placement_seed": 509740860776701370,
+    "placements_path": "masks/9ed73025ead6f2232f81a1b1_placements.npz",
+    "placements_sha256": "dceece577475403eadb12f508b9ef36a6f2808aa3166d74c2a4f7561db4c1e8d",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.432931512594223,
+      0.4444989562034607,
+      0.4431177079677582
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      111,
+      109,
+      100
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-17",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Madrid/Madrid_0000478_2015_06_199_40.40212270008486_-3.700366926925112_APSMcaWP3MAoJOmOIRr6Ug.jpg",
+    "legal_alternatives": 158471,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        29,
+        -155
+      ],
+      [
+        -9,
+        -59
+      ],
+      [
+        -11,
+        3
+      ],
+      [
+        -70,
+        9
+      ],
+      [
+        216,
+        72
+      ]
+    ],
+    "placement_seed": 6600102978182996857,
+    "placements_path": "masks/1fb7153f87e090b8cdf95f01_placements.npz",
+    "placements_sha256": "33081e842fa7b30764dc1b8512c7041b43a949d9ac464d0824a60133754a629a",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4359520375728607,
+      0.42880573868751526,
+      0.3940545618534088
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      104,
+      105,
+      102
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-18",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Barcelona/Barcelona_0001426_2014_01_297_41.39636654271287_2.150032409254382_xxMeH29nJ57A0f6AHxJWtQ.jpg",
+    "legal_alternatives": 61977,
+    "native_shape": [
+      300,
+      400
+    ],
+    "offsets_dy_dx": [
+      [
+        -6,
+        27
+      ],
+      [
+        -3,
+        131
+      ],
+      [
+        -112,
+        207
+      ],
+      [
+        94,
+        149
+      ],
+      [
+        -37,
+        236
+      ]
+    ],
+    "placement_seed": 2775393201455671729,
+    "placements_path": "masks/baf69c684cad156d6e56b529_placements.npz",
+    "placements_sha256": "65deae2ea2cf31fc3d05090aa8548f4e94f8f3f40a8cfe75dc457851a2bdaae5",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.4073115587234497,
+      0.4114799499511719,
+      0.3996059000492096
+    ]
+  },
+  {
+    "applied_mean_rgb_uint8": [
+      143,
+      143,
+      140
+    ],
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-19",
+    "clean_margin_abs_error": 0.0,
+    "descriptor_max_abs_error": 0.0,
+    "exact_translation_verified": true,
+    "image_key": "Lisbon/Lisbon_0008073_2018_09_333_38.76724411956788_-9.17350562903794_JdPAbJAUwsIJ8W95qK0MyA.jpg",
+    "legal_alternatives": 154019,
+    "native_shape": [
+      480,
+      640
+    ],
+    "offsets_dy_dx": [
+      [
+        136,
+        2
+      ],
+      [
+        -15,
+        -330
+      ],
+      [
+        110,
+        -207
+      ],
+      [
+        -114,
+        70
+      ],
+      [
+        -70,
+        -182
+      ]
+    ],
+    "placement_seed": 6095228975925296391,
+    "placements_path": "masks/47af3c385d4c40d95be95095_placements.npz",
+    "placements_sha256": "2caedb4da0cc2672826c858e8ff13682a2aeae313c4a3d6a64bb0d7f5e4ae2e2",
+    "quantization": "round to nearest uint8 before unchanged Stage2 uint8 bicubic resize",
+    "requested_mean_rgb_0_1": [
+      0.5607510209083557,
+      0.561396062374115,
+      0.5471590161323547
+    ]
+  }
+]

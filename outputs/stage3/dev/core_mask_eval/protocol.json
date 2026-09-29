@@ -1,0 +1,227 @@
+{
+  "arms": [
+    "family_wc_0.3",
+    "family_wc_0.5",
+    "family_wc_0.7",
+    "ellipse_6pct"
+  ],
+  "baseline": "original AdaptVPR ellipse adapter: target_ratio=.06, min_overlap=.70; unchanged defaults; no weighted coverage filter",
+  "bootstrap_resamples": 20000,
+  "candidate_selection_rule": "max full-map weighted coverage; max target precision; min area; min centroid distance; candidate_id ascending",
+  "configuration": {
+    "families": {
+      "construction_barrier": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.015,
+          0.08
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          2.5,
+          4.0
+        ],
+        "shape": "horizontal_compact"
+      },
+      "construction_tarp": {
+        "angle_offsets_degrees": [
+          -5.0,
+          0.0,
+          5.0
+        ],
+        "area_range": [
+          0.035,
+          0.14
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.8,
+          1.6
+        ],
+        "shape": "facade_rectangle"
+      },
+      "parked_vehicle": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.03,
+          0.12
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          2.0,
+          3.0
+        ],
+        "shape": "horizontal_compact"
+      },
+      "scaffolding": {
+        "angle_offsets_degrees": [
+          -5.0,
+          0.0,
+          5.0
+        ],
+        "area_range": [
+          0.04,
+          0.16
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.6,
+          1.4
+        ],
+        "shape": "facade_rectangle"
+      },
+      "temporary_sign": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.006,
+          0.035
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.4,
+          0.65
+        ],
+        "shape": "vertical_rectangle"
+      },
+      "traffic_cones": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.004,
+          0.025
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.55,
+          0.8
+        ],
+        "shape": "cone_triangle"
+      },
+      "vegetation": {
+        "angle_offsets_degrees": [
+          0.0
+        ],
+        "area_range": [
+          0.02,
+          0.1
+        ],
+        "area_samples": 3,
+        "aspect_ratios": [
+          0.8,
+          1.2
+        ],
+        "shape": "compact_irregular_blob"
+      }
+    },
+    "render": {
+      "max_added_area_ratio": 0.3,
+      "max_image_area_fraction": 0.2,
+      "max_radius_pixels": 6,
+      "radius_fraction_of_short_side": 0.008
+    },
+    "schema_version": 1,
+    "search": {
+      "anchor_separation_tokens": 3.0,
+      "center_offsets": [
+        -0.5,
+        0.0,
+        0.5
+      ],
+      "roi_anchors": 4
+    },
+    "tau_target_precision": 0.7,
+    "weight_map": "raw_attention_map",
+    "weighted_coverage_scope": "full_map",
+    "weighted_coverage_thresholds": [
+      0.3,
+      0.5,
+      0.7
+    ]
+  },
+  "configuration_sha256": "788df424dce23238b1e5912210b2f32c825e3a7ccd0adc60a6d1d23b9ef2c0ce",
+  "dev_freeze_rule": "among family arms with >=2 paired queries: max query coverage, max mean paired margin advantage, then higher threshold; never use p-values",
+  "ellipse_adapter_sha256": "08e1246d27a9dd27527059070c874599d4ce2d84353620196d67b41afacc4740",
+  "inference_scope": "DEV_SELECTION_ONLY; p-values are descriptive, not final paper tests",
+  "inputs_sha256": {
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Barcelona/Barcelona_0001426_2014_01_297_41.39636654271287_2.150032409254382_xxMeH29nJ57A0f6AHxJWtQ.jpg": "b289d771c13ec0be44c0a1d2b51a46da858de831df2e7fea6902460e75fc13a2",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Boston/Boston_0001662_2014_06_145_42.33599613789761_-71.11166441094086_X9Nl0oVpBwUZ_Wsiorr9wg.jpg": "3dcad32bb2a0cde67b849b0b1f8bde9f4988543a00b25b178ef8f3611ccc26e1",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Boston/Boston_0005923_2020_11_118_42.37207452083979_-71.06206286744221_ChsCIezR5TVnoYvvgStnKA.jpg": "b76360f0d7f8688a70e751c2d79f9b2cf1767447bc0063e0e876aa3e61363377",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Lisbon/Lisbon_0002779_2018_08_086_38.7252518157871_-9.128503516894057_5MsgxurIS59xpW1QLwAZYw.jpg": "878e756622e98aeda9f27d4ab7916d1247257e2ad13b43ec35828b9f19237b82",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Lisbon/Lisbon_0006095_2009_09_247_38.75528646030772_-9.2399049364732_nidFcLt_5ZqbpgpJiJHyDQ.jpg": "c9b459eaa88a51b67a1720054c22bb0d3fac71492899c8b77aa375ec91ae3073",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Lisbon/Lisbon_0006940_2020_11_234_38.75838771906249_-9.153236621903869_SAonGme692p2ftCyZ68xLg.jpg": "c9c20c110d472dc64dcd5a43feb6ae98b72ba7e061e364f84c2a5df95175a661",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Lisbon/Lisbon_0008073_2018_09_333_38.76724411956788_-9.17350562903794_JdPAbJAUwsIJ8W95qK0MyA.jpg": "684cc3653a48c1eceaf66fa4ae70ade679aee7f339b2f4efe6893161a37ee33c",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Madrid/Madrid_0000478_2015_06_199_40.40212270008486_-3.700366926925112_APSMcaWP3MAoJOmOIRr6Ug.jpg": "685634f65ff099449febb9292eb9c3ec49d18f6afa8f0ffbc92138f2a26ae38a",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Melbourne/Melbourne_0002115_2016_12_158_-37.83387046926319_144.9898176307137_22UZ16bPCFmXMWAlBX8wpA.jpg": "e5219e66356e3a2d281c86a86e49c2ef2626d477dd3f915dbba236724eaea5e9",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Miami/Miami_0005394_2018_05_034_25.77388623636925_-80.28563552920058_5aMYkxThHHyAvsN0TsfO8Q.jpg": "5f1a68637d9673325083fa610a70fb7150a531ca8c3dace2a8329d80aa8ee9df",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Minneapolis/Minneapolis_0000377_2016_07_244_44.9423262233916_-93.28562247738556_7XWqsfR3tPC6NAbTEtZPLg.jpg": "bc36d344be2a849405bcabd7181741846ccc156390cdd01c4eb3bb296d2b4426",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Minneapolis/Minneapolis_0000433_2007_07_146_44.9423697694418_-93.22992893695849_CCPzldoW-p7BFKIEffu5KA.jpg": "b9737a36b2572c9a8915edfbcdeafd53fbcc3dac8eca7d42b341827d2b80e851",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Minneapolis/Minneapolis_0003893_2017_08_221_44.97941950211654_-93.2297605653329_q-b753kdvso6Bp9II8xW9A.jpg": "7d2070d3f34f529b0ab0086123155ba26593945329f4c997534688cb3ee1925f",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Minneapolis/Minneapolis_0004231_2015_10_322_44.98477423783478_-93.24972346149887_8PLsXutoxK1vyiZVDcldTg.jpg": "ba97878399794ae3fe4d21d00457e1c4ae7b67dc124df78ebf68abe41ea1e81a",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Osaka/Osaka_0000807_2013_09_253_34.65727791194274_135.509093563069_gMAkNjtySMoTczXNqcTZFg.jpg": "90f106e06582422cb42bc69705779180e18ff787a617efd510f937104b874fdb",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Osaka/Osaka_0003358_2014_03_221_34.70039351075771_135.5291466797902_NNGrUIsUAmSIKkcau021rA.jpg": "640221b03a869c1d273735933f4cfaaa28ec76a812e1f2dc17f0d600343e9bc0",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/PRS/PRS_0001345_2019_07_425_48.82726628874777_2.249684779894404_f5b0QSMvumFibA4qMi9PDA.jpg": "8cf8e49a5bed42f08aa0ff45fcebdb77c662db628fad8c262bd283ed35a2c2ee",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/PRS/PRS_0003852_2017_08_285_48.88144996828747_2.253564739326964_-e5tMWHJQ0MWt98khFfpzw.jpg": "ae4faec3aa27c0d5c6c1a5749a44bc07bee47af76333bf797d6537038dbf420c",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/PRS/PRS_0003993_2008_05_351_48.88347197568612_2.341366050552943_icEaLnbgqKrD6bVqJZWwIA.jpg": "b7a74ddc68ac9ef9190e46ee3691650c454ca8d37402b92567dd94dd4fb77867",
+    "/home/admin123/视频/Bag-of-Queries/data/train/gsv-cities/Images/Rome/Rome_0002122_2020_08_199_41.90132377092937_12.52012151999878_GuNdEAYBS5pzmp1q1Y8YBg.jpg": "84e8b0375c2368200c40299ba03a38aa195c8da4a6ab035d26ea37263cdab484",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage2/gsv_occlusion/prototype/config.json": "918da29cf89a550e219054669bc073a234f016e2204761d79ead95ae92e1b131",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage2/gsv_occlusion/support/config.json": "4be95448d0c2838a1dc1b3aab47933a94f2e23ce898299a647e89db77b3c3e55",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage2/retrieval/validation.json": "d604bd07b56d422320587225944d04f0d7bac61cd88f0cc071b0715705fa950e",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage2/split/gsv_split.jsonl": "50dc1fe07a301a696537152ffcfd6832e5fa0bba643f03961bccd0dcb06fd4a7",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage2/vulnerability/verification.json": "691494e6e89695d3e65033aa351c149573bef4f85e30147f34c04aeca33a7865",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/cohort.jsonl": "cd9119c97f5dc851d82b4510b90896034eb3066554e88a2633c9a39bd5cf52b9",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/summary.json": "b3765fce32232d4e41998ae4ef1504676bd267b2116ebb4ced58d4bb7129a3de",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/11f86ed1134bf535790b01a53be737e0b53ce214d6dab8dda23cbb9c8d64eff8.npz": "717f4ce8932409a804d5c2f4eeb668dd7159602a750bbae1b7d83ba50d149428",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/140be750f7e02a6c97d99b4bcea481470201e59930a194b071dbfb7a567ef603.npz": "f5f09e18819f0f7437e176522c981625eba8d8aa868e10b22fb2d17e189ec661",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/28e0db5a092461c0d4c2fbf681c27eae8421c6df817bdbd876181a6791528294.npz": "e58a5ce3b0c65f825ed854d00d2c4dccb22c603295a3817989e8a123130a629c",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/5243871d509f70abb0ca9731563af772899adbf60256496e735ee5a50f34259c.npz": "629b38dd63a0c09345dcdde573ba2fbf978caaaea62b7d44091a2ac00b84e83a",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/59413fa59ab3f7542cb985acff285fe407e3b7f4bf85416237221b0153d2252d.npz": "dc2835cd45402da1954b60e6d3272126f1e7c2134907f1ca59bb322ef883e99f",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/5af00b34b55a6535855628e876c88a81fb843a978d61bbb7db06fdbf076f0b66.npz": "db7624796a891c63a02835a2a74fb12696709424969e29cbcb5d99f87caa7349",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/6218ffb6443f75921029267b74a4fe43415037ce24e49e6afda1c6ce1a386cff.npz": "7b6f93f5b312883d9488dd524e2be70a57741424e6c4749f324e8427d2eec943",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/89d3d97ae8531bd8a23bd14f3cebd0df965724be4f5212e1d5d8c264914d1e97.npz": "6b4067503ce65beed77749a41c62d1ae136573749e664f25a77733fe25aea3d3",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/8c6038e9e6276208e4605fd16c5fe7c5c1ee2957fc57b2152910f82a42fa16d5.npz": "106e4fb21655dce50f7723313949f019ced50933fcfd9bdf26948db90edc5723",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/9065a87db2ffbe57d2610437211d31c74f8732920ed4805d25a000d70cac5603.npz": "0972c8b6e6f55a77c19880be5edb212331d7322434e1338e4f98e509601b5c71",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/9074634258c94f37a853df47b73bb09d2a336125b44c525d054fa85a9032c52e.npz": "a96a5e4de35d6e3cf77a0e06534994d06806c37ea43c1d8fcc552f9024f3e92b",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/98bf8921d0a9e4617056fe361807193a42091f8dca7b18857dbd005ed7707ac5.npz": "2ef445abcfddda6749842c4bfb00592ed1a761c5e445142dc443e7050b1607ec",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/9dbc7a3eb3b92834280f2b0867eb2fdbc0d77d3bcdcf1b642f21fdf370b14d60.npz": "4c88b7cfa576667e8bc98e84ce66dcd4020d85838bd9501478fe54a2520ffdcc",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/a62fff4001bcea5522d52d56c463609aa3cb2f5be27ce22fd25dd5395826a2e8.npz": "7598e4c468e27f4ba216f0ed6aa270f888e7bcd9a35925429e0c05ecb95c8908",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/ab7fc911f7d2b3d0c438d8b699f07bab983c38909ed8b002fcd4ec36a4c0f125.npz": "a82d7e38ad522405d18704eafab41856c82704eef23d7ac3ae9b6a6b5e5b6c98",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/b4e0cd03e85b59e512fb76b71dc6ee2595bcce8458cb1f2c6f75409ddaea516e.npz": "8851636c872e524e8e720fe24ae7905684ec17014ee761710e8b1d2ebff57531",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/bd787dff99078b5f10b8dc0bba3c7a4e00b7862a3d93292b05504e4cdc8ddb5f.npz": "b304f48cb6020ca50ebb64578ccece16a95e99a73d165fcdf455f39f4b8a26f7",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/c671bf5f49ceaa621292a56b564d6e54cb7cd1458cc731179eab46a13bfaf89b.npz": "96bd0e3466d18f58f93afd87fa7056c432a066003c10dc722a2d3dce28b4c61b",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/ca337e33256b8a16405481927fcc61d47a413c5aa8307d74b128130ba4dbd2b2.npz": "2950a1ffb0952c4595427aecdf7a8513d7efdd66d3be9e3026ee63d117d4aa9c",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/maps/cb0b71f75eb5acd15c3dbd4258c8e247611927f9717c3942ad5f9f03d9b4734a.npz": "d0d2a1cf4db49d707273cffa829ff300b5bad34f567a453627e5e679fa227a32",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/summary.json": "4f2a0cc865e386b2458772efba753d5e4b9b7e2903702e3a67e641d40119846c",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/dev/vulnerability/vulnerability.jsonl": "984ce310acfb7b45d35711ce0551b0693430ebf39c771ed75c24988bd29891e7",
+    "/home/admin123/视频/Bag-of-Queries/outputs/stage3/targets/targets.jsonl": "a4fff22f9a1108959d4c1ea04362125c22cf8ec9a04353a694b6514153fce935",
+    "/home/admin123/视频/Bag-of-Queries/scripts/analyze_stage1_results.py": "3093ef7143d9328fe3d52669e71f9983251804a2cd7e09cf8188f38fce780cf8",
+    "/home/admin123/视频/workspace/AdaptVPR/configs/targeted_family_constraints.json": "3e4d1df212a53c35db6c7ce1e8b7cb94f7f537d7b24abe4695f4c76d3f81b22b",
+    "/home/admin123/视频/workspace/AdaptVPR/outputs/stage3_dev/candidate_masks/13_ab7fc911f7d2b3d0/masks/9eaa9b8b7b7b5e243f6b04e5_core.png": "ff23e06d1ddb19a4b5ee94eadcf4bfd4a1a47c7d43c194b007b3e8420101aac9",
+    "/home/admin123/视频/workspace/AdaptVPR/outputs/stage3_dev/candidate_masks/16_ca337e33256b8a16/masks/15a2b41890a92c823741a38e_core.png": "f791e08978b866fe40159a74f48b885370a167eb0ef705f27f11a1e46edc520c",
+    "/home/admin123/视频/workspace/AdaptVPR/outputs/stage3_dev/candidate_masks/candidates.jsonl": "6f348cb47702f81e67674783430a4e77d276795f750a0bd5eae7856a3882c4a9",
+    "/home/admin123/视频/workspace/AdaptVPR/outputs/stage3_dev/candidate_masks/samples.json": "43ec61e1962a6ab6bcfc97923014dff06dceffcfa985b8cb77953d5bb460e4ef",
+    "/home/admin123/视频/workspace/AdaptVPR/outputs/stage3_dev/candidate_masks/summary.json": "ac31f1a43e0dc0463cb2aba6067d7f0af810e09c048ae648c9d7440d9a873ce5",
+    "/home/admin123/视频/workspace/AdaptVPR/outputs/stage3_dev/scene_planner_audit/scene_assessments.jsonl": "573731913872ff796a5aaea3104f75c11d7a118f367328b80a886fbde4f96879",
+    "/home/admin123/视频/workspace/AdaptVPR/outputs/stage3_dev/scene_planner_audit/summary.json": "0de0ab67fc013eaf875213a2dda4edc96e0897914122a0e5318bd7b89cacec7c",
+    "/home/admin123/视频/workspace/AdaptVPR/scripts/stage3_audit_scene_planner.py": "8ae3fd6de9fcd9e0c76bd247ce870d065efe5df6cf729c48f6906524db1590e8",
+    "/home/admin123/视频/workspace/AdaptVPR/scripts/stage3_build_candidate_masks.py": "68d88c2cddd61be26129e4eca8a166e00b67448a93d3d80314d88ffc53c1febf",
+    "/home/admin123/视频/workspace/AdaptVPR/targeted/candidate_masks.py": "d3d45dac6926b2728f05349300ee789c0e0f867cc2eb23154f80e5dce5e9987b",
+    "/home/admin123/视频/workspace/AdaptVPR/targeted/family_constraints.py": "03f3310fcefa8afbacaeda7ea2bb7e1d5ab1ad801d0ca76f637b463ce9ee0e6a",
+    "/home/admin123/视频/workspace/AdaptVPR/targeted/mask_adapter.py": "08e1246d27a9dd27527059070c874599d4ce2d84353620196d67b41afacc4740",
+    "/home/admin123/视频/workspace/AdaptVPR/targeted/render_mask.py": "68e6e9b342c07ae192898a6a262fcc79a29b86bcaccc59afbe134c22d915433d",
+    "/home/admin123/视频/workspace/AdaptVPR/targeted/scene_planner.py": "c49fc176244217f67ded401e1b99edcfa4b08f8b3f7f70142043a03d20c9510b"
+  },
+  "intervention_space": "native SOURCE pixels; masks never resized",
+  "primary_metric": "retrieval margin drop",
+  "random_control": "uniform integer translations with replacement; exclude (0,0); overlap with target allowed; same shape/area/topology",
+  "random_repeats": 5,
+  "rgb_preprocessing": "native float RGB mean-fill; round to uint8; frozen Stage2 uint8 bicubic antialias resize to 224 and ImageNet normalization",
+  "seed": 0,
+  "statistical_unit": "query; one SOURCE/place per arm"
+}

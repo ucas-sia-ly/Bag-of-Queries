@@ -1,0 +1,62 @@
+{
+  "diagnostics": {
+    "allowed_generation_area": [
+      17511,
+      19353
+    ],
+    "area_tolerance": 0.05,
+    "aspect_ratios": [
+      1.0,
+      0.75,
+      1.3333333333333333,
+      0.5,
+      2.0
+    ],
+    "best_candidate_overlap_ratio": 0.9896739130434783,
+    "candidates_evaluated": 21675,
+    "centroid_coordinate_convention": "[x,y], pixel centers at (column+0.5,row+0.5)",
+    "centroid_distance_normalized": 0.05414893345634641,
+    "centroid_generation": [
+      395.0,
+      253.0
+    ],
+    "centroid_vulnerability": [
+      427.36842105263156,
+      224.21052631578948
+    ],
+    "compactness_after": 0.9998488609166183,
+    "compactness_before": 0.6576772488770412,
+    "compactness_gain": 0.34217161203957713,
+    "compactness_metric": "A^2/(2*pi*polar_second_moment); unit-pixel intrinsic moment included",
+    "connectivity": 8,
+    "ellipse_bounds_xywh": [
+      319,
+      176,
+      152,
+      154
+    ],
+    "failure_reason": null,
+    "generation_area": 18400,
+    "generation_area_ratio": 0.059895833333333336,
+    "image_height": 480,
+    "image_width": 640,
+    "method": "filled_ellipse_density_search_v1",
+    "min_compactness_gain": 0.0,
+    "min_overlap": 0.7,
+    "morphological_smoothing": "none: analytic filled ellipse boundary; no dilation or resizing",
+    "num_components_after": 1,
+    "num_components_before": 1,
+    "overlap_pixels": 18210,
+    "overlap_ratio": 0.9896739130434783,
+    "refine_candidates": 8,
+    "schema_version": 1,
+    "search_stride": 15,
+    "status": "success",
+    "target_area": 18432.0,
+    "target_area_relative_error": 0.001736111111111111,
+    "target_ratio": 0.06,
+    "vulnerability_area": 45600,
+    "vulnerability_area_ratio": 0.1484375
+  },
+  "image_key": "Minneapolis/Minneapolis_0004231_2015_10_322_44.98477423783478_-93.24972346149887_8PLsXutoxK1vyiZVDcldTg.jpg"
+}

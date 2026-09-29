@@ -1,0 +1,724 @@
+[
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-00",
+    "family": "ellipse_baseline",
+    "image_key": "Minneapolis/Minneapolis_0000433_2007_07_146_44.9423697694418_-93.22992893695849_CCPzldoW-p7BFKIEffu5KA.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.3881798245614035,
+      "binary_roi_token_coverage": 0.38817982456140354,
+      "captured_token_weight": 0.18019669647483777,
+      "centroid_distance_normalized": 0.08914564720840264,
+      "centroid_distance_pixels": 71.31651776672211,
+      "centroid_xy": [
+        296.5,
+        144.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 17701,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        226.31578947368422,
+        131.8421052631579
+      ],
+      "roi_conditioned_weighted_coverage": 0.4118302197077878,
+      "target_precision": 0.9608098572436629,
+      "total_token_weight": 0.9999999940046109,
+      "vulnerability_weighted_coverage": 0.18019669755518708,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Minneapolis:433",
+    "saved_core_mask_path": "masks/6c098a20c01a4b01d107148c_target.png",
+    "saved_core_mask_sha256": "89368d9391bbbe057c886a1a2c66fd73153ee17fd68a4d769daf4e90d9f016a9",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-01",
+    "family": "ellipse_baseline",
+    "image_key": "Boston/Boston_0005923_2020_11_118_42.37207452083979_-71.06206286744221_ChsCIezR5TVnoYvvgStnKA.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.38629385964912283,
+      "binary_roi_token_coverage": 0.3862938596491228,
+      "captured_token_weight": 0.15871753215362938,
+      "centroid_distance_normalized": 0.03971943784943078,
+      "centroid_distance_pixels": 31.77555027954462,
+      "centroid_xy": [
+        342.5,
+        245.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 17615,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        370.5263157894737,
+        230.52631578947367
+      ],
+      "roi_conditioned_weighted_coverage": 0.42241236745629546,
+      "target_precision": 0.9561417792976171,
+      "total_token_weight": 0.9999999959836714,
+      "vulnerability_weighted_coverage": 0.15871753279109116,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Boston:5923",
+    "saved_core_mask_path": "masks/0a58cbf09bac930614496d04_target.png",
+    "saved_core_mask_sha256": "401f7c470a4045c35999f86a438be14d29acb7a92fb87df35928e21ef1b6d535",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-02",
+    "family": "ellipse_baseline",
+    "image_key": "PRS/PRS_0003852_2017_08_285_48.88144996828747_2.253564739326964_-e5tMWHJQ0MWt98khFfpzw.jpg",
+    "metrics": {
+      "area_fraction": 0.060066666666666664,
+      "area_pixels": 7208,
+      "binary_roi_coverage": 0.29916434540389975,
+      "binary_roi_token_coverage": 0.2981809787626962,
+      "captured_token_weight": 0.13141993941472332,
+      "centroid_distance_normalized": 0.28241055546211924,
+      "centroid_distance_pixels": 141.20527773105962,
+      "centroid_xy": [
+        332.5,
+        107.0
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 5370,
+      "roi_area_pixels": 17950,
+      "roi_centroid_xy": [
+        191.29526462395543,
+        107.39136490250696
+      ],
+      "roi_conditioned_weighted_coverage": 0.2771521173771599,
+      "target_precision": 0.7450055493895672,
+      "total_token_weight": 1.0000000012223609,
+      "vulnerability_weighted_coverage": 0.13141993925408074,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "PRS:3852",
+    "saved_core_mask_path": "masks/46e38421101e0315e7f3095e_target.png",
+    "saved_core_mask_sha256": "a97dccb7853369d2af48c39e327ff3dc9f85c094ccec98484254743a24b373e5",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-04",
+    "family": "ellipse_baseline",
+    "image_key": "Rome/Rome_0002122_2020_08_199_41.90132377092937_12.52012151999878_GuNdEAYBS5pzmp1q1Y8YBg.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.3919298245614035,
+      "binary_roi_token_coverage": 0.3919298245614035,
+      "captured_token_weight": 0.16474482358549722,
+      "centroid_distance_normalized": 0.16460726812065146,
+      "centroid_distance_pixels": 131.68581449652117,
+      "centroid_xy": [
+        532.5,
+        199.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 17872,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        402.10526315789474,
+        217.89473684210526
+      ],
+      "roi_conditioned_weighted_coverage": 0.4600508502413848,
+      "target_precision": 0.9700917331596374,
+      "total_token_weight": 1.0000000033760443,
+      "vulnerability_weighted_coverage": 0.1647448230293114,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Rome:2122",
+    "saved_core_mask_path": "masks/59b9e9537358437f4f65374e_target.png",
+    "saved_core_mask_sha256": "9cec3a2555520f597d03a1b379d632710da7b718d8d7471d1b739646819dda91",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-05",
+    "family": "ellipse_baseline",
+    "image_key": "Osaka/Osaka_0000807_2013_09_253_34.65727791194274_135.509093563069_gMAkNjtySMoTczXNqcTZFg.jpg",
+    "metrics": {
+      "area_fraction": 0.060066666666666664,
+      "area_pixels": 7208,
+      "binary_roi_coverage": 0.31356840620592386,
+      "binary_roi_token_coverage": 0.3134626038781163,
+      "captured_token_weight": 0.12833918885344214,
+      "centroid_distance_normalized": 0.02615343020999733,
+      "centroid_distance_pixels": 13.076715104998666,
+      "centroid_xy": [
+        234.5,
+        141.0
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 5558,
+      "roi_area_pixels": 17725,
+      "roi_centroid_xy": [
+        229.10789844851905,
+        129.0867418899859
+      ],
+      "roi_conditioned_weighted_coverage": 0.29812084977939224,
+      "target_precision": 0.771087680355161,
+      "total_token_weight": 0.9999999891151674,
+      "vulnerability_weighted_coverage": 0.12833919025039275,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Osaka:807",
+    "saved_core_mask_path": "masks/e8b245bb522fdd1966348cbb_target.png",
+    "saved_core_mask_sha256": "b2a657179aa827e865175fe1e8beed4a449190ba693cab61f0f18340a058b894",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-06",
+    "family": "ellipse_baseline",
+    "image_key": "Lisbon/Lisbon_0006095_2009_09_247_38.75528646030772_-9.2399049364732_nidFcLt_5ZqbpgpJiJHyDQ.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.3238157894736842,
+      "binary_roi_token_coverage": 0.3238157894736842,
+      "captured_token_weight": 0.07899885190398588,
+      "centroid_distance_normalized": 0.09743024575251834,
+      "centroid_distance_pixels": 77.94419660201467,
+      "centroid_xy": [
+        305.5,
+        128.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 14766,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        229.47368421052633,
+        111.3157894736842
+      ],
+      "roi_conditioned_weighted_coverage": 0.3194626489156753,
+      "target_precision": 0.8014981273408239,
+      "total_token_weight": 0.9999999995343387,
+      "vulnerability_weighted_coverage": 0.0789988519407726,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Lisbon:6095",
+    "saved_core_mask_path": "masks/240245ef374a5526339bcdf1_target.png",
+    "saved_core_mask_sha256": "09a83510b2979a6c83b76addb501567bbd43f3f603afd4175d6c9f4e75d5a46c",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-07",
+    "family": "ellipse_baseline",
+    "image_key": "Lisbon/Lisbon_0002779_2018_08_086_38.7252518157871_-9.128503516894057_5MsgxurIS59xpW1QLwAZYw.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.3142982456140351,
+      "binary_roi_token_coverage": 0.3142982456140351,
+      "captured_token_weight": 0.14847250045936866,
+      "centroid_distance_normalized": 0.15544743329723418,
+      "centroid_distance_pixels": 124.35794663778734,
+      "centroid_xy": [
+        168.5,
+        247.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 14332,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        292.63157894736844,
+        255.0
+      ],
+      "roi_conditioned_weighted_coverage": 0.31577767001510876,
+      "target_precision": 0.7779406177061282,
+      "total_token_weight": 0.9999999963329174,
+      "vulnerability_weighted_coverage": 0.14847250100382958,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Lisbon:2779",
+    "saved_core_mask_path": "masks/d15f2e619fc31a9943cd8681_target.png",
+    "saved_core_mask_sha256": "6dba99924e93510ea4a687c4f9685cac822e693fd44a726185d49f5f571633f3",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-08",
+    "family": "ellipse_baseline",
+    "image_key": "Minneapolis/Minneapolis_0003893_2017_08_221_44.97941950211654_-93.2297605653329_q-b753kdvso6Bp9II8xW9A.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.3790570175438597,
+      "binary_roi_token_coverage": 0.3790570175438596,
+      "captured_token_weight": 0.11147214144856357,
+      "centroid_distance_normalized": 0.19050180786143858,
+      "centroid_distance_pixels": 152.40144628915087,
+      "centroid_xy": [
+        532.5,
+        288.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 17285,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        381.05263157894734,
+        305.5263157894737
+      ],
+      "roi_conditioned_weighted_coverage": 0.4241191187277294,
+      "target_precision": 0.9382293871790697,
+      "total_token_weight": 1.0000000034924597,
+      "vulnerability_weighted_coverage": 0.11147214105925161,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Minneapolis:3893",
+    "saved_core_mask_path": "masks/9a2a1064801aa866e2925c7d_target.png",
+    "saved_core_mask_sha256": "0f99708c7e56e0910ff2affe9412819c1a2e47325b8af5240babd49527f0ab7d",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-10",
+    "family": "ellipse_baseline",
+    "image_key": "Miami/Miami_0005394_2018_05_034_25.77388623636925_-80.28563552920058_5aMYkxThHHyAvsN0TsfO8Q.jpg",
+    "metrics": {
+      "area_fraction": 0.059938151041666665,
+      "area_pixels": 18413,
+      "binary_roi_coverage": 0.3438157894736842,
+      "binary_roi_token_coverage": 0.3438157894736842,
+      "captured_token_weight": 0.1418675377763187,
+      "centroid_distance_normalized": 0.14791868162829785,
+      "centroid_distance_pixels": 118.33494530263827,
+      "centroid_xy": [
+        65.5,
+        179.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 15678,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        178.94736842105263,
+        213.1578947368421
+      ],
+      "roi_conditioned_weighted_coverage": 0.35909602101158034,
+      "target_precision": 0.8514636398196926,
+      "total_token_weight": 0.9999999998835847,
+      "vulnerability_weighted_coverage": 0.14186753779283426,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Miami:5394",
+    "saved_core_mask_path": "masks/1af978a2f7c6d4705f2a59a1_target.png",
+    "saved_core_mask_sha256": "33a54cd09f6ec434ee87f26f1c9d116e98d8a9123d7015f19c8efae0fafe93f1",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-11",
+    "family": "ellipse_baseline",
+    "image_key": "Melbourne/Melbourne_0002115_2016_12_158_-37.83387046926319_144.9898176307137_22UZ16bPCFmXMWAlBX8wpA.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.357390350877193,
+      "binary_roi_token_coverage": 0.357390350877193,
+      "captured_token_weight": 0.1268348852318013,
+      "centroid_distance_normalized": 0.1462675117365855,
+      "centroid_distance_pixels": 117.01400938926841,
+      "centroid_xy": [
+        532.5,
+        157.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 16297,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        416.8421052631579,
+        175.26315789473685
+      ],
+      "roi_conditioned_weighted_coverage": 0.36474448841170454,
+      "target_precision": 0.8846007707756609,
+      "total_token_weight": 1.0000000078580342,
+      "vulnerability_weighted_coverage": 0.12683488423512845,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Melbourne:2115",
+    "saved_core_mask_path": "masks/83e5475b1f9d4b96e8fcbc59_target.png",
+    "saved_core_mask_sha256": "e949f06fff55db6dbddf14208e5bd6c4b80196f1dc0ba2c37a82acb7faa3bb9b",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-12",
+    "family": "ellipse_baseline",
+    "image_key": "Minneapolis/Minneapolis_0004231_2015_10_322_44.98477423783478_-93.24972346149887_8PLsXutoxK1vyiZVDcldTg.jpg",
+    "metrics": {
+      "area_fraction": 0.059895833333333336,
+      "area_pixels": 18400,
+      "binary_roi_coverage": 0.3993421052631579,
+      "binary_roi_token_coverage": 0.3993421052631579,
+      "captured_token_weight": 0.12382453779146696,
+      "centroid_distance_normalized": 0.05414893345634641,
+      "centroid_distance_pixels": 43.31914676507713,
+      "centroid_xy": [
+        395.0,
+        253.0
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 18210,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        427.36842105263156,
+        224.21052631578948
+      ],
+      "roi_conditioned_weighted_coverage": 0.4018309704231097,
+      "target_precision": 0.9896739130434783,
+      "total_token_weight": 1.0000000035506673,
+      "vulnerability_weighted_coverage": 0.12382453735180722,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Minneapolis:4231",
+    "saved_core_mask_path": "masks/a522c8b00b900ed5aa27e9b2_target.png",
+    "saved_core_mask_sha256": "9adcc422e0893ea79e6ae6534862ccc4ffc268b9ce6cc32c2b2f485f66aae0a1",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "family_wc_0.3",
+    "candidate_id": "9eaa9b8b7b7b5e243f6b04e5",
+    "family": "parked_vehicle",
+    "image_key": "PRS/PRS_0003993_2008_05_351_48.88347197568612_2.341366050552943_icEaLnbgqKrD6bVqJZWwIA.jpg",
+    "metrics": {
+      "area_fraction": 0.11999166666666666,
+      "area_pixels": 14399,
+      "binary_roi_coverage": 0.6965363128491621,
+      "binary_roi_token_coverage": 0.6935610957217606,
+      "captured_token_weight": 0.3255272646437328,
+      "centroid_distance_normalized": 0.00019795226740086585,
+      "centroid_distance_pixels": 0.09897613370043293,
+      "centroid_xy": [
+        215.99329814570456,
+        105.28651295228835
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 12468,
+      "roi_area_pixels": 17900,
+      "roi_centroid_xy": [
+        215.99162011173183,
+        105.3854748603352
+      ],
+      "roi_conditioned_weighted_coverage": 0.7557529707181427,
+      "target_precision": 0.8658934648239461,
+      "total_token_weight": 1.0000000015133992,
+      "vulnerability_weighted_coverage": 0.32552726415108013,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "PRS:3993",
+    "saved_core_mask_path": "masks/1f5a5d53497e863b4eac6d25_target.png",
+    "saved_core_mask_sha256": "ff23e06d1ddb19a4b5ee94eadcf4bfd4a1a47c7d43c194b007b3e8420101aac9",
+    "source_core_sha256": "ff23e06d1ddb19a4b5ee94eadcf4bfd4a1a47c7d43c194b007b3e8420101aac9",
+    "weighted_coverage_threshold": 0.3
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-13",
+    "family": "ellipse_baseline",
+    "image_key": "PRS/PRS_0003993_2008_05_351_48.88347197568612_2.341366050552943_icEaLnbgqKrD6bVqJZWwIA.jpg",
+    "metrics": {
+      "area_fraction": 0.060066666666666664,
+      "area_pixels": 7208,
+      "binary_roi_coverage": 0.4009497206703911,
+      "binary_roi_token_coverage": 0.39933518005540164,
+      "captured_token_weight": 0.2109171016787707,
+      "centroid_distance_normalized": 0.09899087033522352,
+      "centroid_distance_pixels": 49.49543516761176,
+      "centroid_xy": [
+        166.5,
+        106.0
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 7177,
+      "roi_area_pixels": 17900,
+      "roi_centroid_xy": [
+        215.99162011173183,
+        105.3854748603352
+      ],
+      "roi_conditioned_weighted_coverage": 0.525187428600257,
+      "target_precision": 0.9956992230854605,
+      "total_token_weight": 1.0000000015133992,
+      "vulnerability_weighted_coverage": 0.21091710135956893,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "PRS:3993",
+    "saved_core_mask_path": "masks/d935b134150aa69e737f607c_target.png",
+    "saved_core_mask_sha256": "adc396c31cbe1d19d4db66b7c213c43cf935784b2a9540217fcdfd5648871a9a",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-14",
+    "family": "ellipse_baseline",
+    "image_key": "Minneapolis/Minneapolis_0000377_2016_07_244_44.9423262233916_-93.28562247738556_7XWqsfR3tPC6NAbTEtZPLg.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.3308114035087719,
+      "binary_roi_token_coverage": 0.3308114035087719,
+      "captured_token_weight": 0.12079081654490437,
+      "centroid_distance_normalized": 0.185093028240357,
+      "centroid_distance_pixels": 148.0744225922856,
+      "centroid_xy": [
+        107.5,
+        308.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 15085,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        245.26315789473685,
+        254.21052631578948
+      ],
+      "roi_conditioned_weighted_coverage": 0.3256349303016515,
+      "target_precision": 0.8188134397220865,
+      "total_token_weight": 1.000000005820766,
+      "vulnerability_weighted_coverage": 0.12079081584180928,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Minneapolis:377",
+    "saved_core_mask_path": "masks/409c7b104695af27e9002571_target.png",
+    "saved_core_mask_sha256": "0b49b3d3581d991bb36dc2516e84d3b2a03c28a8ef994fa3e61294653e90c450",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-15",
+    "family": "ellipse_baseline",
+    "image_key": "PRS/PRS_0001345_2019_07_425_48.82726628874777_2.249684779894404_f5b0QSMvumFibA4qMi9PDA.jpg",
+    "metrics": {
+      "area_fraction": 0.060066666666666664,
+      "area_pixels": 7208,
+      "binary_roi_coverage": 0.3732773109243697,
+      "binary_roi_token_coverage": 0.3746137273007079,
+      "captured_token_weight": 0.13034156962139914,
+      "centroid_distance_normalized": 0.07302962797383913,
+      "centroid_distance_pixels": 36.51481398691957,
+      "centroid_xy": [
+        34.0,
+        121.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 6663,
+      "roi_area_pixels": 17850,
+      "roi_centroid_xy": [
+        70.41316526610645,
+        118.77731092436974
+      ],
+      "roi_conditioned_weighted_coverage": 0.4645767311664279,
+      "target_precision": 0.9243895671476138,
+      "total_token_weight": 0.9999999994179234,
+      "vulnerability_weighted_coverage": 0.13034156969726793,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "PRS:1345",
+    "saved_core_mask_path": "masks/182b865e3d9d9c7350d18e55_target.png",
+    "saved_core_mask_sha256": "dd4a4ee1ba940595fc39bc160f85ad1b7be1b751c448821e480fd70bf225d509",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "family_wc_0.3",
+    "candidate_id": "15a2b41890a92c823741a38e",
+    "family": "parked_vehicle",
+    "image_key": "Osaka/Osaka_0003358_2014_03_221_34.70039351075771_135.5291466797902_NNGrUIsUAmSIKkcau021rA.jpg",
+    "metrics": {
+      "area_fraction": 0.11995833333333333,
+      "area_pixels": 14395,
+      "binary_roi_coverage": 0.6003894297635605,
+      "binary_roi_token_coverage": 0.6003570329332102,
+      "captured_token_weight": 0.3285697647152,
+      "centroid_distance_normalized": 0.00011463062978493046,
+      "centroid_distance_pixels": 0.057315314892465226,
+      "centroid_xy": [
+        141.49256686349426,
+        111.88756512678013
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 10792,
+      "roi_area_pixels": 17975,
+      "roi_centroid_xy": [
+        141.46383866481224,
+        111.83796940194715
+      ],
+      "roi_conditioned_weighted_coverage": 0.6510314571288072,
+      "target_precision": 0.749704758596735,
+      "total_token_weight": 0.9999999991268851,
+      "vulnerability_weighted_coverage": 0.3285697650020792,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Osaka:3358",
+    "saved_core_mask_path": "masks/3a8f8c73f20f054f4d09b113_target.png",
+    "saved_core_mask_sha256": "f791e08978b866fe40159a74f48b885370a167eb0ef705f27f11a1e46edc520c",
+    "source_core_sha256": "f791e08978b866fe40159a74f48b885370a167eb0ef705f27f11a1e46edc520c",
+    "weighted_coverage_threshold": 0.3
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-16",
+    "family": "ellipse_baseline",
+    "image_key": "Osaka/Osaka_0003358_2014_03_221_34.70039351075771_135.5291466797902_NNGrUIsUAmSIKkcau021rA.jpg",
+    "metrics": {
+      "area_fraction": 0.060066666666666664,
+      "area_pixels": 7208,
+      "binary_roi_coverage": 0.3662865090403338,
+      "binary_roi_token_coverage": 0.36550630963373343,
+      "captured_token_weight": 0.19222180397767158,
+      "centroid_distance_normalized": 0.055774970920091635,
+      "centroid_distance_pixels": 27.887485460045816,
+      "centroid_xy": [
+        168.5,
+        105.0
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 6584,
+      "roi_area_pixels": 17975,
+      "roi_centroid_xy": [
+        141.46383866481224,
+        111.83796940194715
+      ],
+      "roi_conditioned_weighted_coverage": 0.41995344926449324,
+      "target_precision": 0.9134295227524972,
+      "total_token_weight": 0.9999999991268851,
+      "vulnerability_weighted_coverage": 0.1922218041455033,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Osaka:3358",
+    "saved_core_mask_path": "masks/9ed73025ead6f2232f81a1b1_target.png",
+    "saved_core_mask_sha256": "bad972958472d1e28578a73223b89a58eb10800c76f24e7adfd965f1fd0c6ea5",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-17",
+    "family": "ellipse_baseline",
+    "image_key": "Madrid/Madrid_0000478_2015_06_199_40.40212270008486_-3.700366926925112_APSMcaWP3MAoJOmOIRr6Ug.jpg",
+    "metrics": {
+      "area_fraction": 0.059970703125,
+      "area_pixels": 18423,
+      "binary_roi_coverage": 0.29855263157894735,
+      "binary_roi_token_coverage": 0.29855263157894735,
+      "captured_token_weight": 0.13484117984694116,
+      "centroid_distance_normalized": 0.06853174560608516,
+      "centroid_distance_pixels": 54.82539648486812,
+      "centroid_xy": [
+        294.5,
+        158.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 13614,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        345.2631578947368,
+        179.21052631578948
+      ],
+      "roi_conditioned_weighted_coverage": 0.29299471964574286,
+      "target_precision": 0.7389675948542582,
+      "total_token_weight": 0.9999999997671694,
+      "vulnerability_weighted_coverage": 0.13484117987833633,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Madrid:478",
+    "saved_core_mask_path": "masks/1fb7153f87e090b8cdf95f01_target.png",
+    "saved_core_mask_sha256": "0524b84b7b15227377aa27147c8c496c20b14edf178eb74ac2fe71b209e435d9",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-18",
+    "family": "ellipse_baseline",
+    "image_key": "Barcelona/Barcelona_0001426_2014_01_297_41.39636654271287_2.150032409254382_xxMeH29nJ57A0f6AHxJWtQ.jpg",
+    "metrics": {
+      "area_fraction": 0.060066666666666664,
+      "area_pixels": 7208,
+      "binary_roi_coverage": 0.3398589562764457,
+      "binary_roi_token_coverage": 0.3375715604801477,
+      "captured_token_weight": 0.13085750001586144,
+      "centroid_distance_normalized": 0.20596618959413152,
+      "centroid_distance_pixels": 102.98309479706576,
+      "centroid_xy": [
+        82.5,
+        165.0
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 6024,
+      "roi_area_pixels": 17725,
+      "roi_centroid_xy": [
+        185.27856135401976,
+        158.5126939351199
+      ],
+      "roi_conditioned_weighted_coverage": 0.3363392874749997,
+      "target_precision": 0.8357380688124306,
+      "total_token_weight": 1.0000000069849193,
+      "vulnerability_weighted_coverage": 0.13085749910183236,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Barcelona:1426",
+    "saved_core_mask_path": "masks/baf69c684cad156d6e56b529_target.png",
+    "saved_core_mask_sha256": "88a2853281338a8dd0a5432a770547a9c2837106bd5fe48bdae25ac6e4a81090",
+    "weighted_coverage_threshold": null
+  },
+  {
+    "arm": "ellipse_6pct",
+    "candidate_id": "ellipse-19",
+    "family": "ellipse_baseline",
+    "image_key": "Lisbon/Lisbon_0008073_2018_09_333_38.76724411956788_-9.17350562903794_JdPAbJAUwsIJ8W95qK0MyA.jpg",
+    "metrics": {
+      "area_fraction": 0.059938151041666665,
+      "area_pixels": 18413,
+      "binary_roi_coverage": 0.3774780701754386,
+      "binary_roi_token_coverage": 0.3774780701754386,
+      "captured_token_weight": 0.14207593592931517,
+      "centroid_distance_normalized": 0.02558546626104385,
+      "centroid_distance_pixels": 20.46837300883508,
+      "centroid_xy": [
+        501.5,
+        239.5
+      ],
+      "connectivity": 8,
+      "num_components": 1,
+      "overlap_pixels": 17213,
+      "roi_area_pixels": 45600,
+      "roi_centroid_xy": [
+        492.63157894736844,
+        221.05263157894737
+      ],
+      "roi_conditioned_weighted_coverage": 0.3910118039169059,
+      "target_precision": 0.9348286536686037,
+      "total_token_weight": 0.9999999980209395,
+      "vulnerability_weighted_coverage": 0.14207593621049203,
+      "weighted_coverage_defined": true
+    },
+    "place_key": "Lisbon:8073",
+    "saved_core_mask_path": "masks/47af3c385d4c40d95be95095_target.png",
+    "saved_core_mask_sha256": "9dd54b132ae6759f7e2720cad28b37257a2f8a78db27fe282eed6537329850b8",
+    "weighted_coverage_threshold": null
+  }
+]

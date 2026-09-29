@@ -1,0 +1,5 @@
+arm,n_queries,inference_scope,mean_target_margin_drop,median_target_margin_drop,mean_random_margin_drop,median_random_margin_drop,mean_paired_difference,median_paired_difference,ci_low,ci_high,wilcoxon_statistic,wilcoxon_p_raw,win_rate,tie_rate,bootstrap_resamples,bootstrap_seed,bootstrap_unit,status
+family_wc_0.3,2,dev_selection_only_not_final_paper_test,0.06902479380369186,0.06902479380369186,0.04968762844800949,0.04968762844800949,0.019337165355682376,0.019337165355682376,0.0011011123657226618,0.03757321834564209,0.0,0.17971249487899976,1.0,0.0,20000,0,query,descriptive_dev_statistics
+family_wc_0.5,0,dev_selection_only_not_final_paper_test,,,,,,,,,,,,,20000,0,query,no_paired_queries
+family_wc_0.7,0,dev_selection_only_not_final_paper_test,,,,,,,,,,,,,20000,0,query,no_paired_queries
+ellipse_6pct,18,dev_selection_only_not_final_paper_test,0.036531935963365764,0.041755758225917816,0.011780064304669697,0.009021130204200745,0.024751871658696065,0.023637521266937255,0.010378209207620887,0.03895706858899856,28.0,0.012274756174561622,0.7222222222222222,0.0,20000,0,query,descriptive_dev_statistics

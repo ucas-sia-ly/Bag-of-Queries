@@ -1,0 +1,62 @@
+{
+  "diagnostics": {
+    "allowed_generation_area": [
+      17511,
+      19353
+    ],
+    "area_tolerance": 0.05,
+    "aspect_ratios": [
+      1.0,
+      0.75,
+      1.3333333333333333,
+      0.5,
+      2.0
+    ],
+    "best_candidate_overlap_ratio": 0.8514636398196926,
+    "candidates_evaluated": 19786,
+    "centroid_coordinate_convention": "[x,y], pixel centers at (column+0.5,row+0.5)",
+    "centroid_distance_normalized": 0.14791868162829785,
+    "centroid_generation": [
+      65.5,
+      179.5
+    ],
+    "centroid_vulnerability": [
+      178.94736842105263,
+      213.1578947368421
+    ],
+    "compactness_after": 0.9533154376639665,
+    "compactness_before": 0.45325938593047754,
+    "compactness_gain": 0.500056051733489,
+    "compactness_metric": "A^2/(2*pi*polar_second_moment); unit-pixel intrinsic moment included",
+    "connectivity": 8,
+    "ellipse_bounds_xywh": [
+      0,
+      90,
+      131,
+      179
+    ],
+    "failure_reason": null,
+    "generation_area": 18413,
+    "generation_area_ratio": 0.059938151041666665,
+    "image_height": 480,
+    "image_width": 640,
+    "method": "filled_ellipse_density_search_v1",
+    "min_compactness_gain": 0.0,
+    "min_overlap": 0.7,
+    "morphological_smoothing": "none: analytic filled ellipse boundary; no dilation or resizing",
+    "num_components_after": 1,
+    "num_components_before": 1,
+    "overlap_pixels": 15678,
+    "overlap_ratio": 0.8514636398196926,
+    "refine_candidates": 8,
+    "schema_version": 1,
+    "search_stride": 15,
+    "status": "success",
+    "target_area": 18432.0,
+    "target_area_relative_error": 0.0010308159722222222,
+    "target_ratio": 0.06,
+    "vulnerability_area": 45600,
+    "vulnerability_area_ratio": 0.1484375
+  },
+  "image_key": "Miami/Miami_0005394_2018_05_034_25.77388623636925_-80.28563552920058_5aMYkxThHHyAvsN0TsfO8Q.jpg"
+}

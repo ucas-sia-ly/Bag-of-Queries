@@ -1,0 +1,51 @@
+{
+  "diagnostics": {
+    "allowed_generation_area": [
+      17511,
+      19353
+    ],
+    "area_tolerance": 0.05,
+    "aspect_ratios": [
+      1.0,
+      0.75,
+      1.3333333333333333,
+      0.5,
+      2.0
+    ],
+    "best_candidate_overlap_ratio": 0.6293220430983011,
+    "candidates_evaluated": 13912,
+    "centroid_coordinate_convention": "[x,y], pixel centers at (column+0.5,row+0.5)",
+    "centroid_distance_normalized": null,
+    "centroid_generation": null,
+    "centroid_vulnerability": [
+      92.63157894736842,
+      263.6842105263158
+    ],
+    "compactness_after": null,
+    "compactness_before": 0.18352694431976,
+    "compactness_metric": "A^2/(2*pi*polar_second_moment); unit-pixel intrinsic moment included",
+    "connectivity": 8,
+    "failure_reason": "no_compact_candidate_meets_overlap_in_configured_search",
+    "generation_area": 0,
+    "generation_area_ratio": 0.0,
+    "image_height": 480,
+    "image_width": 640,
+    "method": "filled_ellipse_density_search_v1",
+    "min_compactness_gain": 0.0,
+    "min_overlap": 0.7,
+    "morphological_smoothing": "none: analytic filled ellipse boundary; no dilation or resizing",
+    "num_components_after": 0,
+    "num_components_before": 1,
+    "overlap_pixels": 0,
+    "overlap_ratio": 0.0,
+    "refine_candidates": 8,
+    "schema_version": 1,
+    "search_stride": 15,
+    "status": "failure",
+    "target_area": 18432.0,
+    "target_ratio": 0.06,
+    "vulnerability_area": 45600,
+    "vulnerability_area_ratio": 0.1484375
+  },
+  "image_key": "Lisbon/Lisbon_0006940_2020_11_234_38.75838771906249_-9.153236621903869_SAonGme692p2ftCyZ68xLg.jpg"
+}
